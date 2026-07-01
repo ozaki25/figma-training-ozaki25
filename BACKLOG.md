@@ -6,7 +6,7 @@
 ## セットアップ
 - [x] PLAN.md / BACKLOG.md を作成する
 - [x] 参考リポジトリ4つの技術構成を調査する（package.json, VitePress設定, PWA設定, textlint設定, デプロイ設定, .claude配下）
-- [ ] リポジトリ初期スカフォールドを作成する（package.json, VitePress初期設定, docs/ディレクトリ構成）
+- [x] リポジトリ初期スカフォールドを作成する（package.json, VitePress初期設定, docs/ディレクトリ構成）
 - [ ] CLAUDE.mdを作成する（ブランチ運用=mainのみ、執筆方針、ディレクトリ構成ルール）
 - [ ] サイトテーマ（Figmaっぽい配色・ライトダーク・AAコントラスト）を実装する
 - [ ] PWA・textlint・デプロイ設定を移植する
@@ -46,3 +46,6 @@
 - S1 参考リポジトリ調査: 完了。採用構成をNOTES.mdに確定（ux/colorベース、Node22、textlint流用、
   Mermaid/CodeMirror/quiz不採用）。次のスカフォールド作成はNOTES.mdを正として進める。
   学び: fableへの委譲時は「成果物の形式・分量」を明示すると過不足ない結果が返る。継続する。
+- S2 スカフォールド作成: 完了。NOTES.md通りの構成でビルド・textlint成功をオーケストレーター側でも
+  再検証済み。テーマ(#A259FFは仮)とトップページは後続スプリントで本実装する。
+  学び: 「NOTES.mdが正」と参照先を1つに固定する委譲方法は逸脱ゼロで機能した。継続する。

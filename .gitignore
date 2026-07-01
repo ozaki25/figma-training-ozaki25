@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# PWA dev artifacts
+dev-dist/
+
+# cache
+.cache/
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+
+# env
+.env
+.env.*
+!.env.example
