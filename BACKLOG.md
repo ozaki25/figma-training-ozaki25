@@ -5,7 +5,7 @@
 
 ## セットアップ
 - [x] PLAN.md / BACKLOG.md を作成する
-- [ ] 参考リポジトリ4つの技術構成を調査する（package.json, VitePress設定, PWA設定, textlint設定, デプロイ設定, .claude配下）
+- [x] 参考リポジトリ4つの技術構成を調査する（package.json, VitePress設定, PWA設定, textlint設定, デプロイ設定, .claude配下）
 - [ ] リポジトリ初期スカフォールドを作成する（package.json, VitePress初期設定, docs/ディレクトリ構成）
 - [ ] CLAUDE.mdを作成する（ブランチ運用=mainのみ、執筆方針、ディレクトリ構成ルール）
 - [ ] サイトテーマ（Figmaっぽい配色・ライトダーク・AAコントラスト）を実装する
@@ -43,3 +43,6 @@
 ## 振り返りログ
 - PLAN.md/BACKLOG.md作成: 内容確定後にファイルへ落とし込み。次は参考リポジトリの技術構成調査から着手する。
 - キャプチャ方針確定: 実物キャプチャ(Figma MCP)＋SVG図に決定。作業量は増えるが方針通り進める。
+- S1 参考リポジトリ調査: 完了。採用構成をNOTES.mdに確定（ux/colorベース、Node22、textlint流用、
+  Mermaid/CodeMirror/quiz不採用）。次のスカフォールド作成はNOTES.mdを正として進める。
+  学び: fableへの委譲時は「成果物の形式・分量」を明示すると過不足ない結果が返る。継続する。
