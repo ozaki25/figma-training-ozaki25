@@ -33,7 +33,10 @@ export default withPwa(
         {
           text: '1章 Figmaを開いてみる',
           collapsed: false,
-          items: [{ text: '1-1 画面構成を知る', link: '/lessons/1-1/' }],
+          items: [
+            { text: '1-1 画面構成を知る', link: '/lessons/1-1/' },
+            { text: '1-2 フレームを作って操作する', link: '/lessons/1-2/' },
+          ],
         },
       ],
       outline: {

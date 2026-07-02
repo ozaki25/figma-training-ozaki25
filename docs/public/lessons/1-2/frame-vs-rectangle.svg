@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="フレームと四角形の違い。フレームは中に要素を入れる白い土台で、名前が左上に付く。四角形はただの図形。">
+  <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
+  <rect x="0" y="0" width="860" height="400" rx="12" fill="#F3F0FA"/>
+
+  <!-- 左: フレーム -->
+  <text x="240" y="42" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">フレーム</text>
+  <!-- フレーム名ラベル -->
+  <text x="94" y="86" font-size="12" fill="#7C3AED">Desktop</text>
+  <!-- フレーム本体（白い土台） -->
+  <rect x="90" y="94" width="300" height="210" rx="4" fill="#FFFFFF" stroke="#8B7EC8" stroke-width="1.5"/>
+  <!-- 中の要素 -->
+  <rect x="110" y="114" width="260" height="34" rx="4" fill="#A78BFA"/>
+  <rect x="110" y="162" width="122" height="60" rx="4" fill="#EDE9F8" stroke="#C9C2DE" stroke-width="1"/>
+  <rect x="248" y="162" width="122" height="60" rx="4" fill="#EDE9F8" stroke="#C9C2DE" stroke-width="1"/>
+  <rect x="110" y="236" width="180" height="12" rx="3" fill="#C9C2DE"/>
+  <rect x="110" y="258" width="140" height="12" rx="3" fill="#C9C2DE"/>
+  <text x="240" y="336" text-anchor="middle" font-size="13" fill="#5A5273">中に要素を入れる「画面」の土台</text>
+  <text x="240" y="358" text-anchor="middle" font-size="13" fill="#5A5273">左上に名前が付き、背景は白</text>
+
+  <!-- 区切り線 -->
+  <line x1="430" y1="60" x2="430" y2="370" stroke="#B9AEDB" stroke-width="1" stroke-dasharray="4 6"/>
+
+  <!-- 右: 四角形 -->
+  <text x="620" y="42" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">四角形（Rectangle）</text>
+  <rect x="510" y="130" width="220" height="140" rx="4" fill="#A78BFA"/>
+  <text x="620" y="336" text-anchor="middle" font-size="13" fill="#5A5273">ただの図形。中に要素は入らない</text>
+  <text x="620" y="358" text-anchor="middle" font-size="13" fill="#5A5273">ボタンの下地など、部品として使う</text>
+</svg>

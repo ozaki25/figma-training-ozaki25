@@ -89,3 +89,18 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Access design tools from the toolbar」(help.figma.com/hc/en-us/articles/360041064174)
 - Figma Blog「Making the Move to UI3」(UI3で下部ツールバー化)
 - Figma Forum(2026年1月、新左ナビゲーションバーのロールアウトに関するユーザー投稿)
+
+### 追加調査: フレーム・ズーム・ページ（2026-07、1-2執筆時）
+
+- フレームツールのショートカットは `F`（`A` でも可）。ツールを選ぶと**右サイドバーにプリセット一覧**が出る（Phone / Tablet / Desktop / Presentation などのカテゴリ）
+- Desktopプリセットは 1440×1024。Phoneカテゴリに iPhone 各機種などがある
+- パン: Space + ドラッグ（押している間だけ手のひらツールになる）
+- ズーム: Cmd/Ctrl + スクロール。ショートカットは Shift+1（全体表示）、Shift+2（選択範囲にズーム）、Shift+0（100%）、+ / -（段階ズーム）
+- ページ: 左サイドバー上部のページ名をクリックするとページ一覧が開く。「+」で追加、右クリック → Rename で名前変更。ページ一覧の位置は新ナビゲーションバーUIでも左サイドバー内で変わらない
+
+情報源:
+
+- Figma Learn「Frames in Figma Design」(help.figma.com/hc/en-us/articles/360041539473)
+- Figma Learn「FD4B: Create a frame using frame presets」(help.figma.com/hc/en-us/articles/30974070391191)
+- Figma Learn「Adjust your zoom and view options」(help.figma.com/hc/en-us/articles/360041065034)
+- Figma Learn「Create and manage pages」(help.figma.com/hc/en-us/articles/360038511293)
