@@ -1,5 +1,69 @@
+/**
+ * サイトテーマ配色
+ * Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を調整した配色。
+ * コントラスト比の検証は scripts/check-contrast.mjs で行う。
+ * 検証結果は NOTES.md の「サイトテーマ配色(2026-07-01)」を参照。
+ */
+
+/* ライトモード: 白背景に対してAAを満たす暗めの紫 */
 :root {
-  --vp-c-brand-1: #A259FF;
-  --vp-c-brand-2: #B478FF;
-  --vp-c-brand-3: #8A3FE8;
+  /* brand-1: リンク・ブランドテキスト (白背景に 7.10:1) */
+  --vp-c-brand-1: #6d28d9;
+  /* brand-2: hover時のテキスト (白背景に 8.98:1) */
+  --vp-c-brand-2: #5b21b6;
+  /* brand-3: ボタン背景などのUI色 (白文字が 5.70:1) */
+  --vp-c-brand-3: #7c3aed;
+  --vp-c-brand-soft: rgba(162, 89, 255, 0.14);
+
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: #6d28d9;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: #5b21b6;
+
+  /* ヒーロー見出し: 紫→オレンジ系のグラデーション (どちらも白背景に3:1以上) */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #6d28d9 30%, #c2410c);
+  /* ヒーロー画像の背景ぼかし (装飾なのでコントラスト要件なし) */
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    rgba(162, 89, 255, 0.55) 40%,
+    rgba(10, 207, 131, 0.45)
+  );
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+/* ダークモード: 背景 #1b1b1f に対してAAを満たす明るめの紫 */
+.dark {
+  /* brand-1: リンク・ブランドテキスト (#1b1b1f に 8.32:1) */
+  --vp-c-brand-1: #c4a5ff;
+  /* brand-2: hover時のテキスト (#1b1b1f に 10.31:1) */
+  --vp-c-brand-2: #d4beff;
+  /* brand-3: ボタン背景 (白文字が 5.70:1) */
+  --vp-c-brand-3: #7c3aed;
+  --vp-c-brand-soft: rgba(162, 89, 255, 0.22);
+
+  /* ヒーロー見出し: 紫→緑系のグラデーション (どちらも #1b1b1f に3:1以上) */
+  --vp-home-hero-name-background: linear-gradient(120deg, #c4a5ff 30%, #5edda8);
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    rgba(162, 89, 255, 0.45) 40%,
+    rgba(26, 188, 254, 0.35)
+  );
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
 }

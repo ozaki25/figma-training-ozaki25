@@ -45,3 +45,29 @@
 
 - web-front-training-ozaki25 の現mainにはtextlintは未導入（textlint構成の参照元には使わない）
 - テーマカラーの参考: ux #3949ab、color #c2185b → figmaは Figmaブランド系の紫を使う（PLAN.md参照）
+
+## サイトテーマ配色（2026-07-01）
+
+Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を調整した。
+実装は `docs/.vitepress/theme/custom.css`。検証は `scripts/check-contrast.mjs`（`node scripts/check-contrast.mjs` で再実行できる）。
+`theme-color` メタとPWA manifestの `theme_color` は #7C3AED に更新済み。
+
+アクセントにはFigmaブランドの他色を2色だけ使う。ヒーロー見出しのグラデーション終点
+（ライトはオレンジ系 #C2410C、ダークは緑系 #5EDDA8）と、ヒーロー画像背景のぼかし
+（緑 #0ACF83・青 #1ABCFE ベースの半透明。装飾のためコントラスト要件の対象外）。
+
+### コントラスト比の検証結果（すべてAA合格）
+
+| 用途 | 前景 | 背景 | 比率 | 基準 |
+| --- | --- | --- | --- | --- |
+| light: brand-1（リンク） | #6D28D9 | #FFFFFF | 7.10:1 | 4.5:1 |
+| light: brand-2（hover） | #5B21B6 | #FFFFFF | 8.98:1 | 4.5:1 |
+| light: ボタン文字 | #FFFFFF | #7C3AED | 5.70:1 | 4.5:1 |
+| light: ボタン文字（hover） | #FFFFFF | #6D28D9 | 7.10:1 | 4.5:1 |
+| light: ヒーロー見出しグラデ始点 | #6D28D9 | #FFFFFF | 7.10:1 | 3:1（大） |
+| light: ヒーロー見出しグラデ終点 | #C2410C | #FFFFFF | 5.18:1 | 3:1（大） |
+| dark: brand-1（リンク） | #C4A5FF | #1B1B1F | 8.32:1 | 4.5:1 |
+| dark: brand-2（hover） | #D4BEFF | #1B1B1F | 10.31:1 | 4.5:1 |
+| dark: ボタン文字 | #FFFFFF | #7C3AED | 5.70:1 | 4.5:1 |
+| dark: ヒーロー見出しグラデ始点 | #C4A5FF | #1B1B1F | 8.32:1 | 3:1（大） |
+| dark: ヒーロー見出しグラデ終点 | #5EDDA8 | #1B1B1F | 10.12:1 | 3:1（大） |

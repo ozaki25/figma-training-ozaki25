@@ -15,7 +15,7 @@ export default withPwa(
     cleanUrls: true,
     head: [
       ['meta', { name: 'robots', content: 'noindex,nofollow' }],
-      ['meta', { name: 'theme-color', content: '#A259FF' }],
+      ['meta', { name: 'theme-color', content: '#7C3AED' }],
       ['meta', { property: 'og:type', content: 'website' }],
       ['meta', { property: 'og:title', content: siteTitle }],
       ['meta', { property: 'og:description', content: siteDescription }],
@@ -93,7 +93,7 @@ export default withPwa(
         short_name: siteTitle,
         description: siteDescription,
         lang: 'ja',
-        theme_color: '#A259FF',
+        theme_color: '#7C3AED',
         background_color: '#ffffff',
         display: 'standalone',
         icons: [
