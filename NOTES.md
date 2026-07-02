@@ -185,3 +185,20 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Create and use variants」(help.figma.com/hc/en-us/articles/360056440594)
 - Figma Learn「Design an interactive button component」(help.figma.com/hc/en-us/articles/20953528101783)
 - Figma Learn「FD4B: Components fundamentals」(help.figma.com/hc/en-us/articles/30984647753751)
+
+### 追加調査: レイヤーのリネーム（2026-07、3-3執筆時）
+
+- デフォルト名は要素の種類 + 連番で自動付与される（Rectangle 1、Ellipse 2、Frame 3 など）
+- リネーム: レイヤーパネルの名前を**ダブルクリック**、または選択して `Cmd + R`（Windowsは `Ctrl + R`）。右クリック →「Rename」でも可
+- **一括リネーム**: 複数レイヤーを選択して同じ `Cmd/Ctrl + R` を押すと一括リネームのダイアログが開く
+  - 「Rename to」に新しい名前を入力。「Number ↑ / Number ↓」ボタンで連番を付与できる
+  - 「Match」欄で名前の一部だけを検索・置換できる。正規表現も使える
+- 「Rename layers with AI」機能もある（Actionsから。中身を見てAIが名前を提案）。挙動が環境依存のためレッスンでは名前の紹介にとどめ、手動リネームを教える
+- Figma MCPを使ったコード生成では、レイヤー名・構造・Auto Layout・変数/スタイルが生成コードの品質に直結する。公式のMCPガイドも意味のあるレイヤー名（hero-section、cta-button など）とコンポーネント・Auto Layoutの活用を推奨している
+
+情報源:
+
+- Figma Learn「Rename Layers」(help.figma.com/hc/en-us/articles/360039958934)
+- Figma Learn「Rename layers with AI」(help.figma.com/hc/en-us/articles/24004711129879)
+- Figma Learn「Guide to the Figma MCP server」(help.figma.com/hc/en-us/articles/32132100833559)
+- figma/mcp-server-guide (github.com/figma/mcp-server-guide)

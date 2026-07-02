@@ -53,6 +53,7 @@ export default withPwa(
           items: [
             { text: '3-1 カラーとタイポグラフィのルール化', link: '/lessons/3-1/' },
             { text: '3-2 コンポーネントとバリアントを作る', link: '/lessons/3-2/' },
+            { text: '3-3 コード生成を見据えたレイヤー命名', link: '/lessons/3-3/' },
           ],
         },
       ],
