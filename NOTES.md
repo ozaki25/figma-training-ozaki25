@@ -215,6 +215,19 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Guide to auto layout」(help.figma.com/hc/en-us/articles/360040451373)
 - Figma Forum「Where is Auto Layout Space Between?」
 
+### 追加調査: メインコンポーネントの置き場所（2026-07、4-2執筆時）
+
+- 4-2で使う操作（コンポーネント化、Assetsパネルからの挿入、インスタンスの上書き、幅Fill）は
+  3-2・2-3執筆時の調査でカバー済みのため、UI面の追加調査は不要
+- メインコンポーネントの整理は公式ベストプラクティスでも「フレームやページで画面とは分けて
+  管理する」ことが推奨されている。レッスンでは「原本は画面フレームの外に置き、画面には
+  インスタンスだけを並べる」と教える（専用ページまでは持ち出さない）
+
+情報源:
+
+- Figma Learn「Name and organize components」(help.figma.com/hc/en-us/articles/360038663994)
+- Figma Best Practices「Components, styles, and shared library best practices」(figma.com/best-practices/components-styles-and-shared-libraries/)
+
 ### 4-1の図版について（2026-07-02）
 
 - 4-1で初めてFigma MCPによる実キャプチャを試行。MCP自体は認証済みで動作し、`create_new_file` → `use_figma` で骨組みを実作 → `get_screenshot` まで成功した
