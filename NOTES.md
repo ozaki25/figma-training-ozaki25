@@ -119,3 +119,18 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Adjust corner radius and smoothing」(help.figma.com/hc/en-us/articles/360050986854)
 - Figma Learn「Design an interactive button component」(help.figma.com/hc/en-us/articles/20953528101783)
 - Figma Forum「UI3: fix corner radius input in place」(角丸フィールドの位置がUI3で選択対象により変わる点)
+
+### 追加調査: Auto Layout（2026-07、2-2執筆時）
+
+- 適用: レイヤーを選択して `Shift + A`（Mac/Windows共通）。右サイドバーの Layout セクションの「Add auto layout」でも同じ
+- 適用時、Figmaが縦・横・グリッドのどのフローが適切か自動判定する（並び方向は後から変更できる）
+- 設定は右サイドバーの **Layout セクション**に集約: フロー（Vertical / Horizontal / Grid の3種。GridもUI3でフローの1つとして選べる）、要素間の間隔（gap）、パディング（水平・垂直。個別指定も可）、整列（9マスのアラインメントボックス）
+- Horizontal 選択時のみ **Wrap**（折り返し）が選べる
+- 解除: `Shift + Option + A`（Windowsは `Shift + Alt + A`）。右クリック → More layout options → Remove all auto layout でネストごと一括解除も可能
+- 「Suggest auto layout」機能: フレーム内の構造をFigmaが推測して必要なAuto Layoutをまとめて付与する。挙動が読みにくいためレッスンでは扱わない（手動のShift+Aのみ教える）
+
+情報源:
+
+- Figma Learn「Guide to auto layout」(help.figma.com/hc/en-us/articles/360040451373)
+- Figma Learn「Toggle on auto layout in designs」(help.figma.com/hc/en-us/articles/5731482952599)
+- Figma Learn「Use the horizontal and vertical flows in auto layout」(help.figma.com/hc/en-us/articles/31289464393751)

@@ -43,6 +43,7 @@ export default withPwa(
           collapsed: false,
           items: [
             { text: '2-1 シェイプとテキストを配置する', link: '/lessons/2-1/' },
+            { text: '2-2 Auto Layoutで並べる', link: '/lessons/2-2/' },
           ],
         },
       ],
