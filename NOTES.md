@@ -134,3 +134,18 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Guide to auto layout」(help.figma.com/hc/en-us/articles/360040451373)
 - Figma Learn「Toggle on auto layout in designs」(help.figma.com/hc/en-us/articles/5731482952599)
 - Figma Learn「Use the horizontal and vertical flows in auto layout」(help.figma.com/hc/en-us/articles/31289464393751)
+
+### 追加調査: リサイズ挙動 Hug/Fixed/Fill（2026-07、2-3執筆時）
+
+- リサイズ設定は右サイドバーの **W / H 入力欄それぞれのドロップダウン**で選ぶ。選択肢は Fixed（固定値）/ Hug contents / Fill container の3つ
+- **Hug contents** は中身に合わせて最小サイズを保つ。Auto Layoutフレームとテキストだけが選べる
+- **Fill container** は親のAuto Layoutフレームいっぱいに広がる。**親がAuto Layoutのときだけ**選択肢に出る
+- **Fixed** は中身や親が変わってもサイズを変えない。数値を直接入力するとFixedになる
+- ドロップダウンの項目にホバーすると、キャンバス上にリサイズ結果のガイド線がプレビュー表示される
+- ショートカット: `Option/Alt + ダブルクリック`（バウンディングボックスの縦横の辺）で Fill を設定できる
+
+情報源:
+
+- Figma Learn「Guide to auto layout」(help.figma.com/hc/en-us/articles/360040451373)
+- Figma Learn「Create a responsive card with auto layout and constraints」(help.figma.com/hc/en-us/articles/18894664907287)
+- Figma Forum「New Auto Layout, Hug content and Fill container」
