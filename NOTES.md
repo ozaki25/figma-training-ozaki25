@@ -104,3 +104,18 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「FD4B: Create a frame using frame presets」(help.figma.com/hc/en-us/articles/30974070391191)
 - Figma Learn「Adjust your zoom and view options」(help.figma.com/hc/en-us/articles/360041065034)
 - Figma Learn「Create and manage pages」(help.figma.com/hc/en-us/articles/360038511293)
+
+### 追加調査: シェイプ・テキスト・角丸（2026-07、2-1執筆時）
+
+- シェイプツールのショートカット: 四角形 `R`、楕円 `O`、直線 `L`。ツールバーのシェイプツール（四角形アイコン）を長押しすると種類を切り替えられる
+- `Shift` を押しながらドラッグすると縦横比が固定される（正方形・正円になる）
+- 角丸（Corner radius）はUI3では右サイドバーの **Appearance セクション**にある。数値入力のほか、アイコン上を左右ドラッグでも調整できる。選択対象によってフィールドの位置が変わることがある
+- 塗りは右サイドバーの **Fill セクション**。色スウォッチをクリックするとカラーピッカーが開く。「+」で塗りを追加
+- テキストツールは `T`。キャンバスをクリックしてそのまま入力。フォント・サイズ・ウェイトは右サイドバーの **Typography セクション**で変更する
+- 重なり順の変更: 左サイドバーでドラッグ（一覧の上が前面）。ショートカットは `Cmd/Ctrl + ]`（前面へ）、`Cmd/Ctrl + [`（背面へ）
+
+情報源:
+
+- Figma Learn「Adjust corner radius and smoothing」(help.figma.com/hc/en-us/articles/360050986854)
+- Figma Learn「Design an interactive button component」(help.figma.com/hc/en-us/articles/20953528101783)
+- Figma Forum「UI3: fix corner radius input in place」(角丸フィールドの位置がUI3で選択対象により変わる点)

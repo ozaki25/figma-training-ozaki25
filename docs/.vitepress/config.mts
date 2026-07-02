@@ -38,6 +38,13 @@ export default withPwa(
             { text: '1-2 フレームを作って操作する', link: '/lessons/1-2/' },
           ],
         },
+        {
+          text: '2章 基本要素を作る',
+          collapsed: false,
+          items: [
+            { text: '2-1 シェイプとテキストを配置する', link: '/lessons/2-1/' },
+          ],
+        },
       ],
       outline: {
         label: '目次',

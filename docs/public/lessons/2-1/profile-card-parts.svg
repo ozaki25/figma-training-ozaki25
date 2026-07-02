@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="プロフィールカードの完成イメージ。フレームの中に角丸の白いカードがあり、紫の正円のアバター、太字の名前、小さめの肩書きが縦に並んでいる。">
+  <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
+  <rect x="0" y="0" width="860" height="480" rx="12" fill="#F3F0FA"/>
+
+  <text x="430" y="42" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">完成イメージ（位置は目分量でOK）</text>
+
+  <!-- フレーム名ラベル -->
+  <text x="234" y="86" font-size="12" fill="#7C3AED">Frame 1</text>
+  <!-- フレーム本体 -->
+  <rect x="230" y="94" width="400" height="300" fill="#E5E1F0" stroke="#8B7EC8" stroke-width="1.5"/>
+
+  <!-- カードの下地（角丸四角形・白） -->
+  <rect x="262" y="122" width="336" height="244" rx="16" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+
+  <!-- アバター用の正円 -->
+  <circle cx="430" cy="196" r="40" fill="#A78BFA"/>
+
+  <!-- 名前（16px Bold） -->
+  <text x="430" y="276" text-anchor="middle" font-size="19" font-weight="bold" fill="#3B3355">山田太郎</text>
+
+  <!-- 肩書き（12px） -->
+  <text x="430" y="304" text-anchor="middle" font-size="14" fill="#5A5273">フロントエンドエンジニア</text>
+
+  <!-- 部品の注記 -->
+  <text x="430" y="440" text-anchor="middle" font-size="13" fill="#5A5273">角丸四角形の下地・正円・名前・肩書きの4つが、フレームの中に入っていればOK</text>
+</svg>
