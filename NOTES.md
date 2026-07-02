@@ -165,3 +165,23 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Apply styles to layers and objects」(help.figma.com/hc/en-us/articles/360040316193)
 - Figma Learn「Manage and share styles」(help.figma.com/hc/en-us/articles/360039820134)
 - Figma Learn「The difference between variables and styles」(help.figma.com/hc/en-us/articles/15871097384471)
+
+### 追加調査: コンポーネントとバリアント（2026-07、3-2執筆時）
+
+- コンポーネント化: 要素を選択して右クリック →「Create component」、またはショートカット `Cmd + Option + K`（Windowsは `Ctrl + Alt + K`）。ツールバー中央のコンポーネント作成ボタン（ひし形4つのアイコン）でも可
+- メインコンポーネントはレイヤーパネルで**塗りのひし形4つの紫アイコン**、キャンバス上では紫の枠で表示される。インスタンスは**輪郭だけのひし形1つの紫アイコン**
+- インスタンスの作成: メインコンポーネントをコピー&ペースト（`Cmd/Ctrl + D` の複製も可）、または左サイドバーの **Assets パネル**からキャンバスへドラッグ。クイック挿入は `Shift + I`
+- メインコンポーネントを編集すると、同一ファイル内の全インスタンスに自動反映される
+- インスタンス側ではテキスト・色などの**上書き（override）**ができる。上書きした箇所はメイン側の変更で上書きされずに残る。構造（レイヤーの追加・削除）はインスタンス側では変えられない
+- バリアント: メインコンポーネントを選択すると右サイドバーに「**Add variant**」が出る（選択中のコンポーネント下端の紫の「+」でも追加できる）。追加すると同じ見た目のバリアントが複製され、2つが**紫の破線枠のコンポーネントセット**にまとまる
+- プロパティは初期名「Property 1」、値は「Default / Variant2」。右サイドバーの Current variant セクションでプロパティ名・値を編集できる（例: プロパティ `online`、値 `true / false`）
+- インスタンスを選択すると右サイドバーにプロパティのドロップダウンが出て、バリアントを切り替えられる
+- 複数の既存コンポーネントをまとめる場合は選択して右サイドバーの「Combine as variants」
+
+情報源:
+
+- Figma Learn「Create components to reuse in designs」(help.figma.com/hc/en-us/articles/360038663154)
+- Figma Learn「Create and insert component instances」(help.figma.com/hc/en-us/articles/360039150173)
+- Figma Learn「Create and use variants」(help.figma.com/hc/en-us/articles/360056440594)
+- Figma Learn「Design an interactive button component」(help.figma.com/hc/en-us/articles/20953528101783)
+- Figma Learn「FD4B: Components fundamentals」(help.figma.com/hc/en-us/articles/30984647753751)

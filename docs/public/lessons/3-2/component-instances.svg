@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="メインコンポーネントとインスタンスの関係。原本のProfileCardから3つのインスタンスが作られ、名前と肩書きをそれぞれ上書きしている。原本を変更すると全インスタンスに反映される。">
+  <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
+  <rect x="0" y="0" width="860" height="400" rx="12" fill="#F3F0FA"/>
+
+  <!-- 左: メインコンポーネント -->
+  <text x="190" y="50" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">メインコンポーネント（原本）</text>
+
+  <!-- ひし形4つのアイコン -->
+  <g fill="#7C3AED">
+    <path d="M 70 156 l 6 6 l -6 6 l -6 -6 z"/>
+    <path d="M 84 156 l 6 6 l -6 6 l -6 -6 z"/>
+    <path d="M 70 170 l 6 6 l -6 6 l -6 -6 z"/>
+    <path d="M 84 170 l 6 6 l -6 6 l -6 -6 z"/>
+  </g>
+  <text x="98" y="174" font-size="13" fill="#7C3AED" font-weight="bold">ProfileCard</text>
+
+  <rect x="60" y="186" width="260" height="104" rx="16" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+  <circle cx="112" cy="238" r="32" fill="#7C3AED"/>
+  <text x="160" y="234" font-size="16" font-weight="bold" fill="#333333">山田太郎</text>
+  <text x="160" y="256" font-size="12" fill="#777777">フロントエンドエンジニア</text>
+
+  <text x="190" y="330" text-anchor="middle" font-size="13" fill="#5A5273">編集するのはここだけ。</text>
+  <text x="190" y="352" text-anchor="middle" font-size="13" fill="#5A5273">変更は全インスタンスに反映される</text>
+
+  <!-- 対応線（原本 → 各インスタンス） -->
+  <path d="M 324 238 C 400 238, 420 108, 500 108" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+  <path d="M 324 238 C 400 238, 420 238, 500 238" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+  <path d="M 324 238 C 400 238, 420 328, 500 328" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+
+  <!-- 右: インスタンス -->
+  <text x="650" y="50" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">インスタンス（複製）</text>
+
+  <!-- インスタンス1 -->
+  <g fill="none" stroke="#7C3AED" stroke-width="1.5">
+    <path d="M 520 66 l 6 6 l -6 6 l -6 -6 z"/>
+  </g>
+  <rect x="510" y="82" width="260" height="72" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <circle cx="548" cy="118" r="22" fill="#7C3AED"/>
+  <text x="582" y="114" font-size="14" font-weight="bold" fill="#333333">山田太郎</text>
+  <text x="582" y="134" font-size="11" fill="#777777">フロントエンドエンジニア</text>
+
+  <!-- インスタンス2（上書きあり） -->
+  <g fill="none" stroke="#7C3AED" stroke-width="1.5">
+    <path d="M 520 186 l 6 6 l -6 6 l -6 -6 z"/>
+  </g>
+  <rect x="510" y="202" width="260" height="72" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <circle cx="548" cy="238" r="22" fill="#7C3AED"/>
+  <text x="582" y="234" font-size="14" font-weight="bold" fill="#333333">佐藤花子</text>
+  <text x="582" y="254" font-size="11" fill="#777777">デザイナー</text>
+
+  <!-- インスタンス3（上書きあり） -->
+  <g fill="none" stroke="#7C3AED" stroke-width="1.5">
+    <path d="M 520 276 l 6 6 l -6 6 l -6 -6 z"/>
+  </g>
+  <rect x="510" y="292" width="260" height="72" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <circle cx="548" cy="328" r="22" fill="#7C3AED"/>
+  <text x="582" y="324" font-size="14" font-weight="bold" fill="#333333">鈴木一郎</text>
+  <text x="582" y="344" font-size="11" fill="#777777">バックエンドエンジニア</text>
+
+  <text x="650" y="388" text-anchor="middle" font-size="13" fill="#5A5273">テキストや色はインスタンスごとに上書きできる</text>
+</svg>

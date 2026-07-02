@@ -52,6 +52,7 @@ export default withPwa(
           collapsed: false,
           items: [
             { text: '3-1 カラーとタイポグラフィのルール化', link: '/lessons/3-1/' },
+            { text: '3-2 コンポーネントとバリアントを作る', link: '/lessons/3-2/' },
           ],
         },
       ],
