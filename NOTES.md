@@ -202,3 +202,21 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Rename layers with AI」(help.figma.com/hc/en-us/articles/24004711129879)
 - Figma Learn「Guide to the Figma MCP server」(help.figma.com/hc/en-us/articles/32132100833559)
 - figma/mcp-server-guide (github.com/figma/mcp-server-guide)
+
+### 追加調査: 要素間の間隔「Auto」（2026-07、4-1執筆時）
+
+- Auto Layoutの要素間の間隔（gap）は、数値の代わりに **Auto** を指定できる。要素同士ができるだけ離れるように配置され、CSSの `justify-content: space-between` に相当する
+- 設定方法: 右サイドバー Layout セクションの間隔入力欄のドロップダウンから「Auto」を選ぶ。入力欄に `Auto` と直接入力してもよい
+- 整列ボックス（9マス）を**ダブルクリック**しても packed / Auto を切り替えられる
+- ヘッダーの「左にタイトル・右にアイコン」のような両端寄せに使う
+
+情報源:
+
+- Figma Learn「Guide to auto layout」(help.figma.com/hc/en-us/articles/360040451373)
+- Figma Forum「Where is Auto Layout Space Between?」
+
+### 4-1の図版について（2026-07-02）
+
+- 4-1で初めてFigma MCPによる実キャプチャを試行。MCP自体は認証済みで動作し、`create_new_file` → `use_figma` で骨組みを実作 → `get_screenshot` まで成功した
+- ただし作業環境のプロキシが figma.com へのHTTPS接続を遮断しており、キャプチャPNGをリポジトリに保存できなかった
+- そのため図版は従来どおりSVG自作でフォールバック。SVGは実キャプチャの見た目に合わせて作成した。プロキシ制限のない環境では実キャプチャへの差し替えを検討する

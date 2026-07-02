@@ -56,6 +56,13 @@ export default withPwa(
             { text: '3-3 コード生成を見据えたレイヤー命名', link: '/lessons/3-3/' },
           ],
         },
+        {
+          text: '4章 実践: タスク一覧画面を作る',
+          collapsed: false,
+          items: [
+            { text: '4-1 レイアウトの骨組みを作る', link: '/lessons/4-1/' },
+          ],
+        },
       ],
       outline: {
         label: '目次',
