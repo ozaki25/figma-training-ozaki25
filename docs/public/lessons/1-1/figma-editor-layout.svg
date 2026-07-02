@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="Figmaエディタの画面構成。中央にキャンバス、左に左サイドバー、右に右サイドバー、下にツールバーがある。">
+  <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
+  <rect x="0" y="0" width="860" height="560" rx="12" fill="#F3F0FA"/>
+
+  <!-- エディタの外枠 -->
+  <rect x="30" y="52" width="800" height="470" rx="8" fill="#E5E1F0" stroke="#B9AEDB" stroke-width="1.5"/>
+  <text x="430" y="34" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">Figmaエディタの画面構成</text>
+
+  <!-- キャンバス -->
+  <rect x="196" y="52" width="468" height="470" fill="#DCD8E8"/>
+  <text x="430" y="235" text-anchor="middle" font-size="18" font-weight="bold" fill="#3B3355">キャンバス</text>
+  <text x="430" y="260" text-anchor="middle" font-size="13" fill="#5A5273">デザインを描く作業スペース</text>
+  <!-- キャンバス上のフレーム例 -->
+  <rect x="360" y="300" width="140" height="110" rx="4" fill="#FFFFFF" stroke="#8B7EC8" stroke-width="1.5"/>
+  <rect x="376" y="318" width="60" height="40" rx="3" fill="#A78BFA"/>
+  <rect x="376" y="368" width="108" height="10" rx="3" fill="#C9C2DE"/>
+  <rect x="376" y="384" width="80" height="10" rx="3" fill="#C9C2DE"/>
+
+  <!-- 左サイドバー -->
+  <rect x="30" y="52" width="166" height="470" fill="#FFFFFF" stroke="#B9AEDB" stroke-width="1"/>
+  <text x="113" y="88" text-anchor="middle" font-size="15" font-weight="bold" fill="#3B3355">左サイドバー</text>
+  <text x="113" y="108" text-anchor="middle" font-size="12" fill="#5A5273">レイヤー・ページ</text>
+  <!-- レイヤーツリーの模式 -->
+  <rect x="48" y="130" width="130" height="16" rx="3" fill="#EDE9F8"/>
+  <rect x="62" y="154" width="116" height="16" rx="3" fill="#EDE9F8"/>
+  <rect x="76" y="178" width="102" height="16" rx="3" fill="#EDE9F8"/>
+  <rect x="76" y="202" width="102" height="16" rx="3" fill="#EDE9F8"/>
+  <text x="113" y="250" text-anchor="middle" font-size="11" fill="#6B6485">階層（ツリー）で</text>
+  <text x="113" y="266" text-anchor="middle" font-size="11" fill="#6B6485">全レイヤーが並ぶ</text>
+
+  <!-- 右サイドバー -->
+  <rect x="664" y="52" width="166" height="470" fill="#FFFFFF" stroke="#B9AEDB" stroke-width="1"/>
+  <text x="747" y="88" text-anchor="middle" font-size="15" font-weight="bold" fill="#3B3355">右サイドバー</text>
+  <text x="747" y="108" text-anchor="middle" font-size="12" fill="#5A5273">プロパティ</text>
+  <!-- タブの模式 -->
+  <rect x="682" y="124" width="62" height="20" rx="4" fill="#7C3AED"/>
+  <text x="713" y="138" text-anchor="middle" font-size="11" fill="#FFFFFF">Design</text>
+  <rect x="750" y="124" width="62" height="20" rx="4" fill="#EDE9F8"/>
+  <text x="781" y="138" text-anchor="middle" font-size="10" fill="#5A5273">Prototype</text>
+  <!-- プロパティ欄の模式 -->
+  <rect x="682" y="160" width="130" height="16" rx="3" fill="#EDE9F8"/>
+  <rect x="682" y="184" width="130" height="16" rx="3" fill="#EDE9F8"/>
+  <rect x="682" y="208" width="130" height="16" rx="3" fill="#EDE9F8"/>
+  <text x="747" y="256" text-anchor="middle" font-size="11" fill="#6B6485">選択中の要素の</text>
+  <text x="747" y="272" text-anchor="middle" font-size="11" fill="#6B6485">サイズ・色などを編集</text>
+
+  <!-- ツールバー（下部中央） -->
+  <rect x="310" y="466" width="240" height="42" rx="12" fill="#2C2C33"/>
+  <g fill="#B7B3C6">
+    <rect x="328" y="479" width="16" height="16" rx="3"/>
+    <rect x="356" y="479" width="16" height="16" rx="3"/>
+    <rect x="384" y="479" width="16" height="16" rx="3"/>
+    <rect x="412" y="479" width="16" height="16" rx="3"/>
+    <rect x="440" y="479" width="16" height="16" rx="3"/>
+    <rect x="468" y="479" width="16" height="16" rx="3"/>
+    <rect x="496" y="479" width="16" height="16" rx="3"/>
+  </g>
+  <text x="430" y="542" text-anchor="middle" font-size="14" font-weight="bold" fill="#3B3355">ツールバー（画面下部の中央）</text>
+</svg>

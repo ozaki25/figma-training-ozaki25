@@ -8,6 +8,10 @@ hero:
   image:
     src: /logo.svg
     alt: Figmaハンズオン
+  actions:
+    - theme: brand
+      text: はじめる
+      link: /lessons/1-1/
 
 features:
   - icon: 🎨

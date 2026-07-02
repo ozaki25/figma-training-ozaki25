@@ -29,7 +29,13 @@ export default withPwa(
     ],
     themeConfig: {
       nav: [{ text: 'ホーム', link: '/' }],
-      sidebar: [],
+      sidebar: [
+        {
+          text: '1章 Figmaを開いてみる',
+          collapsed: false,
+          items: [{ text: '1-1 画面構成を知る', link: '/lessons/1-1/' }],
+        },
+      ],
       outline: {
         label: '目次',
         level: [2, 3],

@@ -71,3 +71,21 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 | dark: ボタン文字 | #FFFFFF | #7C3AED | 5.70:1 | 4.5:1 |
 | dark: ヒーロー見出しグラデ始点 | #C4A5FF | #1B1B1F | 8.32:1 | 3:1（大） |
 | dark: ヒーロー見出しグラデ終点 | #5EDDA8 | #1B1B1F | 10.12:1 | 3:1（大） |
+
+## Figma現行UI調査（2026-07）
+
+1-1執筆前にWeb検索で確認した、2026年7月時点のFigma Designエディタの画面構成。
+
+- エディタは4領域で構成: ツールバー、左サイドバー、右サイドバー、キャンバス
+- ツールバーは**画面下部の中央**に浮いている（2024年のUI3リデザイン以降）。移動ツール、フレーム、シェイプ、テキスト、コメントなどの作成系ツールが並ぶ
+- 左サイドバーはレイヤーとページの一覧（公式ヘルプでの呼称は「左サイドバー」。レイヤーパネルとも呼ばれる）。Assets（コンポーネント挿入）もここから
+- 右サイドバーは選択中オブジェクトのプロパティを表示・編集する場所（呼称は「右サイドバー」または「プロパティパネル」）。DesignタブとPrototypeタブがある。選択に応じて表示内容が変わる
+- **2026年前半から新しい「ナビゲーションバー」を段階的にロールアウト中**。画面最左端の細い縦バーで、レイヤー・Assets・変数・通知などの入口を集約。従来左サイドバー上部にあったFile/Assetsタブがここへ移動。ロールアウト中のため、ユーザーによって新旧どちらのUIも当たり得る。レッスンでは「最左端に細い縦バーが見える場合もある」と両対応の書き方にする
+
+情報源:
+
+- Figma Learn「Explore the navigation bar and left sidebar」(help.figma.com/hc/en-us/articles/360039831974)
+- Figma Learn「Design, prototype, and explore layer properties in the right sidebar」(help.figma.com/hc/en-us/articles/360039832014)
+- Figma Learn「Access design tools from the toolbar」(help.figma.com/hc/en-us/articles/360041064174)
+- Figma Blog「Making the Move to UI3」(UI3で下部ツールバー化)
+- Figma Forum(2026年1月、新左ナビゲーションバーのロールアウトに関するユーザー投稿)
