@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="プロフィールカードの各要素とスタイルの対応。紫の正円には色スタイルbrand、名前のテキストには色スタイルtext/mainとテキストスタイルname、肩書きのテキストには色スタイルtext/subとテキストスタイルcaptionが割り当てられている。">
+  <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
+  <rect x="0" y="0" width="860" height="360" rx="12" fill="#F3F0FA"/>
+
+  <!-- 左: プロフィールカード -->
+  <text x="200" y="52" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">プロフィールカード</text>
+
+  <rect x="40" y="120" width="320" height="128" rx="16" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <!-- アバターの正円 -->
+  <circle cx="104" cy="184" r="40" fill="#7C3AED"/>
+  <!-- 名前 -->
+  <text x="164" y="178" font-size="18" font-weight="bold" fill="#333333">山田太郎</text>
+  <!-- 肩書き -->
+  <text x="164" y="204" font-size="13" fill="#777777">フロントエンドエンジニア</text>
+
+  <text x="200" y="292" text-anchor="middle" font-size="13" fill="#5A5273">色もサイズも、要素ごとに直接指定せず</text>
+  <text x="200" y="314" text-anchor="middle" font-size="13" fill="#5A5273">登録したスタイルから選ぶ</text>
+
+  <!-- 対応線 -->
+  <path d="M 144 184 C 300 184, 380 108, 520 108" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+  <path d="M 244 172 C 360 160, 420 152, 520 152" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+  <path d="M 244 200 C 360 200, 420 196, 520 196" stroke="#7C3AED" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+  <path d="M 244 166 C 380 130, 430 252, 520 252" stroke="#B69ADF" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+  <path d="M 244 206 C 380 240, 430 296, 520 296" stroke="#B69ADF" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+
+  <!-- 右: スタイル一覧 -->
+  <text x="660" y="52" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">登録したスタイル</text>
+
+  <!-- 色スタイル -->
+  <text x="532" y="86" font-size="12" font-weight="bold" fill="#5A5273">色スタイル</text>
+  <rect x="520" y="94" width="280" height="28" rx="8" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <circle cx="538" cy="108" r="8" fill="#7C3AED"/>
+  <text x="554" y="113" font-size="13" fill="#3B3355">brand</text>
+  <text x="788" y="113" text-anchor="end" font-size="12" fill="#5A5273">#7C3AED</text>
+
+  <rect x="520" y="138" width="280" height="28" rx="8" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <circle cx="538" cy="152" r="8" fill="#333333"/>
+  <text x="554" y="157" font-size="13" fill="#3B3355">text/main</text>
+  <text x="788" y="157" text-anchor="end" font-size="12" fill="#5A5273">#333333</text>
+
+  <rect x="520" y="182" width="280" height="28" rx="8" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <circle cx="538" cy="196" r="8" fill="#777777"/>
+  <text x="554" y="201" font-size="13" fill="#3B3355">text/sub</text>
+  <text x="788" y="201" text-anchor="end" font-size="12" fill="#5A5273">#777777</text>
+
+  <!-- テキストスタイル -->
+  <text x="532" y="230" font-size="12" font-weight="bold" fill="#5A5273">テキストスタイル</text>
+  <rect x="520" y="238" width="280" height="28" rx="8" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <text x="536" y="257" font-size="14" font-weight="bold" fill="#3B3355">Ag</text>
+  <text x="564" y="257" font-size="13" fill="#3B3355">name</text>
+  <text x="788" y="257" text-anchor="end" font-size="12" fill="#5A5273">16 / Bold</text>
+
+  <rect x="520" y="282" width="280" height="28" rx="8" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <text x="536" y="301" font-size="14" fill="#3B3355">Ag</text>
+  <text x="564" y="301" font-size="13" fill="#3B3355">caption</text>
+  <text x="788" y="301" text-anchor="end" font-size="12" fill="#5A5273">12 / Regular</text>
+</svg>

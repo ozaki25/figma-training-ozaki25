@@ -47,6 +47,13 @@ export default withPwa(
             { text: '2-3 整列とリサイズ挙動（Hug/Fill）を理解する', link: '/lessons/2-3/' },
           ],
         },
+        {
+          text: '3章 デザインの基礎知識',
+          collapsed: false,
+          items: [
+            { text: '3-1 カラーとタイポグラフィのルール化', link: '/lessons/3-1/' },
+          ],
+        },
       ],
       outline: {
         label: '目次',

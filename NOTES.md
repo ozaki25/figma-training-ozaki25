@@ -149,3 +149,19 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Guide to auto layout」(help.figma.com/hc/en-us/articles/360040451373)
 - Figma Learn「Create a responsive card with auto layout and constraints」(help.figma.com/hc/en-us/articles/18894664907287)
 - Figma Forum「New Auto Layout, Hug content and Fill container」
+
+### 追加調査: スタイル（色・テキスト）とVariables（2026-07、3-1執筆時）
+
+- 色スタイルの登録: 要素を選択し、右サイドバー Fill セクション右上の**スタイルアイコン（点が4つ並んだアイコン。ホバーで「Apply styles and variables」と出る）**をクリック → パネル右上の「+」→ 名前を付けて Create style
+- テキストスタイルの登録: テキストを選択し、Typography セクション右上の同じ4点アイコン → 「+」→ Create style。フォント・サイズ・ウェイト・行間がまとめて保存される
+- 適用: 対象を選択して同じ4点アイコンからスタイル名を選ぶ。検索も可能
+- 編集: 何も選択していない状態の右サイドバーに「Local styles」一覧が出る。スタイル名にホバーすると出る**調整アイコン（スライダー型）**から定義を編集。編集すると適用中の全要素に一括反映される
+- スタイル名に `/` を入れるとグループ化される（例: `text/main` と `text/sub` は text グループにまとまる）
+- Variables: 2026年時点で色・数値などを保存できる別機能。ライト/ダークのモード切替やデザイントークンに使う。単一値のみでグラデーション等は保存できない。公式も「Variablesはスタイルの置き換えではない」としており、単純な色・テキストの共通化ならスタイルで十分 → **本ハンズオンではスタイルのみ扱い、Variablesは名前の紹介にとどめる（決定）**
+
+情報源:
+
+- Figma Learn「Create color, text, effect, and layout guide styles」(help.figma.com/hc/en-us/articles/360038746534)
+- Figma Learn「Apply styles to layers and objects」(help.figma.com/hc/en-us/articles/360040316193)
+- Figma Learn「Manage and share styles」(help.figma.com/hc/en-us/articles/360039820134)
+- Figma Learn「The difference between variables and styles」(help.figma.com/hc/en-us/articles/15871097384471)
