@@ -52,7 +52,7 @@
 2. `Shift + A` で縦のAuto Layout、gap・パディングを 0 にし、名前を `task-form` にする
 3. ヘッダーを4章のtask-listと同じ構成で作る: テキスト `My Tasks`（18px、SemiBold程度）と正円 32×32 を横Auto Layout（`Shift + A`）でまとめ、`task-form` の上に入れる
 4. ヘッダーを仕様どおりに設定する: 幅 **Fill**・高さ **Fixed 64**、間隔 **Auto**、左右padding 24、整列は上下中央、背景は白
-5. 名前を付ける: フレームは `header`、テキストは `app-title`、アイコンは `back-icon`
+5. 名前を付ける: フレームは `header`、テキストは `app-title`、アイコンは `user-icon`（4章のtask-listと同じ名前）
 
 ヘッダーは一覧画面と見た目をそろえたいので、4-3で登録した色スタイル `surface` を背景に、テキストスタイル `app-title` を文字に当てておきます。同じスタイルを使えば、色や文字が2画面でぴったり一致します。
 
