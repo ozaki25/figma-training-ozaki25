@@ -83,6 +83,13 @@ export default withPwa(
             { text: '6-3 タスク登録フォームをコード生成する', link: '/lessons/6-3/' },
           ],
         },
+        {
+          text: '7章 まとめ・ふりかえり',
+          collapsed: false,
+          items: [
+            { text: '7-1 2日間のふりかえり', link: '/lessons/7-1/' },
+          ],
+        },
       ],
       outline: {
         label: '目次',
