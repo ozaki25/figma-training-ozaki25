@@ -24,3 +24,7 @@ npm-debug.log*
 .env
 .env.*
 !.env.example
+
+# Claude Code local (Figma教材専用ファイルのfileId等、公開したくない情報)
+.claude/settings.local.json
+.claude/figma-config.local.json

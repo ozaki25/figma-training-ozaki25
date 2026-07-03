@@ -61,9 +61,9 @@ Figma未経験のエンジニア向けハンズオン教材（VitePress製）。
 - UI説明や完成イメージには、Figma MCPで実際に対象を作成し `get_screenshot` で取得した本物のキャプチャを使う
 - 演習の答え（.figファイルそのもの）は配布しない。確認用の画像としてのみ掲載する
 - 概念図（Auto Layoutの挙動、MCP連携の流れなど）は**Mermaid禁止**。SVGを自作して `docs/public/` に置く
-- **【絶対NG】案件ファイル（ユーザーの既存Figmaファイル）の読み取りも書き込みも一切禁止**。
-  Figma MCPを使うときは、`create_new_file` で新規空ファイルを作った中でだけ作業する。
-  既存ファイルのURL・node-idを開くことも禁止（詳細はPLAN.md「Figma MCP 利用時の絶対NG項目」）
+- **【絶対ルール】Figma MCPで触れてよいのは、`.claude/figma-config.local.json`
+  （gitignore対象）に記録された教材専用ファイルだけ**。他ファイルには絶対にアクセスしない
+  （詳細はPLAN.md「Figma MCP 利用時の絶対ルール」）
 
 ## サイトテーマ
 
