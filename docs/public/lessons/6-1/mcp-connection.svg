@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="Figma MCP接続の概念図。左にFigma（クラウド上のデザインファイル）、中央にFigma MCPサーバー（Anthropic公式プラグイン経由でリモート接続）、右にClaude Code。3者が矢印で結ばれ、Claude CodeがMCP経由でFigmaのデザイン情報を読み取り、コードを生成できることを示す。">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="860" height="320" rx="12" fill="#F3F0FA"/>
+
+  <!-- Figma（左） -->
+  <rect x="40" y="90" width="200" height="140" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <text x="140" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#3B3355">Figma（クラウド）</text>
+  <!-- 簡易的なFigmaロゴ配色の丸 -->
+  <circle cx="105" cy="140" r="14" fill="#A259FF"/>
+  <circle cx="140" cy="140" r="14" fill="#F24E1E"/>
+  <circle cx="175" cy="140" r="14" fill="#0ACF83"/>
+  <circle cx="105" cy="175" r="14" fill="#FF7262"/>
+  <circle cx="140" cy="175" r="14" fill="#1ABCFE"/>
+  <text x="140" y="212" text-anchor="middle" font-size="12" fill="#5A5273">デザインファイル</text>
+
+  <!-- MCPサーバー（中央） -->
+  <rect x="330" y="90" width="200" height="140" rx="12" fill="#FFFFFF" stroke="#7C3AED" stroke-width="2"/>
+  <text x="430" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#3B3355">Figma MCPサーバー</text>
+  <text x="430" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#7C3AED">MCP</text>
+  <text x="430" y="160" text-anchor="middle" font-size="11" fill="#5A5273">Anthropic公式</text>
+  <text x="430" y="178" text-anchor="middle" font-size="11" fill="#5A5273">プラグイン経由</text>
+  <text x="430" y="212" text-anchor="middle" font-size="12" fill="#5A5273">デザインを翻訳する橋渡し</text>
+
+  <!-- Claude Code（右） -->
+  <rect x="620" y="90" width="200" height="140" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <text x="720" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#3B3355">Claude Code</text>
+  <!-- ターミナル風 -->
+  <rect x="640" y="115" width="160" height="90" rx="6" fill="#1B1B1F"/>
+  <text x="654" y="138" font-size="11" font-family="monospace" fill="#5EDDA8">$ claude</text>
+  <text x="654" y="158" font-size="11" font-family="monospace" fill="#C4A5FF">&gt; /plugin</text>
+  <text x="654" y="178" font-size="11" font-family="monospace" fill="#FFFFFF">figma: connected</text>
+  <text x="720" y="228" text-anchor="middle" font-size="12" fill="#5A5273">コードを生成する</text>
+
+  <!-- 矢印: Figma → MCP -->
+  <line x1="248" y1="160" x2="320" y2="160" stroke="#7C3AED" stroke-width="2.5"/>
+  <path d="M 322 160 l -10 -6 v 12 z" fill="#7C3AED"/>
+  <text x="284" y="150" text-anchor="middle" font-size="11" fill="#5A5273">デザイン情報</text>
+
+  <!-- 矢印: MCP → Claude Code -->
+  <line x1="538" y1="160" x2="610" y2="160" stroke="#7C3AED" stroke-width="2.5"/>
+  <path d="M 612 160 l -10 -6 v 12 z" fill="#7C3AED"/>
+  <text x="574" y="150" text-anchor="middle" font-size="11" fill="#5A5273">構造化データ</text>
+
+  <text x="430" y="280" text-anchor="middle" font-size="13" fill="#3B3355">Claude CodeがMCP経由でFigmaのデザインを読み取り、コードに変換する</text>
+</svg>

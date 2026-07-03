@@ -257,6 +257,31 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - 入力欄はラベル＋入力ボックスの縦Auto Layoutを1コンポーネント（TextField）にまとめる。
   複数バリアント（focused/error）は5-2の段階では作らず、必要になったら3-2の手順で追加する
 
+### 追加調査: Figma MCP セットアップ（2026-07、6-1執筆時）
+
+Figma MCPサーバーは2026年7月時点で2種類ある。ハンズオンの読者は無料プランでも進められるようにしたいため、**Remote サーバー（プラグイン経由）を第一推奨**として書く。Desktopサーバー（Dev Mode）は有料プラン限定なので、注意書きとして紹介する。
+
+- **Remote server（推奨）**: Anthropic公式マーケットプレイスからClaude Codeのプラグインとして入れる方式。Figma Desktopアプリは不要。OAuthでブラウザ認証する。全プラン・全シートで使えるが、Starter（無料）プランは月6ツールコールに制限される。Professional以上のDev/Fullシートは分単位のレート制限のみ
+  - インストール: `/plugin install figma@claude-plugins-official`（Claude Code内のスラッシュコマンド。`claude plugin install figma@claude-plugins-official` でも可）
+  - 認証: `/plugin` → Installedタブ → figmaを選択 → Enterで認証ページが開き、ブラウザで「Allow access」を押す
+  - 確認: `/plugin` の Installed タブで figma が connected 表示になっているか、`/mcp` でも接続状態が見える
+- **Desktop server（Dev Mode）**: Figma Desktopアプリ内でDev Modeを有効にしてローカルにMCPサーバー（127.0.0.1:3845）を立てる方式。Dev/FullシートかつProfessional以上の有料プランが必要。無料プランでは選択肢に出ない
+  - Figma側: メニュー → Preferences → 「Enable Dev Mode MCP Server」をオン
+  - Claude Code側: `claude mcp add --transport sse figma-dev-mode-mcp-server http://127.0.0.1:3845/sse`
+  - 注意: `/sse` は将来非推奨予定で、`/mcp`（Streamable HTTP）に移行中。公式ドキュメントも移行期の記述になっている
+- ハマりどころ: MCP接続はClaude Codeの起動時に初期化されるため、追加後はClaude Codeを再起動する必要がある。Desktop方式ではFigma Desktopを起動しっぱなしにしないとサーバーが落ちる
+- 本ハンズオンの方針: 6-1では Remote server を主手順とし、Desktop server はコラム扱いで触れる。無料プランの月6コール制限は6-2と6-3で使い切る可能性があるため、その旨も注意書きにする
+
+情報源:
+
+- Figma Learn「Claude Code and Figma: Set up the MCP server」(help.figma.com/hc/en-us/articles/39888612464151)
+- Figma Developer Docs「Set up the remote server (recommended)」(developers.figma.com/docs/figma-mcp-server/remote-server-installation/)
+- Figma Developer Docs「Set up the desktop server (using desktop app)」(developers.figma.com/docs/figma-mcp-server/local-server-installation/)
+- Figma Learn「Guide to the Figma MCP server」(help.figma.com/hc/en-us/articles/32132100833559)
+- Figma Blog「Introducing our Dev Mode MCP server」(figma.com/blog/introducing-figma-mcp-server/)
+- Claude Code Docs「Connect Claude Code to tools via MCP」(code.claude.com/docs/en/mcp)
+- claude.com「Figma Plugin」(claude.com/plugins/figma)
+
 ### 4-1の図版について（2026-07-02）
 
 - 4-1で初めてFigma MCPによる実キャプチャを試行。MCP自体は認証済みで動作し、`create_new_file` → `use_figma` で骨組みを実作 → `get_screenshot` まで成功した

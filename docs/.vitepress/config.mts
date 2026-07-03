@@ -74,6 +74,13 @@ export default withPwa(
             { text: '5-3 仕上げ・一貫性チェック', link: '/lessons/5-3/' },
           ],
         },
+        {
+          text: '6章 Figma MCP + Claude Codeでコード化',
+          collapsed: false,
+          items: [
+            { text: '6-1 Figma MCPサーバーをセットアップする', link: '/lessons/6-1/' },
+          ],
+        },
       ],
       outline: {
         label: '目次',
