@@ -18,7 +18,7 @@
 | --- | --- | --- |
 | `task-form` | 画面全体 | Desktop 1440×1024、縦Auto Layout、gap 0 |
 | `header` | 上部バー | 幅Fill・高さFixed 64、横Auto Layout、左右padding 24、背景 `surface` |
-| `content` | 残りの領域 | 幅Fill・高さFill、縦Auto Layout、padding 32、gap 24、整列は上中央、背景 `bg` |
+| `content` | 残りの領域 | 幅Fill・高さFill、縦Auto Layout、padding 32、gap 16、整列は上中央、背景 `bg` |
 | `form-card` | 入力欄の器 | 幅Fixed 480・縦Auto Layout、padding 32、gap 20、角丸12、背景 `surface` |
 
 ヘッダーは4章のtask-listとまったく同じ構成です。左にアプリ名、右にアイコンを間隔Autoで両端に振り分け、高さはFixed 64、幅はFillにします。一覧画面のヘッダーをそのまま作り直すつもりで組めば、2画面のトンマナが自然にそろいます。
@@ -59,7 +59,7 @@
 ### 2. コンテンツエリアを作る
 
 1. キャンバスで `Shift + A` で空のAuto Layoutフレームを作り、`task-form` の中、`header` の下へ入れる
-2. 仕様どおりに設定する: 幅 **Fill**・高さ **Fill**、フロー縦、gap 24、パディング 32、背景 `bg`
+2. 仕様どおりに設定する: 幅 **Fill**・高さ **Fill**、フロー縦、gap 16、パディング 32、背景 `bg`（4章のtask-listと同じ値でそろえる）
 3. 整列ボックス（9マス）で **上段の中央** を選ぶ
 4. 名前を `content` にする
 
