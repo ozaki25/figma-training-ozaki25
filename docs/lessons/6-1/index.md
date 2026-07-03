@@ -116,7 +116,7 @@ Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム�
 - [Claude Code Docs「Connect Claude Code to tools via MCP」](https://code.claude.com/docs/en/mcp)
 
 ::: tip Desktopサーバー（Dev Mode）を使いたい場合
-Figma Professional以上のプランで、Figma Desktopアプリから直接接続したい場合は、次の手順になります。Figma Desktopのメニュー → **Preferences** → **Enable Dev Mode MCP Server** をオンにすると、`http://127.0.0.1:3845` にローカルサーバーが立ちます。Claude Code側では `claude mcp add --transport sse figma-dev-mode-mcp-server http://127.0.0.1:3845/sse` で登録します。Figma Desktopを起動しているあいだだけ有効です。`/sse` エンドポイントは将来 `/mcp`（Streamable HTTP）に置き換わる予定なので、公式ドキュメントで最新の指定を確認してから使ってください。
+Figma Professional以上のプランで、Figma Desktopアプリから直接接続したい場合は、次の手順になります。Figma Desktopでデザインファイルを開き、下部ツールバーの **Dev Mode** に切り替えます。右サイドバーの **MCP server** セクションで「Enable desktop MCP server」をオンにします（メニュー → **Preferences** → **Enable Dev Mode MCP Server** でも可）。これで `http://127.0.0.1:3845/mcp` にローカルサーバーが立ちます。Claude Code側では `claude mcp add --transport http figma-desktop http://127.0.0.1:3845/mcp` で登録します。Figma Desktopを起動しているあいだだけ有効です。以前は `/sse`（SSE）エンドポイントでしたが、現在は `/mcp`（Streamable HTTP）が正式版なので、古い記事の `--transport sse` を見ても真似しないでください。
 :::
 
 ## ゴール確認

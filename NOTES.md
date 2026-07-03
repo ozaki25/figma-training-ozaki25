@@ -284,9 +284,9 @@ Figma MCPサーバーは2026年7月時点で2種類ある。ハンズオンの�
   - 認証: `/plugin` → Installedタブ → figmaを選択 → Enterで認証ページが開き、ブラウザで「Allow access」を押す
   - 確認: `/plugin` の Installed タブで figma が connected 表示になっているか、`/mcp` でも接続状態が見える
 - **Desktop server（Dev Mode）**: Figma Desktopアプリ内でDev Modeを有効にしてローカルにMCPサーバー（127.0.0.1:3845）を立てる方式。Dev/FullシートかつProfessional以上の有料プランが必要。無料プランでは選択肢に出ない
-  - Figma側: メニュー → Preferences → 「Enable Dev Mode MCP Server」をオン
-  - Claude Code側: `claude mcp add --transport sse figma-dev-mode-mcp-server http://127.0.0.1:3845/sse`
-  - 注意: `/sse` は将来非推奨予定で、`/mcp`（Streamable HTTP）に移行中。公式ドキュメントも移行期の記述になっている
+  - Figma側: Dev Modeに切り替え → 右サイドバーの MCP server セクションで「Enable desktop MCP server」をオン（メニュー → Preferences → 「Enable Dev Mode MCP Server」でも可）
+  - Claude Code側: `claude mcp add --transport http figma-desktop http://127.0.0.1:3845/mcp`
+  - 注意: 以前は `/sse`（SSE）エンドポイントだったが、2026年7月時点の公式ドキュメントは `/mcp`（Streamable HTTP、`--transport http`）を正式版として案内している。古い `--transport sse` の記事は使わない
 - ハマりどころ: MCP接続はClaude Codeの起動時に初期化されるため、追加後はClaude Codeを再起動する必要がある。Desktop方式ではFigma Desktopを起動しっぱなしにしないとサーバーが落ちる
 - 本ハンズオンの方針: 6-1では Remote server を主手順とし、Desktop server はコラム扱いで触れる。無料プランの月6コール制限は6-2と6-3で使い切る可能性があるため、その旨も注意書きにする
 
@@ -299,6 +299,17 @@ Figma MCPサーバーは2026年7月時点で2種類ある。ハンズオンの�
 - Figma Blog「Introducing our Dev Mode MCP server」(figma.com/blog/introducing-figma-mcp-server/)
 - Claude Code Docs「Connect Claude Code to tools via MCP」(code.claude.com/docs/en/mcp)
 - claude.com「Figma Plugin」(claude.com/plugins/figma)
+
+#### 2026-07-03 再確認
+
+6章執筆後、Web検索で最新情報を再確認した。
+
+- プラグイン名 `figma@claude-plugins-official` は変更なし（Figma Learn / Developer Docs 双方で同じコマンドを案内）
+- Starter（無料）プランの月6ツールコール制限は変更なし（Figma Developer Docs「Rate limits & access」で確認）
+- Remote方式のセットアップ手順（`/plugin install` → 再起動 → `/plugin` から認証 → connected 確認）に変更なし
+- Desktop方式のエンドポイントが `/sse`（SSE）から `/mcp`（Streamable HTTP）に切り替わっていた。`claude mcp add` のtransportも `sse` → `http` に変わった。6-1のDesktopコラムとNOTES.mdの該当行を更新した
+- Desktop方式の有効化UIは、Dev Modeの右サイドバーにある「MCP server」セクションから直接オンにする導線が推奨表記になっていた（Preferencesメニュー経由の記述は残る）
+- 参考URL4件は全て有効。追加参照: developers.figma.com/docs/figma-mcp-server/rate-limits-access/
 
 ### 4-1の図版について（2026-07-02）
 
