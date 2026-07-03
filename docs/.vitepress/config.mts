@@ -71,6 +71,7 @@ export default withPwa(
           items: [
             { text: '5-1 フォームのレイアウトを組む', link: '/lessons/5-1/' },
             { text: '5-2 入力欄・ボタンを作る', link: '/lessons/5-2/' },
+            { text: '5-3 仕上げ・一貫性チェック', link: '/lessons/5-3/' },
           ],
         },
       ],
