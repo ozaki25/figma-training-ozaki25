@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="仕上げ後のタスク一覧画面の完成イメージ。白いヘッダーにアプリ名My Tasksと丸いユーザーアイコン、薄グレーのcontentエリアに見出し今日のタスクと白いタスクカードが4枚並ぶ。各カードは色スタイルとテキストスタイルが適用され紫アクセントで統一されている。4枚目は完了タスクでチェックが紫塗り、タイトルが薄い色と打ち消し線になっている。">
+  <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
+  <rect x="0" y="0" width="900" height="560" rx="12" fill="#F3F0FA"/>
+
+  <!-- タイトル -->
+  <text x="40" y="42" font-size="15" font-weight="bold" fill="#3B3355">task-list（スタイル適用で仕上げた完成状態）</text>
+
+  <!-- 画面フレーム -->
+  <rect x="40" y="66" width="630" height="448" rx="4" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+
+  <!-- header -->
+  <line x1="40" y1="94" x2="670" y2="94" stroke="#E2DDF0" stroke-width="1"/>
+  <text x="51" y="85" font-size="11" font-weight="bold" fill="#1A1A1F">My Tasks</text>
+  <circle cx="652" cy="80" r="7" fill="#EDE7FA" stroke="#C9BEE8" stroke-width="1"/>
+
+  <!-- content（bg = 薄グレー #F5F5F5） -->
+  <rect x="41" y="94" width="628" height="419" fill="#F5F5F5"/>
+  <text x="54" y="122" font-size="14" font-weight="bold" fill="#1A1A1F">今日のタスク</text>
+
+  <!-- カード1 -->
+  <rect x="54" y="136" width="602" height="28" rx="8" fill="#FFFFFF"/>
+  <circle cx="70" cy="150" r="5" fill="#FFFFFF" stroke="#C9C9D0" stroke-width="1.2"/>
+  <text x="84" y="154" font-size="10" fill="#2A2A31">デザインレビューの準備</text>
+  <text x="644" y="153" font-size="9" fill="#8A8A93" text-anchor="end">7/3</text>
+  <!-- カード2 -->
+  <rect x="54" y="170" width="602" height="28" rx="8" fill="#FFFFFF"/>
+  <circle cx="70" cy="184" r="5" fill="#FFFFFF" stroke="#C9C9D0" stroke-width="1.2"/>
+  <text x="84" y="188" font-size="10" fill="#2A2A31">会議資料の作成</text>
+  <text x="644" y="187" font-size="9" fill="#8A8A93" text-anchor="end">7/4</text>
+  <!-- カード3 -->
+  <rect x="54" y="204" width="602" height="28" rx="8" fill="#FFFFFF"/>
+  <circle cx="70" cy="218" r="5" fill="#FFFFFF" stroke="#C9C9D0" stroke-width="1.2"/>
+  <text x="84" y="222" font-size="10" fill="#2A2A31">APIエラーの調査</text>
+  <text x="644" y="221" font-size="9" fill="#8A8A93" text-anchor="end">7/5</text>
+  <!-- カード4（完了） -->
+  <rect x="54" y="238" width="602" height="28" rx="8" fill="#FFFFFF"/>
+  <circle cx="70" cy="252" r="5" fill="#7C3AED"/>
+  <path d="M 67.5 252 L 69.3 254 L 72.5 250" stroke="#FFFFFF" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="84" y="256" font-size="10" fill="#A8A8B0">リリースノートの下書き</text>
+  <line x1="84" y1="253" x2="168" y2="253" stroke="#A8A8B0" stroke-width="0.8"/>
+  <text x="644" y="255" font-size="9" fill="#B5B5BC" text-anchor="end">7/2</text>
+
+  <!-- 右側の凡例 -->
+  <text x="706" y="88" font-size="13" font-weight="bold" fill="#3B3355">適用したスタイル</text>
+  <text x="706" y="116" font-size="12" font-weight="bold" fill="#5A5273">色スタイル</text>
+  <circle cx="712" cy="133" r="6" fill="#7C3AED"/>
+  <text x="724" y="137" font-size="11" fill="#5A5273">brand</text>
+  <circle cx="712" cy="153" r="6" fill="#2A2A31"/>
+  <text x="724" y="157" font-size="11" fill="#5A5273">text/main</text>
+  <circle cx="712" cy="173" r="6" fill="#8A8A93"/>
+  <text x="724" y="177" font-size="11" fill="#5A5273">text/sub</text>
+  <circle cx="712" cy="193" r="6" fill="#F5F5F5" stroke="#C9C2DE" stroke-width="1"/>
+  <text x="724" y="197" font-size="11" fill="#5A5273">bg</text>
+  <circle cx="712" cy="213" r="6" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <text x="724" y="217" font-size="11" fill="#5A5273">surface</text>
+  <text x="706" y="248" font-size="12" font-weight="bold" fill="#5A5273">テキストスタイル</text>
+  <text x="706" y="268" font-size="11" fill="#5A5273">page-title 24 Bold</text>
+  <text x="706" y="286" font-size="11" fill="#5A5273">card-title 14 Medium</text>
+  <text x="706" y="304" font-size="11" fill="#5A5273">card-due 12 Regular</text>
+  <text x="706" y="322" font-size="11" fill="#5A5273">app-title 18 SemiBold</text>
+  <path d="M 656 252 H 690" stroke="#C9C2DE" stroke-width="1"/>
+  <text x="706" y="360" font-size="12" font-weight="bold" fill="#5A5273">完了タスク（4枚目）</text>
+  <text x="706" y="378" font-size="11" fill="#5A5273">checkboxをbrandで塗り、</text>
+  <text x="706" y="394" font-size="11" fill="#5A5273">タイトルはtext/subに</text>
+  <text x="706" y="410" font-size="11" fill="#5A5273">打ち消し線を添える</text>
+
+  <text x="40" y="540" font-size="12" fill="#5A5273">色とテキストをスタイルでそろえると画面全体に一貫性が出る。これでタスク一覧画面は完成。</text>
+</svg>

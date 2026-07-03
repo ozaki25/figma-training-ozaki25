@@ -62,6 +62,7 @@ export default withPwa(
           items: [
             { text: '4-1 レイアウトの骨組みを作る', link: '/lessons/4-1/' },
             { text: '4-2 タスクカードをコンポーネント化して並べる', link: '/lessons/4-2/' },
+            { text: '4-3 配色・タイポグラフィを仕上げて完成させる', link: '/lessons/4-3/' },
           ],
         },
       ],
