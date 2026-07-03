@@ -228,6 +228,17 @@ Figmaブランドの紫 #A259FF を軸に、WCAG AAを満たすよう明度を�
 - Figma Learn「Name and organize components」(help.figma.com/hc/en-us/articles/360038663994)
 - Figma Best Practices「Components, styles, and shared library best practices」(figma.com/best-practices/components-styles-and-shared-libraries/)
 
+### 追加調査: 5-1（フォームのレイアウト）（2026-07-03）
+
+- 5-1で使う操作（フレーム＋Auto Layout、Fill/Hug/Fixed、整列の9マスボックス、間隔Auto、
+  既存の色・テキストスタイルの適用、リネーム）はすべて2-2・2-3・3-1・3-3・4-1執筆時の調査で
+  カバー済み。UI面の新しい追加調査は不要と判断（Web検索での追加確認はしていない）
+- フォームカードの中央寄せは新機能ではなく既習の組み合わせで説明する: カード側の幅をFixed 480に
+  して広がりを止め、親（縦Auto Layoutのcontent）の整列を「上・中央」にする。CSSでいう
+  `margin: 0 auto` 的な中央寄せをAuto Layoutの整列で実現する
+- 4章のtask-listとヘッダー構成・色/テキストスタイルを共有することで2画面のトンマナをそろえる方針。
+  5-1では入力欄・ボタンはプレースホルダー（四角形）にとどめ、部品化は5-2で行う
+
 ### 4-1の図版について（2026-07-02）
 
 - 4-1で初めてFigma MCPによる実キャプチャを試行。MCP自体は認証済みで動作し、`create_new_file` → `use_figma` で骨組みを実作 → `get_screenshot` まで成功した

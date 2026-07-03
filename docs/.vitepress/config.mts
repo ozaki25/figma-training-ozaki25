@@ -65,6 +65,13 @@ export default withPwa(
             { text: '4-3 配色・タイポグラフィを仕上げて完成させる', link: '/lessons/4-3/' },
           ],
         },
+        {
+          text: '5章 実践: タスク登録フォームを作る',
+          collapsed: false,
+          items: [
+            { text: '5-1 フォームのレイアウトを組む', link: '/lessons/5-1/' },
+          ],
+        },
       ],
       outline: {
         label: '目次',
