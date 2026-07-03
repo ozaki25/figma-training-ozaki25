@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="Figma側のButtonバリアントセット（primaryとsecondaryの2枚が紫の破線枠にまとまっている）が、コード側では Button コンポーネントの variant プロパティ（primary / secondary）として表現される対応関係の図。">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="860" height="340" rx="12" fill="#F3F0FA"/>
+
+  <!-- 左: Figma側のバリアントセット -->
+  <text x="200" y="50" text-anchor="middle" font-size="13" font-weight="bold" fill="#3B3355">Figma: Buttonコンポーネントセット</text>
+
+  <!-- 破線の紫枠（コンポーネントセット） -->
+  <rect x="60" y="70" width="280" height="200" rx="10" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- primary バリアント -->
+  <rect x="90" y="100" width="220" height="52" rx="8" fill="#7C3AED"/>
+  <text x="200" y="132" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">登録</text>
+  <text x="90" y="92" font-size="10" font-family="monospace" fill="#7C3AED">variant = primary</text>
+
+  <!-- secondary バリアント -->
+  <rect x="90" y="196" width="220" height="52" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1"/>
+  <text x="200" y="228" text-anchor="middle" font-size="14" font-weight="bold" fill="#7C3AED">キャンセル</text>
+  <text x="90" y="188" font-size="10" font-family="monospace" fill="#7C3AED">variant = secondary</text>
+
+  <!-- 矢印 -->
+  <line x1="360" y1="170" x2="500" y2="170" stroke="#7C3AED" stroke-width="2.5"/>
+  <path d="M 502 170 l -10 -6 v 12 z" fill="#7C3AED"/>
+  <text x="430" y="160" text-anchor="middle" font-size="11" fill="#5A5273">コード生成</text>
+
+  <!-- 右: コード -->
+  <text x="670" y="50" text-anchor="middle" font-size="13" font-weight="bold" fill="#3B3355">コード: variant プロパティ</text>
+
+  <rect x="520" y="70" width="300" height="200" rx="10" fill="#1B1B1F"/>
+  <text x="536" y="98" font-size="11" font-family="monospace" fill="#5A5273">// Button.tsx</text>
+  <text x="536" y="120" font-size="11" font-family="monospace" fill="#C4A5FF">type Props = {</text>
+  <text x="548" y="138" font-size="11" font-family="monospace" fill="#FFFFFF">variant: </text>
+  <text x="618" y="138" font-size="11" font-family="monospace" fill="#5EDDA8">'primary'</text>
+  <text x="682" y="138" font-size="11" font-family="monospace" fill="#FFFFFF"> | </text>
+  <text x="700" y="138" font-size="11" font-family="monospace" fill="#5EDDA8">'secondary'</text>
+  <text x="536" y="156" font-size="11" font-family="monospace" fill="#C4A5FF">}</text>
+
+  <text x="536" y="188" font-size="11" font-family="monospace" fill="#5A5273">// 呼び出し側</text>
+  <text x="536" y="210" font-size="11" font-family="monospace" fill="#FFFFFF">&lt;Button variant=</text>
+  <text x="666" y="210" font-size="11" font-family="monospace" fill="#5EDDA8">"primary"</text>
+  <text x="740" y="210" font-size="11" font-family="monospace" fill="#FFFFFF">&gt;</text>
+  <text x="536" y="228" font-size="11" font-family="monospace" fill="#FFFFFF">  登録</text>
+  <text x="536" y="246" font-size="11" font-family="monospace" fill="#FFFFFF">&lt;/Button&gt;</text>
+
+  <text x="430" y="304" text-anchor="middle" font-size="13" fill="#3B3355">Figmaのバリアントは、コード側では props（variant）として表現される</text>
+</svg>

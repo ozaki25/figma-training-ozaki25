@@ -80,6 +80,7 @@ export default withPwa(
           items: [
             { text: '6-1 Figma MCPサーバーをセットアップする', link: '/lessons/6-1/' },
             { text: '6-2 タスク一覧画面をコード生成する', link: '/lessons/6-2/' },
+            { text: '6-3 タスク登録フォームをコード生成する', link: '/lessons/6-3/' },
           ],
         },
       ],
