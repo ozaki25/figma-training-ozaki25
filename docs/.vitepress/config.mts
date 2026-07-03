@@ -70,6 +70,7 @@ export default withPwa(
           collapsed: false,
           items: [
             { text: '5-1 フォームのレイアウトを組む', link: '/lessons/5-1/' },
+            { text: '5-2 入力欄・ボタンを作る', link: '/lessons/5-2/' },
           ],
         },
       ],
