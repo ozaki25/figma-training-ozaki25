@@ -133,8 +133,12 @@
 
 ## 改善ループ(2巡目以降)
 1周目完了後の改善ループ。何度も精査して品質を上げていく。
-- [ ] 参考リポジトリから日本語チェック等のスキルを取り込む (S27で着手)
+- [x] 参考リポジトリから日本語チェック等のスキルを取り込む
 - [ ] 全レッスン通しレビュー(章間のつながり・重複・抜け・難易度勾配) 
 - [ ] 各レッスンを取り込んだスキルで精査 (問題があればBACKLOGに追加)
 - [ ] 本物のFigmaキャプチャの導入検討(PLAN.md図版方針との整合)
 - [ ] 6章のコード生成手順の実機検証
+- S27 review-lessonスキル導入: 完了。web-front-training-ozaki25の.claude/skills/review-lessonと
+  .claude/hooks/check-bold.jsを本リポジトリ向けに調整して取り込み。draft/publish運用依存の
+  add-lesson/publish-lessonは除外。ペルソナ・UI最新性(2026-07)・SVG方針・textlint等を調整。
+  check-boldは"type":"module"のため.cjsにリネーム。1-1試験レビューは指摘ゼロ。

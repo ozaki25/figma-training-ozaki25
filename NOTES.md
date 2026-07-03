@@ -2,6 +2,24 @@
 
 スプリントで得た調査結果・技術的な決定事項を記録する。実装時はここを参照する。
 
+## .claude/skills 導入（2026-07）
+
+レッスン本文の品質レビューを場当たり的にせず、毎回同じチェックリストで回すために、
+`.claude/skills/review-lesson/` を導入した。
+
+- **スキル名**: `review-lesson`
+- **出典**: [ozaki25/web-front-training-ozaki25](https://github.com/ozaki25/web-front-training-ozaki25) の `.claude/skills/review-lesson/SKILL.md`
+- **付属**: `.claude/hooks/check-bold.cjs`（全角約物に隣接した `**` の太字崩れを検出。参考元 `.claude/hooks/check-bold.js` を `type: module` の本リポジトリ向けに `.cjs` へリネーム）
+- **使い方**: Claude Code のセッションで `/review-lesson 1-1` のように章-節を渡すと、`docs/lessons/<章>-<節>/index.md` を A〜I の9カテゴリ（Figma UI最新性 / 構成 / ゴール・まとめ / 文章品質 / 見出し / ペルソナ / 演習・図版 / 図・色 / ビルド・lint）でレビューし、指摘ゼロになるまでループを回す
+- **参考元との差分**:
+  - 対象パスを `docs/drafts/` → `docs/lessons/<章>-<節>/index.md` に変更（本リポジトリは main のみ、draft/publish 運用なし）
+  - ペルソナを「Figma未経験のエンジニア」に置換
+  - カテゴリ A を Figma UI3 の現行仕様（2026-07 時点）中心に再構成
+  - カテゴリ G を「演習手順・実キャプチャまたは SVG 自作」中心に再構成
+  - カテゴリ H を **Mermaid 禁止・SVG のみ**に反転
+  - カテゴリ I に `npm run docs:lint`（textlint）を追加
+  - 参考元の `add-lesson` / `publish-lesson` は draft 運用に依存するため取り込まない
+
 ## 参考リポジトリ技術構成調査（2026-07-01）
 
 全4リポジトリ共通: デフォルトブランチはmain。vercel.jsonはどこにも存在せず、
