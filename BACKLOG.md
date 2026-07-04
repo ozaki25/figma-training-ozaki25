@@ -291,3 +291,9 @@ S47の振り返りに基づき、4章・5章の題材(タスク管理ツール2�
   （S71: enhance()内でboxを除く全子要素を`.goal-checklist-label`spanでラップし
   単一flex itemに統一。Playwright検証で`PriorityTag`が22px一行に収まり
   縦4行分解が解消したことを確認。body横スクロールも再発なし）
+- [x] サイト UX 観察スプリント第4ラウンド: S71修正の再検証と卒業判定
+  （観察記録: docs-internal/ux-observation-s72.md / 4-2の`.goal-checklist-item code`は
+  モバイル/デスクトップ共に高さ22px（1行）・幅もトークン一続きで縦積み再発なし、
+  body横スクロールなし（390==390 / 1440==1440）、チェック→aria-checked切替→リロード
+  永続化OK、サイドバー・LessonNavいずれも副作用なし。**判定: B（卒業）**。
+  3ラウンド続けたUX観察サイクルは一旦終了、追加要望が出たら再開する）
