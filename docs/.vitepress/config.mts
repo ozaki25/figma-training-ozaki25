@@ -28,8 +28,15 @@ export default withPwa(
       ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon-180x180.png' }],
     ],
     themeConfig: {
-      nav: [{ text: 'ホーム', link: '/' }],
+      nav: [
+        { text: 'ホーム', link: '/' },
+        { text: 'レッスン一覧', link: '/lessons/' },
+      ],
       sidebar: [
+        {
+          text: 'レッスン一覧',
+          link: '/lessons/',
+        },
         {
           text: '1章 Figmaを開いてみる',
           collapsed: false,
