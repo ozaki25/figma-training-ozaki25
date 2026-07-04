@@ -181,10 +181,7 @@ const current = computed(() => {
 .lesson-nav__current {
   color: var(--vp-c-text-1);
   font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 22ch;
+  overflow-wrap: anywhere;
 }
 
 .lesson-nav__progress {
@@ -219,8 +216,5 @@ const current = computed(() => {
     padding: 8px 10px;
   }
 
-  .lesson-nav__current {
-    max-width: 16ch;
-  }
 }
 </style>

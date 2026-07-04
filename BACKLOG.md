@@ -253,12 +253,14 @@ S47の振り返りに基づき、4章・5章の題材(タスク管理ツール2�
   （観察記録: docs-internal/ux-observation-s67.md / 前回3大ボトルネックは骨格レベルで
   解消したが、モバイル固有の副作用2件〈LessonNav現在レッスン名16ch省略、GoalChecklist
   codeのbreak-allでのトークン途中改行〉ほか計6件の新規課題を検出）
-- [ ] GoalChecklistのcode折り返しを`overflow-wrap: anywhere`単独に戻す:
+- [x] GoalChecklistのcode折り返しを`overflow-wrap: anywhere`単独に戻す:
   `word-break: break-all`のため`PriorityTag`が「PriorityTa/g」のように短い識別子でも
   途中改行される。anywhere単独でも6-2のはみ出し（S65修正の主目的）は防げるはず
-- [ ] モバイルLessonNavの現在レッスン名を省略なし表示に変更: `.lesson-nav__current`の
+  （S68: break-all削除、overflow-wrap:anywhere単独に）
+- [x] モバイルLessonNavの現在レッスン名を省略なし表示に変更: `.lesson-nav__current`の
   `max-width: 16ch` + `ellipsis`で「整列とリサイズ挙動…」「タスクカードをコンポー…」
   のように末尾が切れる。ellipsisを外して2行wrap許容か章名側を短縮して枠を広げる
+  （S68: ellipsis/max-width/nowrapを全て削除、自然なwrapに）
 - [ ] レッスン一覧ページ`/lessons/`のフッター前後リンクを整理: 現状「次のページ: 1-1」だけが
   表示され、任意ジャンプ起点として使う復習者にとって行き止まり感が出る。frontmatterで
   prev/nextをoffするかトップへの戻り導線を追加する

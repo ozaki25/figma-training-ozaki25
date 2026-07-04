@@ -153,9 +153,9 @@
 }
 
 .goal-checklist-item code {
-  /* インラインcodeがはみ出さないよう、長いファイル名でも改行可能にする */
+  /* インラインcodeがはみ出さないよう、長いファイル名でも改行可能にする。
+     break-allは短い識別子(PriorityTag等)まで途中改行するので使わない。 */
   overflow-wrap: anywhere;
-  word-break: break-all;
 }
 
 .goal-checklist-item:hover {
