@@ -136,7 +136,8 @@
 - [x] 参考リポジトリから日本語チェック等のスキルを取り込む
 - [x] 全レッスン通しレビュー(章間のつながり・重複・抜け・難易度勾配) 
 - [x] 各レッスンを取り込んだスキルで精査 (問題があればBACKLOGに追加)
-- [x] 本物のFigmaキャプチャの導入検討(PLAN.md図版方針との整合) — 環境制約により見送り、SVG統一で確定
+- [x] 本物のFigmaキャプチャの導入検討 — 教材専用ファイル方式で再挑戦し進行中。リモート側で9フレームを組み終え、
+  キャプチャ取得はローカルClaude Codeに委譲(S41〜S46がリモート側の準備タスク)
 - [x] 6章のコード生成手順の実機検証
 - S27 review-lessonスキル導入: 完了。web-front-training-ozaki25の.claude/skills/review-lessonと
   .claude/hooks/check-bold.jsを本リポジトリ向けに調整して取り込み。draft/publish運用依存の
@@ -153,11 +154,16 @@
   現状維持。他章より1.3〜1.5倍長いのは山場ゆえで許容。
 - S37 6章鮮度再確認: 完了。Desktop MCPのエンドポイントが /sse → /mcp に切り替わっていたため
   6-1を更新。Remote方式・無料プラン制限は変更なし。定期再確認の意義を実証。
-- S38-S39 Figma実キャプチャ導入検討・試行: 見送り決定。教材専用ファイル方式で試行(fileIdは
-  .claude/figma-config.local.jsonに記録済み、gitignore対象)、Figma側のフレーム作成までは
-  成功したが実行環境のプロキシがwww.figma.comのPNGダウンロードを403で弾くため取得不可。
-  1レッスン単位で差し替えると一貫性が崩れるため、全レッスン一律SVGで運用する方針に固定。
-  PLAN.md/CLAUDE.mdに反映。
+- S38-S39 Figma実キャプチャ導入検討・試行(リモート環境): リモート実行環境のプロキシがwww.figma.comの
+  PNGダウンロードを403で弾くためリモートからは取得不可と判明。教材専用ファイル方式(fileIdは
+  .claude/figma-config.local.jsonに記録、gitignore対象)は有効なため、キャプチャ取得だけを
+  プロキシ制約のないローカルClaude Codeに委譲する運用へ切り替え。
+- S41-S46 リモート側でのFigmaデザイン組み: 完了。4-1〜5-3までの6フレーム(TaskCard/TextField/Button
+  メインコンポーネント含む)を教材専用ファイルに追加。2章の3フレームとあわせて9フレーム全てが揃った。
+  各フレームはレッスン仕様(サイズ・gap・padding・命名・スタイル適用・バリアント)と一致することを
+  get_metadata/get_design_contextで検証済み。次はローカルClaude Codeがキャプチャ取得して
+  feat/figma-capturesブランチにプッシュする段階。取り込みとレッスン本文差し替え・SVG削除・
+  Playwright検証・main統合はリモート側で実施予定。
 - S40 6章コード生成手順の実機検証: 完了。教材専用ファイルに対し
   `mcp__Figma__whoami`/`get_metadata`/`get_design_context`まで動作確認。返却されるReact+Tailwind
   コードにdata-node-id属性つきで、レッスン記述と整合。修正不要。
