@@ -85,3 +85,104 @@
     max-height: min(320px, 100%);
   }
 }
+
+/*
+ * ゴール確認セクションのインタラクティブ・チェックリスト
+ * GoalChecklist.vueがランタイムで<ul>にクラスを付与し、各<li>を
+ * role=checkboxに置換して状態をlocalStorageに保存する。
+ */
+.goal-checklist-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 12px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+.goal-checklist-progress-text {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--vp-c-text-1);
+}
+
+.goal-checklist-progress-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--vp-c-default-soft);
+  overflow: hidden;
+}
+
+.goal-checklist-progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--vp-c-brand-3);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+.goal-checklist {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 24px;
+}
+
+.goal-checklist-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  user-select: none;
+}
+
+.goal-checklist-item:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+.goal-checklist-item:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
+
+.goal-checklist-box {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 5px;
+  border: 2px solid var(--vp-c-text-3);
+  background: var(--vp-c-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.goal-checklist-item[aria-checked='true'] .goal-checklist-box {
+  background: var(--vp-c-brand-3);
+  border-color: var(--vp-c-brand-3);
+}
+
+.goal-checklist-item[aria-checked='true'] .goal-checklist-box::after {
+  content: '';
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+.goal-checklist-item.is-checked {
+  color: var(--vp-c-text-3);
+  text-decoration: line-through;
+  text-decoration-color: var(--vp-c-text-3);
+}
