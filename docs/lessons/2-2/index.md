@@ -61,7 +61,7 @@ Auto Layoutを付けたフレームを選択すると、右サイドバーの **
 
 肩書きのテキストを選択して `Cmd + D`（Windowsは `Ctrl + D`）で複製し、中身を好きな技術（例: React / TypeScript）に書き換えてみてください。3行目が追加された分、カード全体が自動で広がり、間隔も保たれたままです。手動配置なら測り直していたところが、何もしなくて済みます。
 
-![Auto Layout適用前と適用後の比較。適用前は円とテキストが目分量でばらばらに置かれ、適用後はgap16の横並びとgap4の縦並びがネストし、padding24のカードに整列している](/lessons/2-2/auto-layout-before-after.svg)
+![Auto Layout適用前と適用後の比較。適用前は円とテキストが目分量でばらばらに置かれ、適用後はgap16の横並びとgap4の縦並びがネストし、padding24のカードに整列している](/lessons/2-2/auto-layout-before-after.png)
 
 ## ゴール確認
 

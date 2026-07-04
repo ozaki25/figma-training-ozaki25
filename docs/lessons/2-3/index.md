@@ -64,7 +64,7 @@ Fillにしたテキストは幅が親で決まっているので、収まらな�
 
 「外枠はFixedで固定、伸縮してほしいテキストはFill、高さはHugで追従」。この組み合わせが、中身が変わっても崩れないカードの基本形です。
 
-![Hug・Fixed・Fillの違い。Hugは中身に合わせて縮み、Fixedは指定した数値のまま、Fillは親フレームいっぱいに広がる](/lessons/2-3/resizing-hug-fixed-fill.svg)
+![Hug・Fixed・Fillの違い。Hugは中身に合わせて縮み、Fixedは指定した数値のまま、Fillは親フレームいっぱいに広がる](/lessons/2-3/resizing-hug-fixed-fill.png)
 
 ## ゴール確認
 

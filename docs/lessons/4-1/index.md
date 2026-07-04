@@ -8,7 +8,7 @@
 
 ## 完成イメージ
 
-![タスク一覧画面の骨組みの見取り図。task-listフレームの上部にheader（My Tasksとuser-icon）、その下に薄グレーのcontentエリアがあり、見出しとプレースホルダーの四角形3つが縦に並ぶ](/lessons/4-1/task-list-skeleton.svg)
+![タスク一覧画面の骨組みの見取り図。task-listフレームの上部にheader（My Tasksとuser-icon）、その下に薄グレーのcontentエリアがあり、見出しとプレースホルダーの四角形3つが縦に並ぶ](/lessons/4-1/task-list-skeleton.png)
 
 構造は2階層だけです。
 

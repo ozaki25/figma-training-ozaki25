@@ -8,7 +8,7 @@
 
 ## 完成イメージ
 
-![TextFieldとButtonの構造と、form-cardにインスタンスを並べた完成イメージ。TextFieldはラベルと入力欄の縦Auto Layout。Buttonはprimaryとsecondaryの2バリアント。form-cardにタスク名・期限・メモの入力欄と登録ボタンが縦に並ぶ](/lessons/5-2/task-form-components.svg)
+![TextFieldとButtonの構造と、form-cardにインスタンスを並べた完成イメージ。TextFieldはラベルと入力欄の縦Auto Layout。Buttonはprimaryとsecondaryの2バリアント。form-cardにタスク名・期限・メモの入力欄と登録ボタンが縦に並ぶ](/lessons/5-2/task-form-components.png)
 
 作るのはTextFieldとButtonの2つです。仕様は次のとおり。
 
