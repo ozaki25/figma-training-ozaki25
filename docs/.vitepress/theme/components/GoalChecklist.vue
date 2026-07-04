@@ -96,10 +96,19 @@ function enhance() {
     li.setAttribute('role', 'checkbox')
     li.setAttribute('tabindex', '0')
 
+    // ラベル内容を単一のflex itemにまとめる。地の文とinline codeが個別flex itemに
+    // 分裂すると、末尾テキストが幅を奪い他のitemが1文字単位で折り返される。
+    const label = document.createElement('span')
+    label.className = 'goal-checklist-label'
+    while (li.firstChild) {
+      label.appendChild(li.firstChild)
+    }
+
     const box = document.createElement('span')
     box.className = 'goal-checklist-box'
     box.setAttribute('aria-hidden', 'true')
-    li.insertBefore(box, li.firstChild)
+    li.appendChild(box)
+    li.appendChild(label)
 
     function render() {
       const checked = !!state[idx]

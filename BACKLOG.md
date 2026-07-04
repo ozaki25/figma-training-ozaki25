@@ -278,8 +278,16 @@ S47の振り返りに基づき、4章・5章の題材(タスク管理ツール2�
   3クリックが必要。`/lessons/#day1`のようなアンカーか個別レッスンリンクを表内に追加
   （S69: カリキュラム表に「レッスン」列を追加し全18レッスンへの直リンクを掲載）
 - [x] サイト UX 観察スプリント第3ラウンド: S68-S69修正の効果検証と最終判定
-  （観察記録: docs-internal/ux-observation-s70.md / S67で挙げた6件すべて解消を確認。
-  新規観察はVitePress標準挙動由来の軽微な2件（サイドバーH2の見出し順、検索結果の
-  重複表示）のみで、いずれもテーマ本格カスタマイズを要するため小粒改善のスコープ外。
-  **判定: B（UX観察サイクル卒業）**。以降はBACKLOG「改善ループ(3巡目)」の題材
-  再設計に軸足を移す。VitePress本体アップデート等の契機があれば残観察を再点検する）
+  （観察記録: docs-internal/ux-observation-s70.md / S67の6件中5件〈A/C/D/E/F〉は解消。
+  ただし課題B〈GoalChecklist codeのトークン途中改行〉は`display:flex`経由で
+  モバイル4-2に実質再発〈"PriorityTag"→"Pri/ori/tyT/ag"の縦4行分解〉していると判明。
+  computedStyleだけでなく実スクショまで見て検出。**判定: A（改善継続）**。下記の
+  課題G解消を挟み、次ラウンドで卒業判定を再度行う）
+- [x] GoalChecklistのモバイル`<code>`縦積み解消（S70課題G）: `.goal-checklist-item`が
+  `display:flex` + `min-width:0`のため、直下の`<code>`と地の文の各text nodeがそれぞれ
+  flex itemに分裂し、末尾の長い日本語テキストが幅を奪って`<code>`が任意箇所で折り返される。
+  ラベル本文を単一のラッパー要素（例 `<span class="goal-checklist-label">`）に
+  まとめて1つのflex itemにする、あるいはラベル部分をblock化する
+  （S71: enhance()内でboxを除く全子要素を`.goal-checklist-label`spanでラップし
+  単一flex itemに統一。Playwright検証で`PriorityTag`が22px一行に収まり
+  縦4行分解が解消したことを確認。body横スクロールも再発なし）

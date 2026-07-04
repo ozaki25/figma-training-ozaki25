@@ -148,7 +148,10 @@
   word-break: break-word;
 }
 
-.goal-checklist-item > *:not(.goal-checklist-box) {
+.goal-checklist-label {
+  /* ラベル内の地の文とinline codeを単一のflex itemにまとめるためのラッパー。
+     min-width:0で親のflex幅内で縮小可能にする。 */
+  flex: 1 1 auto;
   min-width: 0;
 }
 
