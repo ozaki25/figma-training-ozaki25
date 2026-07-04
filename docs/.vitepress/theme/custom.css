@@ -141,6 +141,21 @@
   cursor: pointer;
   transition: background-color 0.15s ease, border-color 0.15s ease;
   user-select: none;
+  /* 狭幅で `TaskCard.tsx` のような長いinline codeが折り返せるように、
+     flex子孫が縮小できる状態を作る。word-breakで英数字トークンも改行可能にする。 */
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.goal-checklist-item > *:not(.goal-checklist-box) {
+  min-width: 0;
+}
+
+.goal-checklist-item code {
+  /* インラインcodeがはみ出さないよう、長いファイル名でも改行可能にする */
+  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .goal-checklist-item:hover {
