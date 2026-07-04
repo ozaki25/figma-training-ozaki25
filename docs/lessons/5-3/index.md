@@ -10,7 +10,8 @@
 
 Figmaのキャンバスは無限に広いので、画面フレームを横に並べて置けます。task-listの右側にtask-formを移動して、`Shift + 1`（Mac/Windows共通）で全体表示にすると、2画面を一度に見渡せます。
 
-![task-listとtask-formを横並びに置いたキャンバス俯瞰図。両画面の左に同じsidebarがあり、上に同じheaderが乗っている。一貫性のチェックポイントを下部に凡例で示す](/lessons/5-3/two-screens-side-by-side.png)
+<!-- 画像は個人情報漏洩対策で一時削除、再キャプチャ後に復活予定 -->
+<!-- ![task-listとtask-formを横並びに置いたキャンバス俯瞰図。両画面の左に同じsidebarがあり、上に同じheaderが乗っている。一貫性のチェックポイントを下部に凡例で示す](/lessons/5-3/two-screens-side-by-side.png) -->
 
 `Shift + 2`（Mac/Windows共通）は選択範囲にズームなので、片方の画面だけをじっくり見たいときはそちらを使い、俯瞰したいときは `Shift + 1` に戻ります。
 

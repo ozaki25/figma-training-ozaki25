@@ -10,7 +10,8 @@
 
 ## 完成イメージ
 
-![タスク登録フォーム画面の骨組み。左は4章と同じsidebar、右のmainは4章と同じheaderと薄グレーのcontent。contentの中央に幅560の白いform-cardがあり、見出しと入力欄プレースホルダー5個、下部にボタンプレースホルダー2個が縦に並ぶ](/lessons/5-1/task-form-skeleton.png)
+<!-- 画像は個人情報漏洩対策で一時削除、再キャプチャ後に復活予定 -->
+<!-- ![タスク登録フォーム画面の骨組み。左は4章と同じsidebar、右のmainは4章と同じheaderと薄グレーのcontent。contentの中央に幅560の白いform-cardがあり、見出しと入力欄プレースホルダー5個、下部にボタンプレースホルダー2個が縦に並ぶ](/lessons/5-1/task-form-skeleton.png) -->
 
 構造は4章のtask-listと同じ3階層です。違いはcontentの中身と整列だけです。
 

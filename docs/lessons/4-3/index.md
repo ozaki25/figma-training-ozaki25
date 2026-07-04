@@ -6,7 +6,8 @@
 
 ## 完成イメージ
 
-![仕上げ後のタスク一覧画面。左は装飾済みsidebar（ブランド、nav-item 5個、下端にユーザーブロック）、右はheaderとcontent。contentには見出し、stat-row 3枚、filter-bar 4個、3セクションに合計8枚のTaskCardが並ぶ。1枚は完了状態](/lessons/4-3/task-list-final.png)
+<!-- 画像は個人情報漏洩対策で一時削除、再キャプチャ後に復活予定 -->
+<!-- ![仕上げ後のタスク一覧画面。左は装飾済みsidebar（ブランド、nav-item 5個、下端にユーザーブロック）、右はheaderとcontent。contentには見出し、stat-row 3枚、filter-bar 4個、3セクションに合計8枚のTaskCardが並ぶ。1枚は完了状態](/lessons/4-3/task-list-final.png) -->
 
 ## 使うスタイル
 

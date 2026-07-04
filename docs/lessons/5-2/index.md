@@ -8,7 +8,8 @@
 
 ## 完成イメージ
 
-![TextFieldとButtonの構造とform-cardの完成イメージ。TextFieldはラベルと入力欄の縦積み。Buttonはprimaryとsecondaryの2バリアント。form-cardには5つのTextFieldと右下の2ボタンが並ぶ](/lessons/5-2/task-form-components.png)
+<!-- 画像は個人情報漏洩対策で一時削除、再キャプチャ後に復活予定 -->
+<!-- ![TextFieldとButtonの構造とform-cardの完成イメージ。TextFieldはラベルと入力欄の縦積み。Buttonはprimaryとsecondaryの2バリアント。form-cardには5つのTextFieldと右下の2ボタンが並ぶ](/lessons/5-2/task-form-components.png) -->
 
 作るのはTextFieldとButtonの2つです。
 
