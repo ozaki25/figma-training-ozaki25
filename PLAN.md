@@ -135,6 +135,19 @@
 - 古い screenshot・メニュー名・手順を鵜呑みにせず、レッスン執筆時にWeb検索等で現行のFigma UIを確認してから書く
 - 特に6章（Figma MCP + Claude Code）はツールの仕様変化が速い領域のため、執筆直前に最新のセットアップ手順を確認する
 
+## 4章・5章の題材（v3 再設計 2026-07-04）
+- 詳細仕様は `docs-internal/redesign-v3.md`
+- 2画面とも「左サイドバー240 + 右カラム(header 64 + content)」の2カラム構成
+- task-list は stat-row / filter-bar / セクション分け(Today/This Week/Later) / TaskCard 8枚
+- TaskCard は checkbox / PriorityTag / タイトル+説明 / CategoryBadge / assignee / due の6要素
+- task-form は 5項目入力（説明は複数行、期限・優先度は横並び2列） + Cancel/Register の2ボタン
+  （5-2で作るButtonのprimary/secondary両バリアントを本番で使い切る）
+- 色スタイル7個（brand/text/main/text/sub/bg/surface + border + bg-active）
+- テキストスタイル5個（app-title/page-title/card-title/card-desc + card-due）
+- 4章・5章の所要時間は従来90分→125分。他章のバッファで2日間19レッスンに収める
+- 学習項目（Auto Layout・コンポーネント・バリアント・スタイル）は不変。3章のプロフィールカードも据え置き
+- 3章では3-1で「4色で十分、実践では6〜8色に増えることもある」の一言だけ前振り
+
 ## キャプチャ・図版の方針
 - 図版はSVG自作の模式図で運用する（2026-07-04変更）。
 - 当初の方針では「Figma MCPで実際に組んで `get_screenshot` で撮った実キャプチャを使う」としていたが、
