@@ -137,7 +137,7 @@
 - [x] 全レッスン通しレビュー(章間のつながり・重複・抜け・難易度勾配) 
 - [x] 各レッスンを取り込んだスキルで精査 (問題があればBACKLOGに追加)
 - [x] 本物のFigmaキャプチャの導入検討(PLAN.md図版方針との整合) — 環境制約により見送り、SVG統一で確定
-- [ ] 6章のコード生成手順の実機検証
+- [x] 6章のコード生成手順の実機検証
 - S27 review-lessonスキル導入: 完了。web-front-training-ozaki25の.claude/skills/review-lessonと
   .claude/hooks/check-bold.jsを本リポジトリ向けに調整して取り込み。draft/publish運用依存の
   add-lesson/publish-lessonは除外。ペルソナ・UI最新性(2026-07)・SVG方針・textlint等を調整。
@@ -158,3 +158,8 @@
   成功したが実行環境のプロキシがwww.figma.comのPNGダウンロードを403で弾くため取得不可。
   1レッスン単位で差し替えると一貫性が崩れるため、全レッスン一律SVGで運用する方針に固定。
   PLAN.md/CLAUDE.mdに反映。
+- S40 6章コード生成手順の実機検証: 完了。教材専用ファイルに対し
+  `mcp__Figma__whoami`/`get_metadata`/`get_design_context`まで動作確認。返却されるReact+Tailwind
+  コードにdata-node-id属性つきで、レッスン記述と整合。修正不要。
+  発見: Figma MCPのAPIコールはプロキシ配下でも動く(画像DLだけ制限)。今後の実機検証には
+  教材専用ファイルにtask-list/task-formのサンプルを置くと自動テスト化が可能。
