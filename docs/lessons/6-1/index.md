@@ -41,7 +41,7 @@ Figma無料（Starter）プランでは、Remoteサーバーは使えるもの�
 
 ターミナルでClaude Codeを起動した状態で、次のスラッシュコマンドを打ちます。
 
-```
+```bash
 /plugin install figma@claude-plugins-official
 ```
 
@@ -53,7 +53,7 @@ Figma無料（Starter）プランでは、Remoteサーバーは使えるもの�
 
 再起動したら、次のコマンドで管理パネルを開きます。
 
-```
+```bash
 /plugin
 ```
 
@@ -73,7 +73,7 @@ connectedになっていれば、この時点で `mcp__Figma__` で始まるツ�
 2. `task-list` フレームを選び、右クリック → **Copy/Paste as** → **Copy link to selection**（またはメニューの「Share」→「Copy link」）でURLをコピーする
 3. Claude Codeに戻り、次のように投げる
 
-```
+```text
 このFigmaのフレームの中身を教えて: <コピーしたURL>
 ```
 
@@ -103,7 +103,12 @@ Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム�
 ### 3. タスク一覧を読み取らせる
 
 1. 4章で作った `task-list` フレームの共有リンクをコピーする
-2. Claude Codeに `このFigmaフレームの構造を教えて: <URL>` と投げる
+2. Claude Codeに次のプロンプトを投げる（URLはコピーしたものに差し替える）
+
+```text
+このFigmaフレームの構造を教えて: <URL>
+```
+
 3. `task-list` の下に `header` や `content` があること、`brand` や `surface` などの色スタイル名が含まれていることを確認する
 
 構造が返ってくれば、Figma MCPのセットアップは完了です。6-2ではこの接続を使って、タスク一覧画面をコードに変換します。
