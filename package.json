@@ -11,6 +11,7 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "docs:lint": "textlint \"docs/**/*.md\"",
+    "docs:style": "node .claude/hooks/check-style.cjs",
     "pwa:icons": "pwa-assets-generator"
   },
   "devDependencies": {

@@ -1,0 +1,104 @@
+// レッスンの「型」の欠陥を機械検出する lint。
+// CLAUDE.md の執筆方針のうち、機械で拾える再発しやすいものを対象にする:
+//   1) ゴール確認 の項目が複文（「。」で 2 文に割れている）
+//   2) 見出し（# 行）に詩的・文学的な語（正体・魔法・旅 など）
+//   3) 本文に全角記号 ＝ ＋（「A は B」「A に B を足す」と言葉で書く）
+//   4) 足場フレーズ（「まず全体像」「結論から言うと」など）
+//   5) AI出力を前提にした書き方の疑い
+// 使い方: node .claude/hooks/check-style.cjs docs/lessons/1-1/index.md [...]
+//         省略時は docs/lessons と docs/ 直下の全 index.md を対象にする。
+// 検出は「候補」。引用の格言・概念語など正当なものは人が判断して除外する。
+// 出典: ozaki25/web-front-training-ozaki25 .claude/hooks/check-style.js を本リポジトリ向けに調整。
+//   - 対象ディレクトリを docs/lessons と docs/ に変更（本リポジトリに drafts はない）
+//   - セクション名の判定を「ゴール確認」「まとめ」「できたこと」「この章はここまで」に拡張
+
+const fs = require('fs');
+const path = require('path');
+
+const POETIC = ['正体', '裏側', '命を吹き込む', '鍵', '秘密', '魔法', '旅', '世界', '扉', '真実'];
+const SCAFFOLD = [
+  '結論から言うと',
+  'まず全体像',
+  'を見ていきます',
+  'という地図',
+  '大きく2つ',
+  '大きく3つ',
+];
+const GOAL_SECTIONS = ['ゴール確認', 'まとめ', 'できたこと', 'この章はここまで'];
+
+function collectTargets(args) {
+  if (args.length) return args;
+  const out = [];
+  const lessonsDir = 'docs/lessons';
+  if (fs.existsSync(lessonsDir)) {
+    for (const name of fs.readdirSync(lessonsDir)) {
+      const f = path.join(lessonsDir, name, 'index.md');
+      if (fs.existsSync(f)) out.push(f);
+    }
+    const idx = path.join(lessonsDir, 'index.md');
+    if (fs.existsSync(idx)) out.push(idx);
+  }
+  const top = 'docs/index.md';
+  if (fs.existsSync(top)) out.push(top);
+  return out.sort();
+}
+
+function scan(file) {
+  const lines = fs.readFileSync(file, 'utf8').split('\n');
+  let inCode = false;
+  let section = '';
+  const hits = [];
+  lines.forEach((line, i) => {
+    const t = line.trim();
+    if (t.startsWith('```')) {
+      inCode = !inCode;
+      return;
+    }
+    if (inCode) return;
+    if (t.startsWith('## ')) section = t.replace(/^##\s*/, '');
+    const noCode = line.replace(/`[^`]*`/g, '');
+
+    // ゴール確認/まとめ系セクションの箇条書きが複文になっていないか
+    if (GOAL_SECTIONS.some((s) => section.includes(s)) && t.startsWith('- ')) {
+      const body = t.replace(/^- /, '').replace(/^\[[ xX]\]\s*/, '');
+      const dots = (body.match(/。/g) || []).length;
+      const endsClean = body.endsWith('。') || body.endsWith('）') || body.endsWith(')');
+      if (dots >= 2 || (dots === 1 && !endsClean)) {
+        hits.push(`  [複文] ${i + 1}: ${body.slice(0, 60)}`);
+      }
+    }
+    if (t.startsWith('#')) {
+      for (const w of POETIC) {
+        if (t.includes(w)) hits.push(`  [詩的見出し:${w}] ${i + 1}: ${t.slice(0, 60)}`);
+      }
+    }
+    if (/[＝＋]/.test(noCode)) hits.push(`  [全角記号] ${i + 1}: ${t.slice(0, 60)}`);
+    for (const s of SCAFFOLD) {
+      if (t.includes(s)) hits.push(`  [足場:${s}] ${i + 1}: ${t.slice(0, 60)}`);
+    }
+    // 未観測の AI 出力を前提にした書き方の疑い
+    if (
+      /AI\s*に[^。]{0,20}頼むと(?!き)[^。]{0,30}(出|書|生成|試|抜|作|なる)/.test(noCode) ||
+      /AI\s*(が|は)[^。]{0,25}(書いて|書く|生成|出てき|出します|抜け|抜か|偏)/.test(noCode)
+    ) {
+      hits.push(`  [AI出力前提の疑い] ${i + 1}: ${t.slice(0, 60)}`);
+    }
+  });
+  return hits;
+}
+
+const targets = collectTargets(process.argv.slice(2));
+let total = 0;
+for (const f of targets) {
+  const hits = scan(f);
+  if (hits.length) {
+    total += hits.length;
+    console.log(f);
+    console.log(hits.join('\n'));
+  }
+}
+if (total) {
+  console.log(`\n候補 ${total} 件（引用の格言・概念語・事実は人が判断して除外する）`);
+  process.exit(1);
+}
+process.exit(0);

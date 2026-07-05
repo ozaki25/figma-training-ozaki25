@@ -88,11 +88,12 @@ Figma未経験のエンジニア向けハンズオン教材（VitePress製）。
 - `npm run docs:dev` — ローカルプレビュー
 - `npm run docs:build` — 本番ビルド
 - `npm run docs:lint` — textlintによる文章校正（対象は `docs/**/*.md`）
+- `npm run docs:style` — 詩的見出し・足場フレーズ・全角記号・複文ゴール・AI出力前提の疑いの候補検出（CLAUDE.md方針の機械化lint）
 - `npm run pwa:icons` — PWAアイコン生成
 
 ## 品質チェック
 
-コミット前に必ず `npm run docs:build` と `npm run docs:lint` を通す。どちらかが失敗した状態でコミットしない。
+コミット前に必ず `npm run docs:build` と `npm run docs:lint` を通す。どちらかが失敗した状態でコミットしない。`docs:style` は候補検出なので誤検出を含む前提で、指摘があれば内容を人が判断する。
 
 ## 進め方
 
