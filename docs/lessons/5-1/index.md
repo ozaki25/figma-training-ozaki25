@@ -84,9 +84,9 @@
 入力欄とボタンは5-2で作るので、いまは器の中に仮の要素を置いて骨組みを確かめます。
 
 1. `form-card` の中に `R` で四角形を5個作る: 高さ 44、角丸 8、白、枠線1px `border`。幅を **Fill** にして、名前を `input-placeholder` にする
-2. 5個目のうち、幅を「横並び2列」にしたい2つ分は後回しでよい（5-2で並べ替える）
+2. 5個のうち、5-2で横並び2列にする2つ分は、いまは縦に並べたままでよい（5-2で並べ替える）
 3. カードの一番下に `Shift + A` で横Auto Layoutフレームを作る: gap 12、幅Fill、整列は右、名前 `button-row`
-4. `button-row` の中に四角形を2つ作る: 高さ 44、角丸 8、幅Hug（padding 20/16）。左は白+枠線、右は `brand` 塗り。名前は `button-placeholder-cancel` と `button-placeholder-submit`
+4. `button-row` の中に四角形を2つ作る: 高さ 44、角丸 8、幅Fixed 120。左は白+枠線、右は `brand` 塗り。名前は `button-placeholder-cancel` と `button-placeholder-submit`（四角形には余白やHugは設定できないので、ここは固定幅の仮ボタンにする。5-2で本物のButtonに置き換える）
 
 カードの中で、5つの入力欄の枠とボタン行がgap 20で縦に並び、幅はカードいっぱいにそろうはずです。最後にサイドバーとヘッダーが4章と揃って見えるか、画面全体の高さを変えてもcontentだけが伸縮するかを確認します。
 

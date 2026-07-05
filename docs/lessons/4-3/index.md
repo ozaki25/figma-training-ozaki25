@@ -122,7 +122,7 @@ contentの上（`page-title` の下）に、統計カードを3枚横に並べ�
 2. `nav-item` の四角形を、テキスト付きに置き換える: `Shift + A` で横Auto Layoutフレーム（高さ40、padding 4/12、角丸8、幅Fill、gap 12）に、20×20の四角形（薄グレー、アイコン代わり）とテキストのラベル（14、`text/main`）を入れる。ラベルは `受信箱`・`今日`・`今週`・`完了`・`アーカイブ` の5個
 3. `今日` の nav-item だけ背景を `bg-active` に上書きし、右端に小さなバッジ（padding 2/6、角丸8、`brand` 塗り、白文字「8」）を追加する
 4. サイドバーの下端に `Shift + A` で横Auto Layoutフレーム（padding 8、gap 8、幅Fill）を作り、24×24の正円（薄グレー）とテキスト2行（`YO` 14と `Designer` 12 `text/sub`）を入れる。名前を `user-block` にする
-5. サイドバー全体の縦gapは維持したまま、`user-block` の直前だけ gap を Auto にすると、上のnav-itemと下のuser-blockが上下に離れて配置される
+5. `nav-item` の5個と `user-block` の間に、`Shift + A` で空の縦Auto Layoutフレームを1つ作り、名前を `spacer`、高さを **Fill** にする。この `spacer` が余った縦スペースを吸収し、`user-block` がサイドバーの下端へ押し出される（Auto Layoutでは特定の1か所だけ間隔を空けられないので、高さFillのスペーサーで間を開ける）
 
 ### 7. 完了タスクを1件仕上げる
 
