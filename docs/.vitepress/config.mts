@@ -191,13 +191,20 @@ export default withPwa(
       workbox: {
         globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        // 新しいService Workerを待機させず即座に有効化する。
+        // registerType: 'autoUpdate' と組み合わせて、更新をリロード1回で反映させる。
+        skipWaiting: true,
+        clientsClaim: true,
+        cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
+            // HTMLナビゲーションはNetworkFirstで常に最新を取りにいく。
+            // オフライン時や3秒以内にネットワークが返らない場合のみキャッシュを返す。
             urlPattern: ({ request }) => request.mode === 'navigate',
             handler: 'NetworkFirst',
             options: {
               cacheName: 'pages-cache',
-              networkTimeoutSeconds: 5,
+              networkTimeoutSeconds: 3,
             },
           },
         ],
