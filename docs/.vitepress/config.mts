@@ -50,8 +50,8 @@ export default withPwa(
           collapsed: false,
           items: [
             { text: '2-1 シェイプとテキストを配置する', link: '/lessons/2-1/' },
-            { text: '2-2 Auto Layoutで並べる', link: '/lessons/2-2/' },
-            { text: '2-3 整列とリサイズ挙動（Hug/Fill）を理解する', link: '/lessons/2-3/' },
+            { text: '2-2 オートレイアウトで並べる', link: '/lessons/2-2/' },
+            { text: '2-3 整列とリサイズ挙動（内包/拡大/固定）を理解する', link: '/lessons/2-3/' },
           ],
         },
         {

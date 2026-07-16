@@ -21,8 +21,8 @@ const chapters: Chapter[] = [
     text: '基本要素を作る',
     lessons: [
       { slug: '2-1', text: 'シェイプとテキストを配置する', link: '/lessons/2-1/' },
-      { slug: '2-2', text: 'Auto Layoutで並べる', link: '/lessons/2-2/' },
-      { slug: '2-3', text: '整列とリサイズ挙動（Hug/Fill）を理解する', link: '/lessons/2-3/' },
+      { slug: '2-2', text: 'オートレイアウトで並べる', link: '/lessons/2-2/' },
+      { slug: '2-3', text: '整列とリサイズ挙動（内包/拡大/固定）を理解する', link: '/lessons/2-3/' },
     ],
   },
   {
