@@ -10,7 +10,7 @@
 
 ![タスク一覧画面のcontentにTaskCardのインスタンスが3枚縦に並ぶ。各カードは左からチェック用の正円、優先度タグ、タスク名と説明の縦2行、カテゴリバッジ、担当者アイコン、右端に期限。画面外にTaskCardとPriorityTagの原本がある](/lessons/4-2/task-list-cards.png)
 
-作るのはTaskCardとPriorityTagの2つです。仕様は次のとおり。
+作るのはTaskCardとPriorityTagの2つです。仕様は次のとおり。パディングの「4/8」のような2値表記は、CSSの `padding: 4px 8px` と同じ**上下/左右**の順です。
 
 | 部品 | 役割 | 仕様 |
 | --- | --- | --- |
