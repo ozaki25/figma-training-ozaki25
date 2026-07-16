@@ -31,11 +31,16 @@ export default withPwa(
       nav: [
         { text: 'ホーム', link: '/' },
         { text: 'レッスン一覧', link: '/lessons/' },
+        { text: 'ショートカット', link: '/cheatsheet' },
       ],
       sidebar: [
         {
           text: 'レッスン一覧',
           link: '/lessons/',
+        },
+        {
+          text: 'ショートカット早見表',
+          link: '/cheatsheet',
         },
         {
           text: '1章 Figmaを開いてみる',
