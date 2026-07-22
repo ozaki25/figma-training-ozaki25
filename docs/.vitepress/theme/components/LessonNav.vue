@@ -32,6 +32,7 @@ const chapters: Chapter[] = [
       { slug: '3-1', text: 'カラーとタイポグラフィのルール化', link: '/lessons/3-1/' },
       { slug: '3-2', text: 'コンポーネントとバリアントを作る', link: '/lessons/3-2/' },
       { slug: '3-3', text: 'コード生成を見据えたレイヤー命名', link: '/lessons/3-3/' },
+      { slug: '3-4', text: 'バリアブルでデザイントークンを管理する', link: '/lessons/3-4/' },
     ],
   },
   {
