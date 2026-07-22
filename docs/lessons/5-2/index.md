@@ -100,7 +100,7 @@ form-cardのボタン行には、左に `secondary` の「キャンセル」、�
 
 1. 5-1で置いた `button-row` の中の `button-placeholder-cancel` と `button-placeholder-submit` を消す
 2. アセットパネルから `Button` を2つドラッグする
-3. 左のButtonのvariantを `secondary` に切り替え、`label` を `キャンセル` に書き換える
+3. 左のButtonを選択し、右サイドバーの `variant` ドロップダウンを `secondary` に切り替える（3-2のonlineと違い、値がtrue/falseではないのでドロップダウンになる）。`label` を `キャンセル` に書き換える
 4. 右のButtonはvariantが `primary` のまま、`label` を `タスクを登録` にする
 5. `button-row` は幅を拡大、間隔 12、配置を**右**にする。2つのボタンはそれぞれ幅は内包のまま
 
