@@ -119,9 +119,10 @@ contentの上（`page-title` の下）に、統計カードを3枚横に並べ�
 1. content内に空の横オートレイアウトフレームを作り、名前を `filter-bar` にする
 2. 間隔 8、パディング 0、幅は拡大、高さは内包にする
 3. 1個目のチップを作る
-   1. `t` でテキスト `すべて`（`card-desc`）を中に作り、`Shift + A` で包む
+   1. filter-barの外で `t` でテキスト `すべて`（`card-desc`）を作り、`Shift + A` で包む
    2. 高さ32、パディング 4/12、角丸16、幅は内包にする
    3. 背景を `brand` に、文字色を白に上書きする
+   4. `filter-bar` の中へ入れる
 4. 名前を `chip-active` にする
 5. `Cmd + D` で3個複製し、それぞれ「未完了 / 完了 / 優先高」に書き換える
 6. 複製した3個は、背景 `surface`、枠線1px `border`、文字 `text/main` に変える。名前は `chip` でよい
@@ -132,7 +133,7 @@ contentの上（`page-title` の下）に、統計カードを3枚横に並べ�
 
 1. content内に空の縦オートレイアウトフレームを3つ作り、名前を `section-today`・`section-week`・`section-later` にする
 2. 3つとも、間隔 12、パディング 0、幅は拡大、高さは内包にする
-3. 各セクションの先頭に `t` でラベル用のテキストを入れる: `今日`・`今週`・`後で`（14 SemiBold、`text/sub`）
+3. `t` でラベルのテキスト `今日`・`今週`・`後で`（14 SemiBold、`text/sub`）を作り、各セクションの先頭へ1つずつ入れる
 4. 既存のTaskCard 3枚を `section-today` の中へ移動する
 5. `section-week` と `section-later` にもTaskCardインスタンスをアセットパネルから追加する。`section-week` は3枚、`section-later` は2枚
 6. 上のダミータスク表のとおりに各カードのタイトル・説明・カテゴリ・担当・期限・PriorityTagの色を上書きする
