@@ -210,7 +210,7 @@
 | --- | --- | --- |
 | `brand` | アクセント・ボタン | `#7C3AED` |
 | `text/main` | 本文文字 | `#2A2A31` |
-| `text/sub` | 補助文字 | `#8A8A93` |
+| `text/sub` | 補助文字 | `#6E6E76` |
 | `bg` | contentの地色 | `#F5F5F5` |
 | `surface` | カード/ヘッダー/サイドバー | `#FFFFFF` |
 | `border` | 罫線・枠線（新） | `#E5E5EA` |
