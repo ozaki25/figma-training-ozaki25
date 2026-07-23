@@ -99,7 +99,7 @@ TaskCardは横並びのカードですが、真ん中の `task-body` だけは�
 
 1. TaskCardのフレームを選択して `Cmd + Option + K` でコンポーネント化
 2. レイヤーパネルのアイコンがひし形4つに変わったのを確認する
-3. `Cmd + R` で名前を付ける: コンポーネントは `TaskCard`、中の部品は `checkbox`・`task-title`・`task-desc`・`CategoryBadge`・`assignee`・`task-due`。`task-body` と `PriorityTag` は名前が付いているのでそのまま
+3. `Cmd + R` で、コンポーネントの名前を `TaskCard` に、中の部品を `checkbox`・`task-title`・`task-desc`・`CategoryBadge`・`assignee`・`task-due` にする。`task-body` と `PriorityTag` は名前が付いているのでそのまま
 
 ### 4. インスタンスをcontentに3枚並べる
 
