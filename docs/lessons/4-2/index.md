@@ -12,17 +12,29 @@
 
 作るのはTaskCardとPriorityTagの2つです。仕様は次のとおり。パディングの「4/8」のような2値表記は、CSSの `padding: 4px 8px` と同じ**上下/左右**の順です。
 
+```
+TaskCard
+├─ checkbox
+├─ PriorityTag
+├─ task-body
+│  ├─ task-title
+│  └─ task-desc
+├─ CategoryBadge
+├─ assignee
+└─ task-due
+```
+
 | 部品 | 役割 | 仕様 |
 | --- | --- | --- |
 | `TaskCard` | カード本体（コンポーネント） | 横オートレイアウト、間隔 16、パディング 16、背景白、角丸12、上下中央揃え |
-| └ `checkbox` | 完了チェック | 20×20の正円。白塗り、グレーの枠線 |
-| └ `PriorityTag` | 優先度タグ（別コンポーネント） | 幅は内包、パディング 4/8、角丸4、テキスト12 Medium |
-| └ `task-body` | タイトルと説明の縦積み | 縦オートレイアウト、間隔 4、幅は拡大 |
-| 　　├ `task-title` | タスク名 | 14px Medium |
-| 　　└ `task-desc` | 説明 | 12px Regular、薄グレー |
-| └ `CategoryBadge` | カテゴリ | フレーム、幅は内包、パディング 4/10、角丸4、テキスト12 |
-| └ `assignee` | 担当者 | 24×24のオートレイアウトフレーム、角丸12、薄グレー塗り、白抜き文字12 |
-| └ `task-due` | 期限 | 12px Regular、薄グレー |
+| `checkbox` | 完了チェック | 20×20の正円。白塗り、グレーの枠線 |
+| `PriorityTag` | 優先度タグ（別コンポーネント） | 幅は内包、パディング 4/8、角丸4、テキスト12 Medium |
+| `task-body` | タイトルと説明の縦積み | 縦オートレイアウト、間隔 4、幅は拡大 |
+| `task-title` | タスク名 | 14px Medium |
+| `task-desc` | 説明 | 12px Regular、薄グレー |
+| `CategoryBadge` | カテゴリ | フレーム、幅は内包、パディング 4/10、角丸4、テキスト12 |
+| `assignee` | 担当者 | 24×24のオートレイアウトフレーム、角丸12、薄グレー塗り、白抜き文字12 |
+| `task-due` | 期限 | 12px Regular、薄グレー |
 
 TaskCardは横並びのカードですが、真ん中の `task-body` だけは中で縦にタイトルと説明を積みます。**オートレイアウトの入れ子（横の中に縦）** が初めて出てきます。CSSでいえば `flex-direction: row` の中に `flex-direction: column` のブロックを入れる形です。
 

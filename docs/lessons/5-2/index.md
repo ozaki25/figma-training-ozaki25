@@ -12,13 +12,22 @@
 
 作るのはTextFieldとButtonの2つです。パディングの「4/8」のような2値表記は、CSSの `padding: 4px 8px` と同じ**上下/左右**の順です。
 
+```
+TextField
+├─ label
+└─ input
+
+Button
+└─ label
+```
+
 | 部品 | 役割 | 仕様 |
 | --- | --- | --- |
 | `TextField` | ラベル付き入力欄 | 縦オートレイアウト、間隔 8、幅は固定320（フォームに置くインスタンスは拡大にする） |
-| └ `label` | ラベルテキスト | `card-desc` + `text/sub` |
-| └ `input` | 入力ボックス | 高さ44、パディング 12、角丸8、背景 `surface`、枠線1px `border`、テキスト14px |
+| `label` | ラベルテキスト | `card-desc` + `text/sub` |
+| `input` | 入力ボックス | 高さ44、パディング 12、角丸8、背景 `surface`、枠線1px `border`、テキスト14px |
 | `Button` | ボタン | 高さ44、左右パディング 20、配置は中央、角丸8、幅は内包 |
-| └ `label` | ボタンラベル | 14px SemiBold |
+| `label` | ボタンラベル | 14px SemiBold |
 
 Buttonのバリアントは、プロパティ名 `variant`、値 `primary` と `secondary` の2つです。
 
