@@ -6,7 +6,7 @@
 
 ## 完成イメージ
 
-![タスク一覧画面のcontentにTaskCardのインスタンスが3枚縦に並ぶ。各カードは左からチェック用の正円、優先度タグ、タスク名と説明の縦2行、カテゴリバッジ、担当者アイコン、右端に期限。画面外にTaskCardとPriorityTagの原本がある](/lessons/4-3/task-list-cards.png)
+![タスク一覧画面のcontentにTaskCardのインスタンスが3枚縦に並ぶ。各カードは左からチェック用の正円、優先度タグ、タスク名と説明の縦2行、カテゴリバッジ、担当者アイコン、右端に期限](/lessons/4-3/task-list-cards.png)
 
 作るのはTaskCardとPriorityTagの2つです。
 
