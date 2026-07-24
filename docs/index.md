@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Figmaハンズオン
   text: 2日間でFigmaに慣れる
-  tagline: HTML/CSSは書けるがFigmaは触ったことがないエンジニア向け。タスク管理ツールの2画面をゼロからデザインし、Figma MCPとClaude Codeでコードに変換するところまでを2日間の演習で体験します。
+  tagline: HTML/CSSの知識は前提に、Figmaの知識は一切前提にしません。タスク管理ツールの2画面をゼロからデザインし、Figma MCPとClaude Codeでコードに変換するところまでを2日間の演習で扱います。
   image:
     src: /logo.svg
     alt: Figmaハンズオン
@@ -52,4 +52,4 @@ hero:
 
 1〜5章はFigmaアカウント（無料）とブラウザだけで始められます。6章からClaude Code CLIとFigma MCPサーバーが要ります（セットアップ手順は6-1に書いています）。
 
-全20レッスン、実際にFigmaを操作する時間を含めて約10時間です。丸1日×2日、または業務の合間に分けて進めてください。
+全20レッスン、実際にFigmaを操作する時間を含めて約10時間です。
