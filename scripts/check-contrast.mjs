@@ -22,13 +22,9 @@ const checks = [
   ['light: brand-2 (hover) on 白背景', '#5B21B6', '#ffffff', 4.5],
   ['light: ボタン文字(白) on brand-3 (ボタン背景 #7C3AED)', '#ffffff', '#7C3AED', 4.5],
   ['light: ボタン文字(白) on hover背景 #6D28D9', '#ffffff', '#6D28D9', 4.5],
-  ['light: ヒーロー見出しグラデ始点 #6D28D9 on 白 (大テキスト)', '#6D28D9', '#ffffff', 3],
-  ['light: ヒーロー見出しグラデ終点 #C2410C on 白 (大テキスト)', '#C2410C', '#ffffff', 3],
   ['dark: brand-1 (リンク/テキスト) on 背景 #1b1b1f', '#C4A5FF', '#1b1b1f', 4.5],
   ['dark: brand-2 (hover) on 背景 #1b1b1f', '#D4BEFF', '#1b1b1f', 4.5],
   ['dark: ボタン文字(白) on brand-3 (ボタン背景 #7C3AED)', '#ffffff', '#7C3AED', 4.5],
-  ['dark: ヒーロー見出しグラデ始点 #C4A5FF on #1b1b1f (大テキスト)', '#C4A5FF', '#1b1b1f', 3],
-  ['dark: ヒーロー見出しグラデ終点 #5EDDA8 on #1b1b1f (大テキスト)', '#5EDDA8', '#1b1b1f', 3],
 ]
 
 let ok = true

@@ -25,16 +25,10 @@
   --vp-button-brand-active-text: #ffffff;
   --vp-button-brand-active-bg: #5b21b6;
 
-  /* ヒーロー見出し: 紫→オレンジ系のグラデーション (どちらも白背景に3:1以上) */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, #6d28d9 30%, #c2410c);
-  /* ヒーロー画像の背景ぼかし (装飾なのでコントラスト要件なし) */
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    rgba(162, 89, 255, 0.55) 40%,
-    rgba(10, 207, 131, 0.45)
-  );
-  --vp-home-hero-image-filter: blur(44px);
+  /* ヒーロー見出し: ブランドの紫単色 (白背景に7.10:1) */
+  --vp-home-hero-name-color: var(--vp-c-brand-1);
+  --vp-home-hero-image-background-image: none;
+  --vp-home-hero-image-filter: none;
 }
 
 /* ダークモード: 背景 #1b1b1f に対してAAを満たす明るめの紫 */
@@ -47,25 +41,8 @@
   --vp-c-brand-3: #7c3aed;
   --vp-c-brand-soft: rgba(162, 89, 255, 0.22);
 
-  /* ヒーロー見出し: 紫→緑系のグラデーション (どちらも #1b1b1f に3:1以上) */
-  --vp-home-hero-name-background: linear-gradient(120deg, #c4a5ff 30%, #5edda8);
-  --vp-home-hero-image-background-image: linear-gradient(
-    -45deg,
-    rgba(162, 89, 255, 0.45) 40%,
-    rgba(26, 188, 254, 0.35)
-  );
-}
-
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
-}
-
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
+  /* ヒーロー見出し: ブランドの紫単色 (#1b1b1f に8.32:1) */
+  --vp-home-hero-name-color: var(--vp-c-brand-1);
 }
 
 /*
