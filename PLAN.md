@@ -137,26 +137,30 @@
 - 古い screenshot・メニュー名・手順を鵜呑みにせず、レッスン執筆時にWeb検索等で現行のFigma UIを確認してから書く
 - 特に6章（Figma MCP + Claude Code）はツールの仕様変化が速い領域のため、執筆直前に最新のセットアップ手順を確認する
 
-## 4章・5章の題材（v3 再設計 2026-07-04）
-- 詳細仕様は `docs-internal/redesign-v3.md`
+## 4章・5章の題材（設計v4、2026-07-24決定）
+- 詳細仕様は `docs-internal/design-v4.md`（旧`redesign-v3.md`は設計v4に統合され廃止）
+- 色はバリアブル2層（プリミティブ14個+セマンティック15個=29トークン）、余白・角丸は数値バリアブル13個、
+  文字は役割ベースのテキストスタイル8個（app-title/page-title/section-title/button-label/
+  card-title/body/caption/stat-value）で管理する。色スタイル（Styles）は3章の練習専用に留め、
+  本番の色管理はバリアブルに一本化する
+- 状態（優先度・完了・アクティブ）はすべてコンポーネントのバリアントで表現し、上書きで作らない
 - 2画面とも「左サイドバー240 + 右カラム(header 64 + content)」の2カラム構成
-- task-list は stat-row / filter-bar / セクション分け(Today/This Week/Later) / TaskCard 8枚
-- TaskCard は checkbox / PriorityTag / タイトル+説明 / CategoryBadge / assignee / due の6要素
-- task-form は 5項目入力（説明は複数行、期限・優先度は横並び2列） + Cancel/Register の2ボタン
+- task-list は stat-row / filter-bar / セクション分け(今日/今週/あとで) / TaskCard 8枚
+- TaskCard は checkbox / PriorityTag / タイトル+説明 / category-badge / assignee / task-due の6要素
+- task-form は 5項目入力（説明は複数行、期限・優先度は横並び2列） + キャンセル/登録の2ボタン
   （5-2で作るButtonのprimary/secondary両バリアントを本番で使い切る）
-- 色スタイル7個（brand/text/main/text/sub/bg/surface + border + bg-active）
-- テキストスタイル5個（app-title/page-title/card-title/card-desc + card-due）
 - 4章・5章の所要時間は従来90分→140分。他章のバッファで2日間20レッスンに収める
-- 学習項目（Auto Layout・コンポーネント・バリアント・スタイル）は不変。3章のプロフィールカードも据え置き
+- 学習項目（Auto Layout・コンポーネント・バリアント・バリアブル）は不変。3章のプロフィールカードも据え置き
 - 3章では3-1で「4色で十分、実践では6〜8色に増えることもある」の一言だけ前振り
 
 ## キャプチャ・図版の方針
-- 図版はSVG自作の模式図で運用する（2026-07-04変更）。
-- 当初の方針では「Figma MCPで実際に組んで `get_screenshot` で撮った実キャプチャを使う」としていたが、
-  実行環境のプロキシが www.figma.com のPNGダウンロードを403で弾くため実キャプチャ導入は不可能。
-  1レッスンだけ差し替えると一貫性が崩れるため、全レッスン一律SVGで統一する。
+- 完成イメージ・画面キャプチャは教材専用Figmaファイルからの実キャプチャを使う（2026-07決定）。
+  リモート実行環境のプロキシが www.figma.com のPNGダウンロードを403で弾くため、Figma側の作成・編集は
+  リモートで行い、`get_screenshot`によるキャプチャ取得だけはプロキシ制約のないローカルのClaude Codeに
+  委譲する運用にした（当初は全レッスンSVGで統一する方針だったが、この委譲運用の確立により撤回）
 - 演習の答え（.figファイルそのもの）は配布しない
-- 概念図（Auto Layoutの挙動、MCP連携の流れなど）はMermaidを使わずSVGで自作する
+- 概念図（Auto Layoutの挙動、MCP連携の流れなど、画面キャプチャではなく模式図で説明するもの）は
+  Mermaidを使わずSVGで自作する
 
 ### 教材コンテンツに個人情報を入れない（絶対厳守）
 - **教材で作らせるダミーデータ・ダミー人物には、実在の人物情報（本名・メール・所属・
