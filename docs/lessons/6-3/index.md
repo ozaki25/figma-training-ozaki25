@@ -2,7 +2,7 @@
 
 6-2ではタスク一覧をコードに変換しました。ここでは2画面目、5章で作った `task-form` を同じ流れでコードにします。ゴールはこのハンズオンの締めくくり、2画面ぶんのコード化が終わることです。
 
-6-2との違いは、フォームには**バリアント付きのButton**と、ラベルと入力欄がひとまとまりになった**TextField**があることです。バリアントとはコンポーネントの見た目を切り替えるプロパティのことで、5-2で `variant: primary / secondary` を作りました。これがコード生成でどう扱われるかを、このレッスンで確認します。
+6-2との違いは、フォームには**バリアント付きのButton**と、ラベルと入力欄がひとまとまりになった**TextField**があることです。4章の `priority`・`active`・`done`、5-2の `variant: primary / secondary` と作ってきたバリアントが、コード生成でどう扱われるかを確認します。
 
 ## 6-2との違い: バリアントはpropsになる
 
@@ -22,14 +22,14 @@ type Props = {
 <Button variant="primary">登録</Button>
 ```
 
-Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。3-2でプロパティ名と値をどう付けるかを意識したのは、この段階で意味を持ちます。
+Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。4章からプロパティ名と値をどう付けるかを意識してきたのは、この段階で意味を持ちます。
 
-TextFieldの方はバリアントを作っていないので、propsとしては `label` と `placeholder` だけ受け取る形になります。ラベルと入力欄をひとまとまりにして1つのコンポーネントにしたので、呼び出し側は次のように3行並べるだけで済みます。
+TextFieldの方はバリアントを作っていないので、propsとしては `label` と `placeholder` だけ受け取る形になります。ラベルと入力欄をひとまとまりにして1つのコンポーネントにしたので、呼び出し側は次のように並べるだけで済みます。
 
 ```tsx
-<TextField label="タスク名" placeholder="例: 会議資料の作成" />
+<TextField label="タスク名 *" placeholder="例: 会議資料の作成" />
+<TextField label="説明" placeholder="タスクの補足があれば" />
 <TextField label="期限" placeholder="2026/07/10" />
-<TextField label="メモ" placeholder="任意" />
 ```
 
 ## 指示の書き方
@@ -50,7 +50,7 @@ TextFieldの方はバリアントを作っていないので、propsとしては
   - TextField（label + input を持つ）を別ファイル TextField.tsx に
   - Button を別ファイル Button.tsx に。variant プロパティを
     'primary' | 'secondary' のunion型で受け取れるようにする
-  - TaskForm が親として TextField を3つと Button を並べる（TaskForm.tsx）
+  - TaskForm が親として TextField を5つと Button を2つ並べる（TaskForm.tsx）
 - スタイル: Tailwind CSSのユーティリティクラスのみ
 - Figma側のレイヤー名（TextField・Button・label・input など）を
   コンポーネント名やクラス名にできるだけ反映してください
@@ -79,13 +79,13 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 
 - `TaskForm.tsx`、`TextField.tsx`、`Button.tsx` の3ファイルに分かれている
 - `Button.tsx` の `variant` propsが `'primary' | 'secondary'` のunion型になっている
-- `TaskForm.tsx` の中で `TextField` を3回、`Button` を1回呼んでいる
+- `TaskForm.tsx` の中で `TextField` を5回、`Button` を2回呼んでいる
 
 想定と違えば、コードを書き出す前に「Buttonのvariantは型を絞ってください」のように追加で指示します。
 
 ### 4. ローカルで表示してみる
 
-生成された3ファイルを `src/components/task-form/` に置き、適当なページから `<TaskForm />` を呼び出します。ブラウザで、フォームカードの中にラベル付きの入力欄が3つ縦に並び、下に紫の登録ボタンが幅いっぱいで出ていれば成功です。
+生成された3ファイルを `src/components/task-form/` に置き、適当なページから `<TaskForm />` を呼び出します。ブラウザで、フォームカードの中にラベル付きの入力欄が並び（期限と優先度は横2列）、右下にキャンセルと紫の登録ボタンが出ていれば成功です。
 
 ### 5. TaskListとの整合性を見比べる
 
@@ -95,7 +95,7 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 - **角丸・余白**: カードの `rounded-*` と `p-*` の値が近い（5-3で揃えた効果）
 - **フォント**: 見出し・本文のフォントサイズとウェイトが両画面でそろっている
 
-ずれていれば、Claude Codeに「TaskListと同じTailwind値を使うようにTaskFormを揃えてください」と追加で頼めます。Figma側で色スタイルを共有しておいた効果が、この揃えやすさに出ます。
+ずれていれば、Claude Codeに「TaskListと同じTailwind値を使うようにTaskFormを揃えてください」と追加で頼めます。Figma側で2画面とも同じトークンを使っておいた効果が、この揃えやすさに出ます。
 
 ## よくあるやりとり
 

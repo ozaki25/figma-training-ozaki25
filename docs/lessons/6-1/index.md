@@ -77,7 +77,7 @@ connectedになっていれば、この時点で `mcp__Figma__` で始まるツ�
 このFigmaのフレームの中身を教えて: <コピーしたURL>
 ```
 
-Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム名（`task-list`）、子要素の `header` や `content`、色スタイル `brand` や `surface` といった情報を返してくれば成功です。まだコード生成はしません。「Figmaの中身がClaude Codeに見えている」ことだけを確認します。
+Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム名（`task-list`）、子要素の `header` や `content`、トークン名の `brand` や `surface` といった情報を返してくれば成功です。まだコード生成はしません。「Figmaの中身がClaude Codeに見えている」ことだけを確認します。
 
 ## トラブルシューティング
 
@@ -109,7 +109,7 @@ Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム�
 このFigmaフレームの構造を教えて: <URL>
 ```
 
-3. `task-list` の下に `header` や `content` があること、`brand` や `surface` などの色スタイル名が含まれていることを確認する
+3. `task-list` の下に `header` や `content` があること、`brand` や `surface` などのトークン名が含まれていることを確認する
 
 構造が返ってくれば、Figma MCPのセットアップは完了です。6-2ではこの接続を使って、タスク一覧画面をコードに変換します。
 
