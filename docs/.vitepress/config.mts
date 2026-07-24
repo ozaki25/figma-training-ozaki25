@@ -74,8 +74,9 @@ export default withPwa(
           collapsed: false,
           items: [
             { text: '4-1 レイアウトの骨組みを作る', link: '/lessons/4-1/' },
-            { text: '4-2 タスクカードをコンポーネント化して並べる', link: '/lessons/4-2/' },
-            { text: '4-3 配色・タイポグラフィを仕上げて完成させる', link: '/lessons/4-3/' },
+            { text: '4-2 デザイントークンとスタイルを定義する', link: '/lessons/4-2/' },
+            { text: '4-3 タスクカードと優先度バリアント', link: '/lessons/4-3/' },
+            { text: '4-4 一覧画面を仕上げて完成させる', link: '/lessons/4-4/' },
           ],
         },
         {

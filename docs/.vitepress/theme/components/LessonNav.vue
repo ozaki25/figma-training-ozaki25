@@ -40,8 +40,9 @@ const chapters: Chapter[] = [
     text: '実践: タスク一覧画面を作る',
     lessons: [
       { slug: '4-1', text: 'レイアウトの骨組みを作る', link: '/lessons/4-1/' },
-      { slug: '4-2', text: 'タスクカードをコンポーネント化して並べる', link: '/lessons/4-2/' },
-      { slug: '4-3', text: '配色・タイポグラフィを仕上げて完成させる', link: '/lessons/4-3/' },
+      { slug: '4-2', text: 'デザイントークンとスタイルを定義する', link: '/lessons/4-2/' },
+      { slug: '4-3', text: 'タスクカードと優先度バリアント', link: '/lessons/4-3/' },
+      { slug: '4-4', text: '一覧画面を仕上げて完成させる', link: '/lessons/4-4/' },
     ],
   },
   {
