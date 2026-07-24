@@ -63,7 +63,9 @@ task-form
 ### 2. サイドバーとヘッダーをコピペする
 
 1. task-listの `sidebar` を選択して `Cmd + C`（Windowsは `Ctrl + C`）でコピーし、`task-form` の中へペーストして左端に入れる
-2. コピーした `sidebar` の中で、いま `今日` に当たっている `bg-active` の背景を、`受信箱` の nav-item に付け替える。`今日` の背景は透明に戻し、バッジは消す
+2. コピーした `sidebar` の中で、activeの見た目を `今日` から `受信箱` に付け替える
+   1. `受信箱` の nav-item の背景を `bg-active` にする
+   2. `今日` の背景を透明に戻し、バッジを消す
 3. task-listの `header` をコピーし、`task-form` の中、`sidebar` の右へペーストする
 4. `header` を選択して `Shift + A` で縦に包む。このフレームが右カラムのmainになる
 5. 間隔 0、パディング 0 にして、名前を `main` にする
