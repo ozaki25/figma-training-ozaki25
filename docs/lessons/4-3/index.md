@@ -142,7 +142,7 @@ contentの上（`page-title` の下）に、統計カードを3枚横に並べ�
 6. `section-week` と `section-later` にもTaskCardインスタンスをアセットパネルから追加する。`section-week` は3枚、`section-later` は2枚
 7. 上のダミータスク表のとおりに各カードのタイトル・説明・カテゴリ・担当・期限・PriorityTagの色を上書きする
 
-これでTaskCardが合計8枚並びます。
+レイヤーパネルで、各セクションの中が「ラベル → TaskCard×枚数」の縦並びになっていれば正解です（例: `section-today` の中は `今日`・TaskCard・TaskCard・TaskCard）。画面全体ではTaskCardが合計8枚並びます。
 
 ### 6. サイドバーを仕上げる
 
