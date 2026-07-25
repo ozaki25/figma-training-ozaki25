@@ -1,6 +1,6 @@
 # 6-3 タスク登録フォームをコード生成する
 
-6-2ではタスク一覧をコードに変換しました。ここでは2画面目、5章で作った `task-form` を同じ流れでコードにします。ゴールはこのハンズオンの締めくくり、2画面ぶんのコード化が終わることです。
+6-2ではタスク一覧をコードに変換しました。ここでは2画面目、5章で作った `task-form` を同じ流れでコードにします。この画面ができれば2画面ぶんのコード化がそろい、ハンズオンの制作パートは完了です。
 
 6-2との違いは、フォームには**バリアント付きのButton**と、ラベルと入力欄がひとまとまりになった**TextField**があることです。4章の `priority`・`active`・`done`、5-2の `variant: primary / secondary` と作ってきたバリアントが、コード生成でどう扱われるかを確認します。
 
@@ -19,17 +19,19 @@ type Props = {
 }
 
 // 呼び出し側
-<Button variant="primary">登録</Button>
+<Button variant="primary">タスクを登録</Button>
 ```
 
-Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。4章からプロパティ名と値をどう付けるかを意識してきたのは、この段階で意味を持ちます。
+Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。4章からプロパティ名と値の付け方を意識してきた効果が、ここで出ます。
 
 TextFieldの方はバリアントを作っていないので、propsとしては `label` と `placeholder` だけ受け取る形になります。ラベルと入力欄をひとまとまりにして1つのコンポーネントにしたので、呼び出し側は次のように並べるだけで済みます。
 
 ```tsx
 <TextField label="タスク名 *" placeholder="例: 会議資料の作成" />
-<TextField label="説明" placeholder="タスクの補足があれば" />
+<TextField label="説明" placeholder="例: 会議資料の作成" />
 <TextField label="期限" placeholder="2026/07/10" />
+<TextField label="優先度" placeholder="選択する ▼" />
+<TextField label="カテゴリ" placeholder="例: デザイン" />
 ```
 
 ## 指示の書き方
@@ -85,7 +87,7 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 
 ### 4. ローカルで表示してみる
 
-生成された3ファイルを `src/components/task-form/` に置き、適当なページから `<TaskForm />` を呼び出します。ブラウザで、フォームカードの中にラベル付きの入力欄が並び（期限と優先度は横2列）、右下にキャンセルと紫の登録ボタンが出ていれば成功です。
+生成された3ファイルを `src/components/task-form/` に置き、適当なページから `<TaskForm />` を呼び出します。ブラウザで、フォームカードの中にラベル付きの入力欄が並び（期限と優先度は横2列）、右下に「キャンセル」と紫の「タスクを登録」ボタンが出ていれば成功です。
 
 ### 5. TaskListとの整合性を見比べる
 
@@ -102,7 +104,7 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 - **`variant` が `string` 型で出た**: 「`variant` は `'primary' | 'secondary'` のunion型で書き直してください」
 - **secondaryの色が反映されていない**: 「Figmaの `secondary` バリアントは白背景・紫枠・紫文字です。Tailwindで `bg-white border border-[#7C3AED] text-[#7C3AED]` になるようにしてください」
 - **TextFieldがTaskFormに直接埋め込まれた**: 「`TextField` は別ファイル `TextField.tsx` に分けて、`TaskForm.tsx` からimportする形にしてください」
-- **動作を足したい**: 「`TaskForm` に `onSubmit: (values) => void` のpropsを追加し、送信時に3つの入力値をオブジェクトで渡してください」
+- **動作を足したい**: 「`TaskForm` に `onSubmit: (values) => void` のpropsを追加し、送信時に5つの入力値をオブジェクトで渡してください」
 
 修正指示は、いま出ているコードを一度読んでから書くのがコツです。ここは6-2と同じです。
 

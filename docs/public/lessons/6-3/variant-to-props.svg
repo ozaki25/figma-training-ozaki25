@@ -10,7 +10,7 @@
 
   <!-- primary バリアント -->
   <rect x="90" y="100" width="220" height="52" rx="8" fill="#7C3AED"/>
-  <text x="200" y="132" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">登録</text>
+  <text x="200" y="132" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">タスクを登録</text>
   <text x="90" y="92" font-size="10" font-family="monospace" fill="#7C3AED">variant = primary</text>
 
   <!-- secondary バリアント -->
@@ -39,7 +39,7 @@
   <text x="536" y="210" font-size="11" font-family="monospace" fill="#FFFFFF">&lt;Button variant=</text>
   <text x="666" y="210" font-size="11" font-family="monospace" fill="#5EDDA8">"primary"</text>
   <text x="740" y="210" font-size="11" font-family="monospace" fill="#FFFFFF">&gt;</text>
-  <text x="536" y="228" font-size="11" font-family="monospace" fill="#FFFFFF">  登録</text>
+  <text x="536" y="228" font-size="11" font-family="monospace" fill="#FFFFFF">  タスクを登録</text>
   <text x="536" y="246" font-size="11" font-family="monospace" fill="#FFFFFF">&lt;/Button&gt;</text>
 
   <text x="430" y="304" text-anchor="middle" font-size="13" fill="#3B3355">Figmaのバリアントは、コード側では props（variant）として表現される</text>
