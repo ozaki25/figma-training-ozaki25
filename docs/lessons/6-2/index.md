@@ -80,18 +80,10 @@ Vue、素のHTML/CSS、React Nativeなどでも、指示の骨格は同じです
 
 ### 2. Claude Codeに指示を投げる
 
-出力先ディレクトリを決めてから、上の雛形をコピーして送ります。ダミーのURL部分だけ、いま自分がコピーしたリンクに差し替えてください。
+上の雛形をコピーし、次の2行だけ自分の環境に合わせて書き換えて送ります。
 
-```text
-このFigmaのフレームをReact + Tailwind CSSで実装してください。
-
-- URL: <ここに task-list のリンク>
-- 出力先: src/components/task-list/
-- コンポーネント分割: TaskCardは別ファイル（TaskCard.tsx）、
-  TaskListが親としてTaskCardを並べる（TaskList.tsx）
-- スタイル: Tailwind CSSのユーティリティクラスのみ
-- Figma側のレイヤー名をコンポーネント名やクラス名に反映してください
-```
+- URLの行を、いまコピーした `task-list` のリンクに差し替える
+- 出力先の行を、自分のプロジェクトの書き出し先パスにする
 
 ### 3. ファイルツリーとコードを確認する
 
