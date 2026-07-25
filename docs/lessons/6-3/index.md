@@ -1,6 +1,6 @@
 # 6-3 タスク登録フォームをコード生成する
 
-6-2ではタスク一覧をコードに変換しました。ここでは2画面目、5章で作った `task-form` を同じ流れでコードにします。ゴールはこのハンズオンの締めくくり、2画面ぶんのコード化が終わることです。
+6-2ではタスク一覧をコードに変換しました。ここでは2画面目、5章で作った `task-form` を同じ流れでコードにします。この画面ができれば2画面ぶんのコード化がそろい、ハンズオンの制作パートは完了です。
 
 6-2との違いは、フォームには**バリアント付きのButton**と、ラベルと入力欄がひとまとまりになった**TextField**があることです。4章の `priority`・`active`・`done`、5-2の `variant: primary / secondary` と作ってきたバリアントが、コード生成でどう扱われるかを確認します。
 
@@ -22,14 +22,16 @@ type Props = {
 <Button variant="primary">登録</Button>
 ```
 
-Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。4章からプロパティ名と値をどう付けるかを意識してきたのは、この段階で意味を持ちます。
+Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。4章からプロパティ名と値の付け方を意識してきた効果が、ここで出ます。
 
 TextFieldの方はバリアントを作っていないので、propsとしては `label` と `placeholder` だけ受け取る形になります。ラベルと入力欄をひとまとまりにして1つのコンポーネントにしたので、呼び出し側は次のように並べるだけで済みます。
 
 ```tsx
 <TextField label="タスク名 *" placeholder="例: 会議資料の作成" />
-<TextField label="説明" placeholder="タスクの補足があれば" />
+<TextField label="説明" placeholder="例: 会議資料の作成" />
 <TextField label="期限" placeholder="2026/07/10" />
+<TextField label="優先度" placeholder="選択する ▼" />
+<TextField label="カテゴリ" placeholder="例: デザイン" />
 ```
 
 ## 指示の書き方

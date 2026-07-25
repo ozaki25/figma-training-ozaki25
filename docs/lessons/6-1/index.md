@@ -35,13 +35,11 @@ Figma無料（Starter）プランでは、Remoteサーバーは使えるもの�
 
 ## セットアップ手順
 
-3ステップです。順番に進めます。
-
 ### 1. Figmaプラグインを入れる
 
-ターミナルでClaude Codeを起動した状態で、次のスラッシュコマンドを打ちます。
+ターミナルでClaude Codeを起動した状態で、次のスラッシュコマンドを打ちます。ターミナルのシェルではなく、Claude Codeの入力欄に打つ点に注意してください。
 
-```bash
+```text
 /plugin install figma@claude-plugins-official
 ```
 
@@ -53,7 +51,7 @@ Figma無料（Starter）プランでは、Remoteサーバーは使えるもの�
 
 再起動したら、次のコマンドで管理パネルを開きます。
 
-```bash
+```text
 /plugin
 ```
 
@@ -81,7 +79,7 @@ Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム�
 
 ## トラブルシューティング
 
-うまくいかないときは、次の3つを疑います。
+うまくいかないときは、次を順に確認します。
 
 - **`/plugin` を打っても figma が出てこない**: プラグインのインストールコマンドの後、Claude Codeを再起動しましたか。MCPは起動時にしか初期化されません
 - **connected にならない**: ブラウザで「Allow access」を押した後、Claude Code側で数秒待ってから `/plugin` を打ち直します。それでも変わらなければ、ネットワーク（会社のプロキシなど）でAnthropic・Figmaへの接続が塞がれていないか確認します
@@ -121,7 +119,13 @@ Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム�
 - [Claude Code Docs「Connect Claude Code to tools via MCP」](https://code.claude.com/docs/en/mcp)
 
 ::: tip Desktopサーバー（Dev Mode）を使いたい場合
-Figma Professional以上のプランで、Figma Desktopアプリから直接接続したい場合は、次の手順になります。Figma Desktopでデザインファイルを開き、下部ツールバーの **Dev Mode** に切り替えます。右サイドバーの **MCP server** セクションで「Enable desktop MCP server」をオンにします（メニュー → **Preferences** → **Enable Dev Mode MCP Server** でも可）。これで `http://127.0.0.1:3845/mcp` にローカルサーバーが立ちます。Claude Code側では `claude mcp add --transport http figma-desktop http://127.0.0.1:3845/mcp` で登録します。Figma Desktopを起動しているあいだだけ有効です。以前は `/sse`（SSE）エンドポイントでしたが、現在は `/mcp`（Streamable HTTP）が正式版なので、古い記事の `--transport sse` を見ても真似しないでください。
+Figma Professional以上のプランなら、Figma Desktopアプリから直接接続する方式も選べます。
+
+1. Figma Desktopでデザインファイルを開き、下部ツールバーの **Dev Mode** に切り替える
+2. 右サイドバーの **MCP server** セクションで「Enable desktop MCP server」をオンにする（メニュー → **Preferences** → **Enable Dev Mode MCP Server** でも可）。これで `http://127.0.0.1:3845/mcp` にローカルサーバーが立つ
+3. Claude Code側で `claude mcp add --transport http figma-desktop http://127.0.0.1:3845/mcp` を実行して登録する
+
+Figma Desktopを起動しているあいだだけ有効です。以前は `/sse`（SSE）エンドポイントでしたが、現在は `/mcp`（Streamable HTTP）が正式版なので、古い記事の `--transport sse` を見ても真似しないでください。
 :::
 
 ## ゴール確認

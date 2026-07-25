@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="メインコンポーネントとインスタンスの関係。原本のProfileCardから3つのインスタンスが作られ、名前と肩書きをそれぞれ上書きしている。原本を変更すると全インスタンスに反映される。">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="メインコンポーネントとインスタンスの関係。原本のProfileCardから3つのインスタンスが作られ、うち2つは名前と肩書きを上書きしている。原本を変更すると全インスタンスに反映される。">
   <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
   <rect x="0" y="0" width="860" height="400" rx="12" fill="#F3F0FA"/>
 

@@ -36,7 +36,7 @@ task-form
 | `form-header` | 縦オートレイアウト、幅は固定560、間隔 `space/8`。見出し `新しいタスクを追加`（`page-title` + `text/main`）と説明 `必要な項目を入力して登録します`（`body` + `text/sub`） |
 | `form-card` | 幅は固定560・高さは内包、縦オートレイアウト、パディング `space/32`、間隔 `space/20`、角丸 `radius/16`、背景 `surface`、枠線1px `border` |
 | `input-placeholder` ×5 | 高さ44、角丸 `radius/8`、塗り `surface`、枠線1px `border`、幅は拡大（入力欄の仮置き。本物は5-2で作る） |
-| `button-row` | 横オートレイアウト、間隔 `space/12`、配置は右、幅は拡大。中に幅固定120・高さ44・角丸 `radius/8` の仮ボタン2個（左は `surface` +枠線 `border`、右は `brand`） |
+| `button-row` | 横オートレイアウト、間隔 `space/12`、配置は右中央、幅は拡大。中に幅固定120・高さ44・角丸 `radius/8` の仮ボタン2個（左は `surface` +枠線 `border`、右は `brand`） |
 
 ::: tip 横中央寄せのやり方
 form-headerとform-cardを画面の横中央に置くのは、2つの設定の組み合わせです。子（form-header・form-card）の幅を**固定560**で止めて広がらないようにし、親の `content` の配置で**上段の中央**を選びます。オートレイアウトで横中央寄せをするときの基本パターンです。
@@ -94,10 +94,10 @@ form-headerとform-cardを画面の横中央に置くのは、2つの設定の�
 ### 6. プレースホルダーを並べる
 
 1. form-cardの中に入れた四角形の幅を**拡大**、名前を `input-placeholder` にして、`Cmd + D` で5個にする
-2. 5個のうち、5-2で横並び2列にする2つ分は、いまは縦のままでよい
+2. 完成形では5個のうち2個が横並びの2列になるが、いまは5個とも縦のままでよい（2列にするのは5-2）
 3. 仮ボタンを作る。`r` で高さ44・角丸 `radius/8`・幅固定120の四角形を作る（四角形には余白や内包を設定できないので幅固定にする。5-2で本物のButtonに置き換える）
 4. 四角形を選択して `Shift + A` で包む。このフレームがbutton-rowになる
-5. `button-row` を間隔 `space/12`、配置は右にする
+5. `button-row` を間隔 `space/12`、配置は右中央にする
 6. form-cardの一番下へ入れ、幅を**拡大**にする
 7. 中の四角形を `Cmd + D` で2個にする
    - 左は塗り `surface` に枠線1px `border`、名前を `button-placeholder-cancel` にする
