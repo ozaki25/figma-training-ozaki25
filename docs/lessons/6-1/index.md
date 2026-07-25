@@ -2,7 +2,7 @@
 
 ここまで4章でタスク一覧、5章で登録フォームと、2画面のデザインを作ってきました。6章ではその2画面をFigma MCPとClaude Codeでコードに変換します。
 
-このレッスンでは、Figma側のデザインとClaude Codeのあいだをつなぐ「Figma MCPサーバー」をセットアップし、接続確認まで済ませます。生成そのものは6-2と6-3で行うので、ここでは「つながっている状態を作る」ことに集中します。
+このレッスンでは、生成したコードを表示するためのアプリを用意し、Figma側のデザインとClaude Codeのあいだをつなぐ「Figma MCPサーバー」をセットアップします。生成そのものは6-2と6-3で行うので、ここでは動かす土台を整えます。
 
 ## 前提
 
@@ -31,23 +31,77 @@ Figma MCPは、Figmaのデザインファイルを構造化されたデータと
 Figma無料（Starter）プランでは、Remoteサーバーは使えるものの月あたり6ツールコールという制限があります。6-2と6-3で各画面を生成すると数コールを使うため、余裕はありません。Professional以上のプランで進めるのが理想ですが、無料プランでも1画面ぶんの体験はできます。
 :::
 
-## 演習: セットアップと接続確認
+## 演習: アプリの用意とセットアップ
 
-### 1. プラグインを入れて再起動する
+### 1. アプリのベースを作る
+
+生成したコードを画面に出すための、React + Tailwind CSSのプロジェクトを作ります。設定を1つずつ手で書く代わりに、コマンドをまとめてClaude Codeに実行させます。
+
+1. プロジェクトを置きたい場所（デスクトップなど）でターミナルを開き、`claude` でClaude Codeを起動する
+2. 次のコマンドを貼り付けて、実行するよう頼む
+
+   ```bash
+   npx --yes create-vite@latest task-app --template react-ts --no-interactive --no-immediate
+   cd task-app
+   npm install
+   npm install tailwindcss @tailwindcss/vite
+   rm -rf src/assets src/App.css
+
+   cat > vite.config.ts <<'EOF'
+   import { defineConfig } from 'vite'
+   import react from '@vitejs/plugin-react'
+   import tailwindcss from '@tailwindcss/vite'
+
+   export default defineConfig({
+     plugins: [react(), tailwindcss()],
+   })
+   EOF
+
+   cat > src/index.css <<'EOF'
+   @import "tailwindcss";
+   EOF
+
+   cat > src/App.tsx <<'EOF'
+   export default function App() {
+     return (
+       <div className="min-h-screen bg-[#f5f5f5] p-8">
+         <p className="text-sm text-[#6e6e76]">ここに4章・5章の画面を並べていきます</p>
+       </div>
+     )
+   }
+   EOF
+   ```
+
+3. `task-app` フォルダができたのを確認する
+
+`rm -rf src/assets src/App.css` と `src/App.tsx` の書き換えは、テンプレートに付いてくるデモ用のロゴとCSSを消すためです。残しておくとTailwindの見た目と混ざります。
+
+### 2. 開発サーバーを起動する
+
+コードを書き換えるたびにブラウザが自動で更新される状態にします。ここからターミナルを2つ使います。
+
+1. **ターミナルA**で `task-app` に移動し、`npm run dev` を実行する
+2. 表示されたURL（`http://localhost:5173/`）をブラウザで開く
+3. 薄いグレーの背景に「ここに4章・5章の画面を並べていきます」と出ているのを確認する
+
+文字が小さいグレーで表示されていれば、Tailwindも効いています。このターミナルは起動したまま、閉じずに置いておきます。
+
+### 3. プラグインを入れて再起動する
 
 Figmaプラグインを入れると、Figma MCPサーバーへの接続設定と、デザインからコードを生成するためのSkill（Claude Codeの拡張機能）がClaude Codeに追加されます。
 
-1. Claude Codeを起動し、入力欄に次のスラッシュコマンドを打つ。ターミナルのシェルではなく、Claude Codeの入力欄に打つ点に注意する
+1. Claude Codeの入力欄に次のスラッシュコマンドを打つ。ターミナルのシェルではなく、Claude Codeの入力欄に打つ点に注意する
 
    ```text
    /plugin install figma@claude-plugins-official
    ```
 
-2. インストール完了メッセージが出たら、Claude Codeを一度終了して起動し直す
+2. インストール完了メッセージが出たら、Claude Codeを終了する
+3. **ターミナルB**で `task-app` に移動し、`claude` で起動し直す
 
-再起動が必要なのは、MCP接続がClaude Codeの起動時に初期化されるためです。インストールしただけでは接続されません。
+再起動が必要なのは、MCP接続がClaude Codeの起動時に初期化されるためです。インストールしただけでは接続されません。あわせて `task-app` の中で起動し直すことで、生成したファイルがこのプロジェクトに書かれるようになります。
 
-### 2. ブラウザでFigmaを認証する
+### 4. ブラウザでFigmaを認証する
 
 1. `/plugin` を打って管理パネルを開き、「Installed」タブの `figma` を選んでEnterを押す
 2. ブラウザが開くので、Figmaにログインして「Allow access」を押す。許可するとブラウザは自動で閉じる
@@ -57,7 +111,7 @@ Figmaプラグインを入れると、Figma MCPサーバーへの接続設定と
 
 connectedになっていれば、`mcp__Figma__` で始まるツール群（`get_design_context`、`get_screenshot` など）がClaude Codeから呼べる状態です。
 
-### 3. タスク一覧を読み取らせる
+### 5. タスク一覧を読み取らせる
 
 つながったかどうかは、Figmaのデザインを1つ読み取らせると分かります。
 
@@ -100,6 +154,7 @@ Figma Desktopを起動しているあいだだけ有効です。以前は `/sse`
 
 ## ゴール確認
 
-- [ ] `/plugin install figma@claude-plugins-official` でFigmaプラグインを入れ、Claude Codeを再起動できた
+- [ ] `task-app` を作り、開発サーバーを起動してブラウザで表示できた
+- [ ] Figmaプラグインを入れ、`task-app` の中でClaude Codeを起動し直せた
 - [ ] ブラウザで認証し、`/plugin` の Installed タブで `figma: connected` を確認できた
 - [ ] タスク一覧のフレームをClaude Codeに読み取らせ、構造が返ってくることを確認できた
