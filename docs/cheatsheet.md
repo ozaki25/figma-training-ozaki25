@@ -36,6 +36,7 @@ next: false
 | --- | --- | --- |
 | 複数選択 | `Shift` + クリック | `Shift` + クリック |
 | コピー | `Cmd + C` | `Ctrl + C` |
+| ペースト | `Cmd + V` | `Ctrl + V` |
 | 複製 | `Cmd + D` | `Ctrl + D` |
 | 削除 | `Delete` | `Delete` |
 | 名前を変更 | `Cmd + R` | `Ctrl + R` |
