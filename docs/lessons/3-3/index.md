@@ -55,6 +55,7 @@ Figmaは作った要素に「種類 + 連番」で自動的に名前を付けま
 | --- | --- | --- |
 | カード全体（コンポーネント） | Component 1 | `ProfileCard` |
 | 正円 | Ellipse 1 | `avatar` |
+| 正円を包んだフレーム | Frame 5 | `avatar-group` |
 | テキストの縦並びフレーム | Frame 3 | `user-info` |
 | 名前のテキスト | 山田太郎 | `user-name` |
 | 肩書きのテキスト | フロントエンドエンジニア | `user-title` |
