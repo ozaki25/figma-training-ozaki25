@@ -76,7 +76,7 @@ Vue、素のHTML/CSS、React Nativeなどでも、指示の骨格は同じです
 ### 1. Figmaのリンクを用意する
 
 1. Figmaで4章のファイルを開き、`task-list` フレームを選ぶ
-2. 6-1と同じ手順でフレームのリンクをコピーする
+2. 右クリック → **Copy/Paste as** → **Copy link to selection** でURLをコピーする
 
 ### 2. Claude Codeに指示を投げる
 

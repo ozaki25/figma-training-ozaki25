@@ -97,7 +97,6 @@ Button
 3. 左のButtonの `variant` ドロップダウンを `secondary` に切り替え、`label` を `キャンセル` に書き換える
 4. 右のButtonは `primary` のまま、`label` を `タスクを登録` にする
 
-
 :::
 
 ## ゴール確認

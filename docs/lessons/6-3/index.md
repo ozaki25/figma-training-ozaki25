@@ -69,7 +69,7 @@ TextFieldの方はバリアントを作っていないので、propsとしては
 ### 1. Figmaのリンクを用意する
 
 1. Figmaで5章のファイルを開き、`task-form` フレームを選ぶ
-2. 6-1と同じ手順でフレームのリンクをコピーする
+2. 右クリック → **Copy/Paste as** → **Copy link to selection** でURLをコピーする
 
 ### 2. Claude Codeに指示を投げる
 
