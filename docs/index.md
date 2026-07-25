@@ -3,7 +3,6 @@ layout: home
 
 hero:
   name: Figmaハンズオン
-  tagline: タスク管理ツールの2画面をゼロからデザインして、Figma MCPとClaude Codeでコードに変換するところまでやります。Figmaの知識は前提にしません。
   image:
     src: /logo.svg
     alt: Figmaハンズオン
@@ -49,6 +48,6 @@ hero:
 
 ## 準備と所要時間
 
-1〜5章はFigmaアカウント（無料）とブラウザだけで始められます。6章からClaude Code CLIとFigma MCPサーバーが要ります（セットアップ手順は6-1に書いています）。
+Figmaの知識は前提にしません。1〜5章はFigmaアカウント（無料）とブラウザだけで始められます。6章からClaude Code CLIとFigma MCPサーバーが要ります（セットアップ手順は6-1に書いています）。
 
 実際にFigmaを操作する時間を含めて、全体で約11時間です。
