@@ -37,13 +37,14 @@
 
 ### 2. filter-barを作る
 
-フィルタ用のチップを4個並べます。チップは切り替えの状態を持つのでコンポーネント化する手もありますが、ここでは作らずに進めます（余裕があれば章末の任意課題でどうぞ）。
+フィルタ用のチップを4個並べます。チップも切り替えの状態を持つのでコンポーネントにする手はありますが、NavItemと手順が重なるのでここではコンポーネントにしません。余裕があれば章末の任意課題で試せます。
 
 1. チップを1個作る
    1. `t` でテキスト `すべて`（`caption` + `text/inverse`）を作り、`Shift + A` で包む
-   2. 上下パディング `space/4`、左右パディング `space/12`、角丸 `radius/full`
-   3. 背景 `brand`、高さは**固定32**、幅は**内包**にする
-   4. 名前を `chip-active` にする
+      - 上下パディング `space/4`、左右パディング `space/12`
+      - 角丸 `radius/full`、背景 `brand`
+      - 高さは**固定32**、幅は**内包**
+   2. 名前を `chip-active` にする
 2. `chip-active` を選択して、もう一度 `Shift + A` で包み、名前を `filter-bar` にする
 3. `filter-bar` を間隔 `space/8`、パディング 0 にして、`content` の中、`stat-row` の下へ入れる
 4. `filter-bar` の幅は拡大、高さは内包にする
@@ -83,7 +84,7 @@
    3. 間隔 `space/8`、配置は左中央にする
 2. サイドバー下端のアカウント表示 `user-block` を作る
    1. `t` でテキスト `Taro Yamada`（`body` + `text/main`）と `Designer`（`caption` + `text/sub`）を作り、2つを選択して `Shift + A` で縦に包み、間隔 0 にする
-   2. `o` で 24×24 の正円（塗り `placeholder`）を作り、縦積みと2つ選択してもう一度 `Shift + A` で横に包む
+   2. `o` で 24×24 の正円（塗り `placeholder`）を作り、正円と縦積みの2つを選択してもう一度 `Shift + A` で横に包む
    3. パディング `space/8`、間隔 `space/8`、配置は左中央にする
    4. 名前を `user-block` にして、サイドバーの一番下に入れ、幅を**拡大**にする
 3. `NavItem` の5個と `user-block` の間に、空のフレームを1つ入れる
@@ -110,7 +111,7 @@
 1. `t` でセクション見出しのテキスト `今日`（`section-title` + `text/sub`）を作り、`Shift + A` で包む。このフレームが1つ目のセクションになる
 2. 間隔 `space/12`、パディング 0 にして、名前を `section-today` にする
 3. `content` の中、`filter-bar` の下へ入れ、幅は拡大、高さは内包にする
-4. `Cmd + D` で3つにし、名前を `section-week`・`section-later` に、ラベルを `今週`・`あとで` に書き換える
+4. `Cmd + D` で3個にし、増えた2個の名前を `section-week`・`section-later` に、見出しを `今週`・`あとで` に書き換える
 5. 既存のTaskCard 3枚を `section-today` の中へ移動する
 6. `section-week` と `section-later` にもTaskCardインスタンスをアセットパネルから追加する。`section-week` は3枚、`section-later` は2枚
 7. 表のとおりに各カードのテキストを書き換え、`PriorityTag` の `priority` をドロップダウンで切り替える

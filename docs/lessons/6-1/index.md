@@ -12,17 +12,15 @@
 - Figmaアカウントを持っていて、4章・5章で作ったデザインファイルにブラウザまたはFigma Desktopでアクセスできる
 - ネットワークからFigmaとAnthropicに接続できる（社内プロキシで塞がれていないこと）
 
-Figmaのプランについては、この後の「2つの方式」で説明します。
-
 ## Figma MCPの役割
 
 Figma MCPは、Figmaのデザインファイルを構造化されたデータとしてClaude Codeに渡すためのサーバーです。ブラウザで見えている絵ではなく、フレームの入れ子構造・オートレイアウトの設定・スタイル・レイヤー名といった「Figmaが内部で持っている情報」がそのままClaude Codeに届きます。3-3や5-3でレイヤー名と構造を整えたのは、この受け渡しの品質を上げるためでした。
 
 ![Figma MCP接続の概念図。左のFigma（クラウド）から、中央のFigma MCPサーバー（Anthropic公式プラグイン経由）を通って、右のClaude Codeへ矢印が伸びる。Claude CodeはFigmaのデザイン情報を構造化データとして受け取り、コードを生成する](/lessons/6-1/mcp-connection.svg)
 
-## 2つの方式
+## RemoteサーバーとDesktopサーバー
 
-2026年7月時点で、Figma MCPには次の2つの提供形態があります。
+2026年7月時点で、Figma MCPには次の提供形態があります。
 
 - **Remoteサーバー（推奨）**: Anthropic公式のClaude CodeプラグインとしてFigmaが用意しているもの。Figma Desktopアプリは不要で、ブラウザでOAuth認証するだけで使えます。全プラン・全シートで使えます
 - **Desktopサーバー（Dev Mode）**: Figma DesktopアプリでDev Modeを有効にしてローカルにMCPサーバーを立てるもの。Professional以上の有料プランのDev/Fullシートが必要です
@@ -33,49 +31,47 @@ Figma MCPは、Figmaのデザインファイルを構造化されたデータと
 Figma無料（Starter）プランでは、Remoteサーバーは使えるものの月あたり6ツールコールという制限があります。6-2と6-3で各画面を生成すると数コールを使うため、余裕はありません。Professional以上のプランで進めるのが理想ですが、無料プランでも1画面ぶんの体験はできます。
 :::
 
-## セットアップ手順
+## 演習: セットアップと接続確認
 
-### 1. Figmaプラグインを入れる
+### 1. プラグインを入れて再起動する
 
-ターミナルでClaude Codeを起動した状態で、次のスラッシュコマンドを打ちます。ターミナルのシェルではなく、Claude Codeの入力欄に打つ点に注意してください。
+Figmaプラグインを入れると、Figma MCPサーバーへの接続設定と、デザインからコードを生成するためのSkill（Claude Codeの拡張機能）がClaude Codeに追加されます。
 
-```text
-/plugin install figma@claude-plugins-official
-```
+1. Claude Codeを起動し、入力欄に次のスラッシュコマンドを打つ。ターミナルのシェルではなく、Claude Codeの入力欄に打つ点に注意する
 
-これはAnthropic公式のプラグインマーケットプレイスからFigmaプラグインを取ってきて、Claude Codeに組み込むコマンドです。プラグインの中身は、Figma MCPサーバーの接続設定と、デザインからコードを生成するためのSkill（Claude Codeの拡張機能）です。
+   ```text
+   /plugin install figma@claude-plugins-official
+   ```
 
-インストールが終わったら、Claude Codeをいったん終了して起動し直します。MCP接続はClaude Codeの起動時に初期化されるため、インストールしただけでは接続されません。
+2. インストール完了メッセージが出たら、Claude Codeを一度終了して起動し直す
 
-### 2. Figmaアカウントで認証する
+再起動が必要なのは、MCP接続がClaude Codeの起動時に初期化されるためです。インストールしただけでは接続されません。
 
-再起動したら、次のコマンドで管理パネルを開きます。
+### 2. ブラウザでFigmaを認証する
 
-```text
-/plugin
-```
+1. `/plugin` を打って管理パネルを開き、「Installed」タブの `figma` を選んでEnterを押す
+2. ブラウザが開くので、Figmaにログインして「Allow access」を押す。許可するとブラウザは自動で閉じる
+3. Claude Codeに戻り、もう一度 `/plugin` を打って `figma` に **connected** のバッジが付いていることを確認する
 
-「Installed」タブに `figma` が並んでいます。選択してEnterを押すとブラウザが開き、Figmaのログインと「Allow access」の確認画面が出ます。許可するとブラウザは自動で閉じます。認証情報はローカルに保存されるので、この操作はマシンごとに一度だけです。
+認証情報はローカルに保存されるので、この操作はマシンごとに一度だけです。接続状態は `/mcp` コマンドの一覧でも確認できます。
 
-### 3. 接続を確認する
+connectedになっていれば、`mcp__Figma__` で始まるツール群（`get_design_context`、`get_screenshot` など）がClaude Codeから呼べる状態です。
 
-もう一度 `/plugin` を打って、Installedタブの `figma` に **connected** のバッジが付いていることを確認します。`/mcp` コマンドでも接続中のMCPサーバー一覧を見られるので、そちらで確認してもかまいません。
+### 3. タスク一覧を読み取らせる
 
-connectedになっていれば、この時点で `mcp__Figma__` で始まるツール群（`get_design_context`、`get_screenshot` など）がClaude Codeから呼べる状態になっています。
-
-## 動作確認
-
-「つながっている」だけでは実感がわかないので、Figmaのデザインを1つ読み取らせてみます。
+つながったかどうかは、Figmaのデザインを1つ読み取らせると分かります。
 
 1. ブラウザまたはFigma Desktopで、4章で作ったタスク一覧のファイルを開く
 2. `task-list` フレームを選び、右クリック → **Copy/Paste as** → **Copy link to selection**（またはメニューの「Share」→「Copy link」）でURLをコピーする
-3. Claude Codeに戻り、次のように投げる
+3. Claude Codeに戻り、次のプロンプトを投げる（URLはコピーしたものに差し替える）
 
-```text
-このFigmaのフレームの中身を教えて: <コピーしたURL>
-```
+   ```text
+   このFigmaフレームの構造を教えて: <URL>
+   ```
 
-Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム名（`task-list`）、子要素の `header` や `content`、トークン名の `brand` や `surface` といった情報を返してくれば成功です。まだコード生成はしません。「Figmaの中身がClaude Codeに見えている」ことだけを確認します。
+4. `task-list` の下に `header` や `content` があること、`brand` や `surface` などのトークン名が含まれていることを確認する
+
+構造が返ってくれば、Figma MCPのセットアップは完了です。ここではまだコード生成はしません。6-2ではこの接続を使って、タスク一覧画面をコードに変換します。
 
 ## トラブルシューティング
 
@@ -84,32 +80,6 @@ Claude Codeが `mcp__Figma__get_design_context` などを呼び、フレーム�
 - **`/plugin` を打っても figma が出てこない**: プラグインのインストールコマンドの後、Claude Codeを再起動しましたか。MCPは起動時にしか初期化されません
 - **connected にならない**: ブラウザで「Allow access」を押した後、Claude Code側で数秒待ってから `/plugin` を打ち直します。それでも変わらなければ、ネットワーク（会社のプロキシなど）でAnthropic・Figmaへの接続が塞がれていないか確認します
 - **フレームを読ませても中身が返ってこない**: 共有リンクが有効か、リンク先のファイルが自分のアカウントで閲覧できる状態かを確認します。プライベートなチームファイルは招待されていないと読めません
-
-## 演習: セットアップと接続確認
-
-### 1. プラグインを入れて再起動する
-
-1. Claude Codeを起動した状態で `/plugin install figma@claude-plugins-official` を実行する
-2. インストール完了メッセージを確認したら、Claude Codeを一度終了して起動し直す
-
-### 2. ブラウザでFigmaを認証する
-
-1. `/plugin` を打ち、Installedタブの `figma` を選んでEnterを押す
-2. 開いたブラウザでFigmaにログインし、「Allow access」を押す
-3. Claude Codeに戻り、再度 `/plugin` で `figma: connected` になっていることを確認する
-
-### 3. タスク一覧を読み取らせる
-
-1. 4章で作った `task-list` フレームの共有リンクをコピーする
-2. Claude Codeに次のプロンプトを投げる（URLはコピーしたものに差し替える）
-
-```text
-このFigmaフレームの構造を教えて: <URL>
-```
-
-3. `task-list` の下に `header` や `content` があること、`brand` や `surface` などのトークン名が含まれていることを確認する
-
-構造が返ってくれば、Figma MCPのセットアップは完了です。6-2ではこの接続を使って、タスク一覧画面をコードに変換します。
 
 ## 参考リンク
 

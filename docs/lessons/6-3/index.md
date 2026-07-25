@@ -19,7 +19,7 @@ type Props = {
 }
 
 // 呼び出し側
-<Button variant="primary">登録</Button>
+<Button variant="primary">タスクを登録</Button>
 ```
 
 Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。4章からプロパティ名と値の付け方を意識してきた効果が、ここで出ます。
@@ -87,7 +87,7 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 
 ### 4. ローカルで表示してみる
 
-生成された3ファイルを `src/components/task-form/` に置き、適当なページから `<TaskForm />` を呼び出します。ブラウザで、フォームカードの中にラベル付きの入力欄が並び（期限と優先度は横2列）、右下にキャンセルと紫の登録ボタンが出ていれば成功です。
+生成された3ファイルを `src/components/task-form/` に置き、適当なページから `<TaskForm />` を呼び出します。ブラウザで、フォームカードの中にラベル付きの入力欄が並び（期限と優先度は横2列）、右下に「キャンセル」と紫の「タスクを登録」ボタンが出ていれば成功です。
 
 ### 5. TaskListとの整合性を見比べる
 
@@ -104,7 +104,7 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 - **`variant` が `string` 型で出た**: 「`variant` は `'primary' | 'secondary'` のunion型で書き直してください」
 - **secondaryの色が反映されていない**: 「Figmaの `secondary` バリアントは白背景・紫枠・紫文字です。Tailwindで `bg-white border border-[#7C3AED] text-[#7C3AED]` になるようにしてください」
 - **TextFieldがTaskFormに直接埋め込まれた**: 「`TextField` は別ファイル `TextField.tsx` に分けて、`TaskForm.tsx` からimportする形にしてください」
-- **動作を足したい**: 「`TaskForm` に `onSubmit: (values) => void` のpropsを追加し、送信時に3つの入力値をオブジェクトで渡してください」
+- **動作を足したい**: 「`TaskForm` に `onSubmit: (values) => void` のpropsを追加し、送信時に5つの入力値をオブジェクトで渡してください」
 
 修正指示は、いま出ているコードを一度読んでから書くのがコツです。ここは6-2と同じです。
 
