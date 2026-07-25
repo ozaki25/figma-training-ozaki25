@@ -36,7 +36,7 @@ Figmaは作った要素に「種類 + 連番」で自動的に名前を付けま
 
 6章で使うFigma MCPは、レイヤー名と構造も手がかりにしてコードを生成します。カードが `ProfileCard` という名前なら、生成されるコードのクラス名やコンポーネント名にもその意図が反映されます。Frame 13 のままなら、AIは中身から役割を推測するしかなく、生成結果もそれなりになります。実際の生成は6章で体験します。
 
-![命名前と命名後のレイヤーツリーの比較。命名前はComponent 1、Ellipse 1、Frame 3という自動の名前で構造が読めないが、命名後はProfileCard、avatar、user-info、user-name、user-titleという役割ベースの名前になり構造が読める](/lessons/3-3/layer-naming-before-after.svg)
+![命名前と命名後のレイヤーツリーの比較。命名前はComponent 1やFrame 5のような自動の名前で構造が読めない。命名後はProfileCard、avatar、avatar-image、user-info、user-name、user-titleという役割の名前になり構造が読める](/lessons/3-3/layer-naming-before-after.svg)
 
 ## 演習: プロフィールカードのレイヤーを整理する
 
@@ -54,8 +54,8 @@ Figmaは作った要素に「種類 + 連番」で自動的に名前を付けま
 | 対象 | 変更前の例 | 変更後 |
 | --- | --- | --- |
 | カード全体（コンポーネント） | Component 1 | `ProfileCard` |
-| 正円 | Ellipse 1 | `avatar` |
-| 正円を包んだフレーム | Frame 5 | `avatar-group` |
+| 正円を包んだフレーム | Frame 5 | `avatar` |
+| 正円 | Ellipse 1 | `avatar-image` |
 | テキストの縦並びフレーム | Frame 3 | `user-info` |
 | 名前のテキスト | 山田太郎 | `user-name` |
 | 肩書きのテキスト | フロントエンドエンジニア | `user-title` |
