@@ -7,10 +7,10 @@
   <text x="32" y="58" font-size="12" fill="#5A5273">基礎の練習 → 本番の2画面 → コード生成、の順で積み上げた流れ</text>
 
   <!-- Day1 / Day2 のラベル帯 -->
-  <rect x="32" y="80" width="580" height="22" rx="4" fill="#EDE7FA"/>
-  <text x="42" y="96" font-size="11" font-weight="bold" fill="#7C3AED">Day 1</text>
-  <rect x="620" y="80" width="308" height="22" rx="4" fill="#DFF4E9"/>
-  <text x="630" y="96" font-size="11" font-weight="bold" fill="#0F7A4A">Day 2</text>
+  <rect x="32" y="80" width="432" height="22" rx="4" fill="#EDE7FA"/>
+  <text x="42" y="96" font-size="11" font-weight="bold" fill="#7C3AED">Day 1（午後）</text>
+  <rect x="470" y="80" width="458" height="22" rx="4" fill="#DFF4E9"/>
+  <text x="480" y="96" font-size="11" font-weight="bold" fill="#0F7A4A">Day 2（終日）</text>
 
   <!-- ===== 6つの章ボックス ===== -->
   <!-- 1章 -->
