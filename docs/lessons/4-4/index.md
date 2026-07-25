@@ -113,7 +113,7 @@
 3. `content` の中、`filter-bar` の下へ入れ、幅は拡大、高さは内包にする
 4. `Cmd + D` で3個にし、増えた2個の名前を `section-week`・`section-later` に、見出しを `今週`・`あとで` に書き換える
 5. 既存のTaskCard 3枚を `section-today` の中へ移動する
-6. `section-week` と `section-later` にもTaskCardインスタンスをアセットパネルから追加する。`section-week` は3枚、`section-later` は2枚
+6. `section-today` のカードを1枚選んで `Cmd + D` で複製し、`section-week` へ3枚、`section-later` へ2枚移す。複製なら幅の拡大がそのまま引き継がれる
 7. 表のとおりに各カードのテキストを書き換え、`PriorityTag` の `priority` をドロップダウンで切り替える
 
 レイヤーパネルで、各セクションの中が「見出し → TaskCard×枚数」の縦並びになっていれば正解です（例: `section-today` の中は `今日`・TaskCard・TaskCard・TaskCard）。
@@ -126,7 +126,7 @@
 2. 「現在のバリアント」で `プロパティ1` を `done` に、1枚目の値を `false`、2枚目を `true` にする
 3. `true` の方を完了の見た目にする
    1. `checkbox` の塗りを `brand` にする
-   2. `task-title` の色を `text/sub` にして、「タイポグラフィ」の装飾で打ち消し線を付ける
+   2. `task-title` の色を `text/sub` にして、「タイポグラフィ」の詳細設定（`⋯`）を開き、装飾で打ち消し線を付ける
 4. 画面に戻り、好きなTaskCardのインスタンスを1枚選んで、`done` トグルをオンにする
 
 これでタスク一覧画面は完成です。優先度も完了も、色の上書きではなくプロパティの切り替えで表現できるようになりました。
