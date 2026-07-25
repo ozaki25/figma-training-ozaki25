@@ -97,7 +97,6 @@ Button
 3. 左のButtonの `variant` ドロップダウンを `secondary` に切り替え、`label` を `キャンセル` に書き換える
 4. 右のButtonは `primary` のまま、`label` を `タスクを登録` にする
 
-最後に、原本のTextFieldの中の `input` の角丸を `radius/12` に変えてみて、5つのインスタンスがまとめて追従することを確認したら、`radius/8` に戻します。
 
 :::
 
