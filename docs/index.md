@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Figmaハンズオン
   text: 2日間でFigmaに慣れる
-  tagline: Figmaの知識は一切前提にしません。タスク管理ツールの2画面をゼロからデザインし、Figma MCPとClaude Codeでコードに変換するところまでを2日間の演習で扱います。
+  tagline: タスク管理ツールの2画面をゼロからデザインして、Figma MCPとClaude Codeでコードに変換するところまでやります。Figmaの知識は前提にしません。
   image:
     src: /logo.svg
     alt: Figmaハンズオン
