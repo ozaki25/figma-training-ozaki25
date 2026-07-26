@@ -70,7 +70,7 @@ TaskCard
 
 部品は「カードの外で作って、できたらカードの中へドラッグで入れる」を繰り返します。
 
-1. 完了チェックの丸を作る。PriorityTagを作ったのと同じ場所に、`o` で 20×20 の正円を作り、塗り `surface`、枠線1px `border` にして、名前を `checkbox` にする
+1. 完了チェックの丸を作る。PriorityTagと同じ場所に `o` で 20×20 の正円を描き、塗り `surface`、枠線1px `border`、名前を `checkbox` にする
 2. `checkbox` を選択して `Shift + A` で横に包み、名前を `TaskCard` にする
    - 間隔 `space/16`、パディング `space/16`、配置は上下中央
    - 背景 `surface`、角丸 `radius/12`
