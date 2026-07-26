@@ -19,12 +19,7 @@ Figma MCPは、Figmaのデザインファイルを構造化されたデータと
 
 ## RemoteサーバーとDesktopサーバー
 
-2026年7月時点で、Figma MCPには次の提供形態があります。
-
-- **Remoteサーバー（推奨）**: Anthropic公式のClaude CodeプラグインとしてFigmaが用意しているもの。Figma Desktopアプリは不要で、ブラウザでOAuth認証するだけで使えます。全プラン・全シートで使えます
-- **Desktopサーバー（Dev Mode）**: Figma DesktopアプリでDev Modeを有効にしてローカルにMCPサーバーを立てるもの。Professional以上の有料プランのDev/Fullシートが必要です
-
-本ハンズオンでは、無料プランでも進められる**Remoteサーバー**でセットアップします。Desktopサーバーの手順は最後にコラムで軽く触れます。
+Figma MCPには2つの形があります。ブラウザで認証して使う**Remoteサーバー**と、Figma DesktopアプリのDev Modeでローカルに立てる**Desktopサーバー**です。このハンズオンでは、Figma Desktopアプリが要らないRemoteサーバーを使います。
 
 ## 演習: アプリの用意とセットアップ
 
@@ -136,16 +131,6 @@ connectedになっていれば、`mcp__Figma__` で始まるツール群（`get_
 - [Figma Developer Docs「Set up the remote server」](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/)
 - [Figma Learn「Guide to the Figma MCP server」](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server)
 - [Claude Code Docs「Connect Claude Code to tools via MCP」](https://code.claude.com/docs/en/mcp)
-
-::: tip Desktopサーバー（Dev Mode）を使いたい場合
-Figma Professional以上のプランなら、Figma Desktopアプリから直接接続する方式も選べます。
-
-1. Figma Desktopでデザインファイルを開き、下部ツールバーの **Dev Mode** に切り替える
-2. 右サイドバーの **MCP server** セクションで「Enable desktop MCP server」をオンにする（メニュー → **Preferences** → **Enable Dev Mode MCP Server** でも可）。これで `http://127.0.0.1:3845/mcp` にローカルサーバーが立つ
-3. Claude Code側で `claude mcp add --transport http figma-desktop http://127.0.0.1:3845/mcp` を実行して登録する
-
-Figma Desktopを起動しているあいだだけ有効です。以前は `/sse`（SSE）エンドポイントでしたが、現在は `/mcp`（Streamable HTTP）が正式版なので、古い記事の `--transport sse` を見ても真似しないでください。
-:::
 
 ## ゴール確認
 
