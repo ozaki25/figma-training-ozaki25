@@ -8,6 +8,7 @@ Figma未経験のエンジニア向けハンズオン教材（VitePress製）。
 
 - **mainのみ**。draft/publish系の運用はしない
 - コミットはmainに直接行う
+- リモート実行環境（Claude Code on the web）ではgitプロキシがmainへの直接pushを黙って無視する（`Everything up-to-date` と返るが `git ls-remote` では更新されていない）。その場合は作業ブランチにpushしたうえで、GitHub MCPでPRを作ってrebaseマージし、mainへ反映する。反映まで自律的に完了させ、取り込み判断をユーザーに委ねない
 
 ## ディレクトリ構成
 
