@@ -5,6 +5,7 @@
 //   3) 本文に全角記号 ＝ ＋（「A は B」「A に B を足す」と言葉で書く）
 //   4) 足場フレーズ（「まず全体像」「結論から言うと」など）
 //   5) AI出力を前提にした書き方の疑い
+//   6) 手順1行への設定の詰め込み（4種類以上。箇条書きにぶら下げる）
 // 使い方: node .claude/hooks/check-style.cjs docs/lessons/1-1/index.md [...]
 //         省略時は docs/lessons と docs/ 直下の全 index.md を対象にする。
 // 検出は「候補」。引用の格言・概念語など正当なものは人が判断して除外する。
@@ -25,6 +26,19 @@ const SCAFFOLD = [
   '大きく3つ',
 ];
 const GOAL_SECTIONS = ['ゴール確認', 'まとめ', 'できたこと', 'この章はここまで'];
+// 手順1行に並べてよい設定の種類は3つまで。4つ以上は箇条書きにぶら下げる
+const SETTING_WORDS = [
+  'フロー',
+  '間隔',
+  'パディング',
+  '配置',
+  '背景',
+  '塗り',
+  '角丸',
+  '枠線',
+  '幅',
+  '高さ',
+];
 
 function collectTargets(args) {
   if (args.length) return args;
@@ -75,6 +89,13 @@ function scan(file) {
     if (/[＝＋]/.test(noCode)) hits.push(`  [全角記号] ${i + 1}: ${t.slice(0, 60)}`);
     for (const s of SCAFFOLD) {
       if (t.includes(s)) hits.push(`  [足場:${s}] ${i + 1}: ${t.slice(0, 60)}`);
+    }
+    // 手順1行に設定を詰め込んでいないか（4つ以上なら箇条書きにぶら下げる）
+    if (/^(\d+\.|-)\s/.test(t)) {
+      const kinds = SETTING_WORDS.filter((w) => noCode.includes(w));
+      if (kinds.length >= 4) {
+        hits.push(`  [設定の詰め込み:${kinds.join('/')}] ${i + 1}: ${t.slice(0, 60)}`);
+      }
     }
     // 未観測の AI 出力を前提にした書き方の疑い
     if (

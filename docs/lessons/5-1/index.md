@@ -33,7 +33,9 @@ task-form
 | `main` | 幅・高さとも拡大、縦オートレイアウト、間隔 0 |
 | `header` | task-listからコピー。幅は拡大 |
 | `content` | 幅・高さとも拡大、縦オートレイアウト、パディング `space/48`、間隔 `space/24`、配置は上段の中央、背景 `bg` |
-| `form-header` | 縦オートレイアウト、幅は固定560、間隔 `space/8`。見出し `新しいタスクを追加`（`page-title` + `text/main`）と説明 `必要な項目を入力して登録します`（`body` + `text/sub`） |
+| `form-header` | 縦オートレイアウト、幅は固定560、間隔 `space/8` |
+| `form-title` | 見出し `新しいタスクを追加`（`page-title` + `text/main`） |
+| `form-lead` | 説明 `必要な項目を入力して登録します`（`body` + `text/sub`） |
 | `form-card` | 幅は固定560・高さは内包、縦オートレイアウト、パディング `space/32`、間隔 `space/20`、角丸 `radius/16`、背景 `surface`、枠線1px `border` |
 | `input-placeholder` ×5 | 高さ44、角丸 `radius/8`、塗り `surface`、枠線1px `border`、幅は拡大（入力欄の仮置き。本物は5-2で作る） |
 | `button-row` | 横オートレイアウト、間隔 `space/12`、配置は右中央、幅は拡大。中に幅固定120・高さ44・角丸 `radius/8` の仮ボタン2個（左は `surface` +枠線 `border`、右は `brand`） |
@@ -62,56 +64,55 @@ form-headerとform-cardを画面の横中央に置くのは、2つの設定の�
 
 これでサイドバーとヘッダーはtask-listと完全に同じ状態になり、トークンもテキストスタイルもそのまま引き継がれます。
 
-### 3. mainにまとめる
+### 3. mainを作る
 
-1. `header` を選択して `Shift + A` で縦に包む。このフレームが右カラムのmainになる
-2. 間隔 0、パディング 0 にして、名前を `main` にする
+1. `header` を選択して `Shift + A` で縦に包み、名前を `main` にする
+2. 間隔 0、パディング 0 にする
 3. `main` の幅・高さとも**拡大**にする
 4. 中の `header` の幅も**拡大**にする
 
-### 4. form-headerを作る
+### 4. contentを作る
 
-1. `t` でテキスト `新しいタスクを追加`（`page-title` + `text/main`）と `必要な項目を入力して登録します`（`body` + `text/sub`）を作る
-2. 2つを選択して `Shift + A` で縦に包み、間隔 `space/8`、パディング 0、名前を `form-header` にする
-
-### 5. contentを作る
-
-1. `form-header` を選択して、もう一度 `Shift + A` で包む。このフレームがcontentになる
+1. `f` で `main` の中、`header` の下にフレームを描いて、名前を `content` にする
+2. `Shift + A` でオートレイアウトを付ける
    - フロー縦、間隔 `space/24`、パディング `space/48`
-   - 背景 `bg`
-2. `main` の中、`header` の下へ入れ、幅・高さとも**拡大**にする
-3. 配置の9マスで**上段の中央**を選ぶ
-4. `form-header` の幅を**固定560**にする
-5. 名前を `content` にする
+   - 背景は `bg`
+3. 幅・高さとも**拡大**にする
+4. 配置の9マスで**上段の中央**を選ぶ
+
+### 5. form-headerを作る
+
+1. `content` の中に `t` でテキスト `新しいタスクを追加`（`page-title` + `text/main`）を作り、名前を `form-title` にする
+2. `t` でテキスト `必要な項目を入力して登録します`（`body` + `text/sub`）を作り、名前を `form-lead` にする
+3. 2つを選択して `Shift + A` で縦に包み、名前を `form-header` にする
+   - 間隔 `space/8`、パディング 0
+   - 幅は**固定560**
 
 ### 6. form-cardを置く
 
-1. 入力欄のプレースホルダーとして、`r` で高さ44の四角形を作る
+1. `f` で `content` の中、`form-header` の下にフレームを描いて、名前を `form-card` にする
+2. `Shift + A` でオートレイアウトを付ける
+   - フロー縦、間隔 `space/20`、パディング `space/32`
+   - 角丸 `radius/16`、背景 `surface`、枠線1px `border`
+   - 幅は**固定560**、高さは**内包**
+3. `form-card` の中に `r` で高さ44の四角形を作り、名前を `input-placeholder` にする
    - 角丸 `radius/8`
    - 塗り `surface`
    - 枠線1px `border`
-2. 四角形を選択して `Shift + A` で包む。このフレームがform-cardになる
-   - フロー縦、間隔 `space/20`、パディング `space/32`、角丸 `radius/16`
-   - 幅は**固定560**、高さは**内包**
-   - 背景 `surface`、枠線1px `border`
-3. 名前を `form-card` にして、`content` の中、`form-header` の下へ入れる
+   - 幅を**拡大**にする
 
 幅を560で止めた瞬間、`content` の配置（上段の中央）に従って画面の横中央に収まります。
 
 ### 7. プレースホルダーを並べる
 
-1. form-cardの中に入れた四角形の幅を**拡大**にして、名前を `input-placeholder` にする
-2. `Cmd + D` で5個にする
+1. `input-placeholder` を選択して `Cmd + D` で5個にする
    - 完成形では5個のうち2個が横並びの2列になるが、いまは5個とも縦のままでよい（2列にするのは5-2）
-3. 仮ボタンを作る。`r` で四角形を作る（本物のButtonに置き換えるのは5-2）
+2. 仮ボタンの行を作る。`f` で `form-card` の一番下にフレームを描いて、名前を `button-row` にする
+3. `Shift + A` でオートレイアウトを付け、間隔 `space/12`、配置は右中央にして、幅を**拡大**にする
+4. `button-row` の中に `r` で四角形を作り、名前を `button-placeholder-cancel` にする（本物のButtonに置き換えるのは5-2）
    - 高さ44、幅120（四角形にはパディングや内包を設定できないので、幅は数値で決める）
-   - 角丸 `radius/8`
-4. 四角形を選択して `Shift + A` で包む。このフレームがbutton-rowになる
-5. `button-row` を間隔 `space/12`、配置は右中央にする
-6. form-cardの一番下へ入れ、幅を**拡大**にする
-7. 中の四角形を `Cmd + D` で2個にする
-   - 左は塗り `surface` に枠線1px `border`、名前を `button-placeholder-cancel` にする
-   - 右は塗り `brand`、名前を `button-placeholder-submit` にする
+   - 角丸 `radius/8`、塗り `surface`、枠線1px `border`
+5. `button-placeholder-cancel` を `Cmd + D` で複製し、複製した右側の名前を `button-placeholder-submit`、塗りを `brand` にする
 
 カードの中で、5つの入力欄の枠とボタン行が間隔 `space/20` で縦に並び、幅はカードいっぱいにそろうはずです。
 
