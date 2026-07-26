@@ -196,9 +196,6 @@ export default withPwa(
         ],
       },
       workbox: {
-        // HTMLもプリキャッシュする。オフラインで未訪問のページも開けるようにするため。
-        // Workboxはprecacheのルートを先に判定するので、下のNetworkFirstはHTMLには効かず、
-        // 更新の反映はリロード1回ぶん遅れる。オフライン対応を優先してこの形にしている。
         globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         // 新しいService Workerを待機させず即座に有効化する。
