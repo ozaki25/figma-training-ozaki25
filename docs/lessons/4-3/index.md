@@ -70,36 +70,37 @@ TaskCard
 
 部品は「カードの外で作って、できたらカードの中へドラッグで入れる」を繰り返します。
 
-1. 完了チェックの丸を作る。PriorityTagを作ったのと同じ場所に、`o` で 20×20 の正円を作り、塗り `surface`、枠線1px `border` にする
-2. 正円を選択して `Shift + A` で横に包む。このフレームがカード本体になる
+1. 完了チェックの丸を作る。PriorityTagを作ったのと同じ場所に、`o` で 20×20 の正円を作り、塗り `surface`、枠線1px `border` にして、名前を `checkbox` にする
+2. `checkbox` を選択して `Shift + A` で横に包み、名前を `TaskCard` にする
    - 間隔 `space/16`、パディング `space/16`、配置は上下中央
    - 背景 `surface`、角丸 `radius/12`
    - 幅は**固定600**、高さは**内包**
-3. 優先度タグを入れる。アセットパネルから `PriorityTag` のインスタンスを、カードの中、丸の右へ入れる
+3. 優先度タグを入れる。アセットパネルから `PriorityTag` のインスタンスを、カードの中、`checkbox` の右へ入れる
 4. タスク名と説明のブロックを入れる
-   1. カードの外に、`t` でテキスト `デザインレビューの準備`（`card-title` + `text/main`）と `一覧画面のデザインを共有`（`caption` + `text/sub`）を作る
-   2. 2つを選択して `Shift + A` で縦に包み、間隔 `space/4`、名前を `task-body` にする
-   3. カードの中、PriorityTagの右へ入れる
+   1. カードの外に、`t` でテキスト `デザインレビューの準備`（`card-title` + `text/main`）を作り、名前を `task-title` にする
+   2. `t` でテキスト `一覧画面のデザインを共有`（`caption` + `text/sub`）を作り、名前を `task-desc` にする
+   3. 2つを選択して `Shift + A` で縦に包み、間隔 `space/4`、名前を `task-body` にする
+   4. カードの中、PriorityTagの右へ入れる
 5. カテゴリのバッジを入れる
-   1. カードの外に、`t` でテキスト `デザイン`（`caption` + `text/sub`）を作り、`Shift + A` で包む
-   2. 上下パディング `space/4`、左右パディング `space/8`、角丸 `radius/4`、背景 `bg`、幅は**内包**にする
-   3. カードの中、`task-body` の右へ入れる
+   1. カードの外に、`t` でテキスト `デザイン`（`caption` + `text/sub`）を作り、`Shift + A` で包んで、名前を `category-badge` にする
+      - 上下パディング `space/4`、左右パディング `space/8`
+      - 角丸 `radius/4`、背景 `bg`
+      - 幅は**内包**
+   2. カードの中、`task-body` の右へ入れる
 6. 担当者のアイコンを入れる。イニシャルが入った丸で、正円の図形の中にはテキストを入れられないので、角丸のフレームで円形を作る
-   1. カードの外に、`t` でイニシャルのテキスト `TY`（`caption` + `text/main`）を作り、`Shift + A` で包む
-   2. パディング 0、配置は中央、角丸 `radius/full`、背景 `placeholder` にする
-   3. 幅・高さを**固定24**にすると、円形のアイコンになる
-   4. カードの中、バッジの右へ入れる
-7. 期限を入れる。カードの外に `t` でテキスト `今日`（`caption` + `text/sub`）を作り、カードの中の右端へ入れる
-8. 並び順を確認する。左から「丸・PriorityTag・task-body・バッジ・アイコン・期限」。違っていたら、カードの中で要素をドラッグして入れ替える
+   1. カードの外に、`t` でイニシャルのテキスト `TY`（`caption` + `text/main`）を作り、`Shift + A` で包んで、名前を `assignee` にする
+      - パディング 0、配置は中央
+      - 角丸 `radius/full`、背景 `placeholder`
+      - 幅・高さを**固定24**にすると、円形のアイコンになる
+   2. カードの中、`category-badge` の右へ入れる
+7. 期限を入れる。カードの外に `t` でテキスト `今日`（`caption` + `text/sub`）を作り、名前を `task-due` にして、カードの中の右端へ入れる
+8. 並び順を確認する。左から `checkbox`・`PriorityTag`・`task-body`・`category-badge`・`assignee`・`task-due`。違っていたら、カードの中で要素をドラッグして入れ替える
 9. `task-body` の幅を**拡大**にして、カテゴリ・担当者・期限が右端に寄るのを確認する
 
-### 4. コンポーネント化して名前を整える
+### 4. コンポーネント化する
 
-1. カードのフレームを選択して `Cmd + Option + K` でコンポーネント化する
+1. `TaskCard` のフレームを選択して `Cmd + Option + K` でコンポーネント化する
 2. レイヤーパネルのアイコンがひし形4つに変わったのを確認する
-3. `Cmd + R` で、コンポーネントの名前を `TaskCard` に、中の部品を `checkbox`・`task-title`・`task-desc`・`category-badge`・`assignee`・`task-due` にする
-   - `category-badge` と `assignee` は、包んでいるフレーム側に付ける。中のテキストの名前はそのままでよい
-   - `task-body` と `PriorityTag` は名前が付いているのでそのまま
 
 ### 5. インスタンス3枚を並べて書き換える
 
