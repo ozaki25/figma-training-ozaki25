@@ -33,8 +33,11 @@
 - Node 22（`engines.node >= 22`）、`"type": "module"`、private
 - vitepress ^1.6.4
 - PWA: @vite-pwa/vitepress ^1.1.0 + @vite-pwa/assets-generator ^1.0.2 + vite-plugin-pwa ^1.2.0
-  - registerType: autoUpdate、日本語manifest、NetworkFirst(navigate, timeout 5s)、
+  - registerType: autoUpdate、日本語manifest、NetworkFirst(navigate, timeout 3s)、
     maximumFileSizeToCacheInBytes 5MB、アイコン64/192/512+maskable
+  - HTMLはプリキャッシュしない（globPatternsからhtmlを除外し、navigateFallbackをundefined）。
+    プリキャッシュに入れるとWorkboxの登録順でキャッシュ優先になり、NetworkFirstまで判定が
+    届かず更新が遅れる。代償として、未訪問ページはオフラインで開けない
   - ルートに pwa-assets.config.ts、scripts に pwa:icons
 - @vercel/analytics ^2.0.1、@vercel/speed-insights ^2.0.0
 - textlint ^15.6.0 + textlint-rule-preset-ja-technical-writing ^12.0.2 +

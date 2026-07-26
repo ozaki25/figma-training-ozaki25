@@ -196,7 +196,12 @@ export default withPwa(
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
+        // HTMLはプリキャッシュしない。プリキャッシュに含めるとキャッシュ優先で配信され、
+        // 下のNetworkFirstまで判定が届かず、更新が次回の読み込みまで反映されない。
+        globPatterns: ['**/*.{css,js,svg,png,ico,txt,woff2}'],
+        // 明示的にundefinedにしないと、プラグインが既定値のindex.htmlを入れてしまい、
+        // プリキャッシュから外したHTMLを参照するナビゲーションルートが作られる。
+        navigateFallback: undefined,
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         // 新しいService Workerを待機させず即座に有効化する。
         // registerType: 'autoUpdate' と組み合わせて、更新をリロード1回で反映させる。
