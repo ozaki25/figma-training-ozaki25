@@ -288,7 +288,7 @@ Figma MCPサーバーは2026年7月時点で2種類ある。ハンズオンの�
 - **Remote server（推奨）**: Anthropic公式マーケットプレイスからClaude Codeのプラグインとして入れる方式。Figma Desktopアプリは不要。OAuthでブラウザ認証する。全プラン・全シートで使えるが、Starter（無料）プランは月6ツールコールに制限される。Professional以上のDev/Fullシートは分単位のレート制限のみ
   - インストール: `/plugin install figma@claude-plugins-official`（Claude Code内のスラッシュコマンド。`claude plugin install figma@claude-plugins-official` でも可）
   - 認証: `/plugin` → Installedタブ → figmaを選択 → Enterで認証ページが開き、ブラウザで「Allow access」を押す
-  - 確認: `/plugin` の Installed タブで figma が connected 表示になっているか、`/mcp` でも接続状態が見える
+  - 確認: `/mcp` の一覧で connected になっているかを見る。`/plugin` のバッジは、同じURLの接続が既にあると同梱サーバーがスキップされて出ないことがあるため、合格条件にしない（2026-07変更）
 - **Desktop server（Dev Mode）**: Figma Desktopアプリ内でDev Modeを有効にしてローカルにMCPサーバー（127.0.0.1:3845）を立てる方式。Dev/FullシートかつProfessional以上の有料プランが必要。無料プランでは選択肢に出ない
   - Figma側: Dev Modeに切り替え → 右サイドバーの MCP server セクションで「Enable desktop MCP server」をオン（メニュー → Preferences → 「Enable Dev Mode MCP Server」でも可）
   - Claude Code側: `claude mcp add --transport http figma-desktop http://127.0.0.1:3845/mcp`
