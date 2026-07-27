@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="2日間のハンズオンの流れの俯瞰図。1章から6章までを左から右に並べ、1章から3章は基礎の練習、4章と5章で本番の2画面を作り、6章でコード生成まで進む積み上がりを示す。">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="2日間のハンズオンの流れの俯瞰図。1章から6章までを左から右に並べ、1章から3章は基礎の練習、4章でタスク一覧を作り、5章でそれをコードに変換し、6章で登録フォームを作ってコードに変換する積み上がりを示す。">
   <!-- 背景 -->
   <rect x="0" y="0" width="960" height="380" rx="12" fill="#F3F0FA"/>
 
   <!-- タイトル -->
   <text x="32" y="38" font-size="15" font-weight="bold" fill="#3B3355">2日間の積み上がり</text>
-  <text x="32" y="58" font-size="12" fill="#5A5273">基礎の練習 → 本番の2画面 → コード生成、の順で積み上げた流れ</text>
+  <text x="32" y="58" font-size="12" fill="#5A5273">基礎の練習 → 画面を作る → コードにする、を2画面ぶん繰り返した流れ</text>
 
   <!-- Day1 / Day2 のラベル帯 -->
   <rect x="32" y="80" width="432" height="22" rx="4" fill="#EDE7FA"/>
@@ -64,28 +64,28 @@
 
   <!-- 5章 -->
   <g>
-    <rect x="620" y="118" width="140" height="178" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
-    <rect x="620" y="118" width="140" height="24" rx="8" fill="#7C3AED"/>
-    <text x="634" y="135" font-size="11" font-weight="bold" fill="#FFFFFF">5章 本番</text>
-    <text x="634" y="160" font-size="11" font-weight="bold" fill="#1A1A1F">登録フォーム</text>
+    <rect x="620" y="118" width="140" height="178" rx="8" fill="#FFFFFF" stroke="#0F7A4A" stroke-width="1.5"/>
+    <rect x="620" y="118" width="140" height="24" rx="8" fill="#0F7A4A"/>
+    <text x="634" y="135" font-size="11" font-weight="bold" fill="#FFFFFF">5章 コード化</text>
+    <text x="634" y="160" font-size="11" font-weight="bold" fill="#1A1A1F">Figma MCP</text>
     <line x1="634" y1="170" x2="746" y2="170" stroke="#E2DDF0" stroke-width="1"/>
-    <text x="634" y="190" font-size="10" fill="#3B3355">フォーム骨組み</text>
-    <text x="634" y="208" font-size="10" fill="#3B3355">TextField / Button</text>
-    <text x="634" y="226" font-size="10" fill="#3B3355">2画面の一貫性</text>
-    <text x="634" y="278" font-size="9" fill="#8A8A93">同じ手順で2画面目</text>
+    <text x="634" y="190" font-size="10" fill="#3B3355">MCPセットアップ</text>
+    <text x="634" y="208" font-size="10" fill="#3B3355">一覧をコード生成</text>
+    <text x="634" y="278" font-size="9" fill="#8A8A93">Claude Codeへ渡す</text>
   </g>
 
   <!-- 6章 -->
   <g>
-    <rect x="770" y="118" width="158" height="178" rx="8" fill="#FFFFFF" stroke="#0F7A4A" stroke-width="1.5"/>
-    <rect x="770" y="118" width="158" height="24" rx="8" fill="#0F7A4A"/>
-    <text x="784" y="135" font-size="11" font-weight="bold" fill="#FFFFFF">6章 コード化</text>
-    <text x="784" y="160" font-size="11" font-weight="bold" fill="#1A1A1F">Figma MCP</text>
+    <rect x="770" y="118" width="158" height="178" rx="8" fill="#FFFFFF" stroke="#7C3AED" stroke-width="1.5"/>
+    <rect x="770" y="118" width="158" height="24" rx="8" fill="#7C3AED"/>
+    <text x="784" y="135" font-size="11" font-weight="bold" fill="#FFFFFF">6章 本番→コード化</text>
+    <text x="784" y="160" font-size="11" font-weight="bold" fill="#1A1A1F">登録フォーム</text>
     <line x1="784" y1="170" x2="914" y2="170" stroke="#E2DDF0" stroke-width="1"/>
-    <text x="784" y="190" font-size="10" fill="#3B3355">MCPセットアップ</text>
-    <text x="784" y="208" font-size="10" fill="#3B3355">一覧をコード生成</text>
-    <text x="784" y="226" font-size="10" fill="#3B3355">フォームをコード生成</text>
-    <text x="784" y="278" font-size="9" fill="#8A8A93">Claude Codeへ渡す</text>
+    <text x="784" y="190" font-size="10" fill="#3B3355">フォーム骨組み</text>
+    <text x="784" y="208" font-size="10" fill="#3B3355">TextField / Button</text>
+    <text x="784" y="226" font-size="10" fill="#3B3355">2画面の一貫性</text>
+    <text x="784" y="244" font-size="10" fill="#3B3355">フォームをコード生成</text>
+    <text x="784" y="278" font-size="9" fill="#8A8A93">同じ手順で2画面目</text>
   </g>
 
   <!-- 矢印 -->
@@ -93,12 +93,12 @@
     <path d="M 172 210 L 178 210"/>
     <path d="M 318 210 L 324 210"/>
     <path d="M 464 210 L 470 210"/>
-    <path d="M 610 210 L 620 210"/>
   </g>
-  <path d="M 760 210 L 770 210" stroke="#0F7A4A" stroke-width="1.6" fill="none"/>
+  <path d="M 610 210 L 620 210" stroke="#0F7A4A" stroke-width="1.6" fill="none"/>
+  <path d="M 760 210 L 770 210" stroke="#7C3AED" stroke-width="1.6" fill="none"/>
 
   <!-- 積み上がりの説明帯 -->
   <text x="32" y="326" font-size="12" font-weight="bold" fill="#3B3355">積み上がりのポイント</text>
-  <text x="32" y="346" font-size="11" fill="#5A5273">1〜3章の練習で覚えた手順（Auto Layout・スタイル・コンポーネント・命名）を、4〜5章で本番の2画面にそのまま当てはめる。</text>
-  <text x="32" y="364" font-size="11" fill="#5A5273">整えたレイヤー名とコンポーネントが、6章のFigma MCP + Claude Codeでコードの品質にそのまま出る。</text>
+  <text x="32" y="346" font-size="11" fill="#5A5273">1〜3章の練習で覚えた手順（Auto Layout・スタイル・コンポーネント・命名）を、4章と6章で本番の2画面にそのまま当てはめる。</text>
+  <text x="32" y="364" font-size="11" fill="#5A5273">整えたレイヤー名とコンポーネントが、Figma MCP + Claude Codeで生成するコードの品質にそのまま出る。</text>
 </svg>
