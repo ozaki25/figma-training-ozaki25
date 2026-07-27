@@ -23,7 +23,7 @@ Button
 | --- | --- |
 | `TextField` | 縦オートレイアウト、間隔 `space/8`、幅は固定320（フォームに置くインスタンスは拡大にする） |
 | `label` | テキストスタイル `caption`、色 `text/sub` |
-| `input` | 横オートレイアウト、高さ44、幅は拡大、パディング `space/12`、配置は左中央、角丸 `radius/8`、背景 `surface`、枠線1px `border`。中の例文テキストは テキストスタイル `body`、色 `text/sub` |
+| `input` | 横オートレイアウト、高さ44、幅は拡大、パディング `space/12`、配置は左中央、角丸 `radius/8`、背景 `surface`、枠線1px `border`。中の例文テキストはテキストスタイル `body`、色 `text/sub` |
 | `Button` | 高さ44、左右パディング `space/20`、配置は中央、角丸 `radius/8`、幅は内包。`variant=primary/secondary` の2バリアント |
 | `label`（Button内） | `button-label` |
 

@@ -82,7 +82,7 @@ form-headerとform-cardを画面の横中央に置くには、子（form-header�
 
 ### 5. form-headerを作る
 
-1. `content` の中に `t` を押してクリックし、テキスト `新しいタスクを追加`（テキストスタイル `page-title`、色 `text/main`）を作り、名前を `form-title` にする
+1. `t` を押して `content` の中をクリックし、テキスト `新しいタスクを追加`（テキストスタイル `page-title`、色 `text/main`）を作り、名前を `form-title` にする
 2. `t` を押してクリックし、テキスト `必要な項目を入力して登録します`（テキストスタイル `body`、色 `text/sub`）を作り、名前を `form-lead` にする
 3. 2つを選択して `Shift + A` で縦のオートレイアウトにして、名前を `form-header` にする
    - 間隔 `space/8`、パディング 0
@@ -109,7 +109,9 @@ form-headerとform-cardを画面の横中央に置くには、子（form-header�
 1. `input-placeholder` を選択して `Cmd + D` で5個にする
    - 完成形では5個のうち2個が横並びの2列になるが、いまは5個とも縦のままでよい（2列にするのは5-2）
 2. 仮ボタンの行を作る。`f` で `form-card` の一番下にフレームを描いて、名前を `button-row` にする
-3. `Shift + A` で横のオートレイアウトにして、間隔 `space/12`、配置は右中央にして、幅を**拡大**にする
+3. `Shift + A` で横のオートレイアウトにする
+   - 間隔 `space/12`、配置は右中央
+   - 幅は**拡大**
 4. `button-row` の中に `r` で四角形を作り、名前を `button-placeholder-cancel` にする（本物のButtonに置き換えるのは5-2）
    - 高さ44、幅120（四角形にはパディングや内包を設定できないので、幅は数値で決める）
    - 角丸 `radius/8`、塗り `surface`、枠線1px `border`
