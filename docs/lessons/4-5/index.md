@@ -4,7 +4,7 @@
 
 ## 完成イメージ
 
-![仕上げ後のタスク一覧画面。左は装飾済みsidebar（ロゴ、nav-item 5個、下端にユーザーブロック）、右はheaderとcontent。contentには見出し、統計カード3枚、フィルタチップ4個、3セクションに合計5枚のTaskCardが並ぶ。1枚は完了状態](/lessons/4-4/task-list-final.png)
+![仕上げ後のタスク一覧画面。左は装飾済みsidebar（ロゴ、nav-item 5個、下端にユーザーブロック）、右はheaderとcontent。contentには見出し、統計カード3枚、フィルタチップ4個、3セクションに合計5枚のTaskCardが並ぶ。1枚は完了状態](/lessons/4-5/task-list-final.png)
 
 ## 演習
 
