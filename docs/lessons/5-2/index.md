@@ -22,8 +22,8 @@ Button
 | 部品 | 仕様 |
 | --- | --- |
 | `TextField` | 縦オートレイアウト、間隔 `space/8`、幅は固定320（フォームに置くインスタンスは拡大にする） |
-| `label` | `caption` + `text/sub` |
-| `input` | 横オートレイアウト、高さ44、幅は拡大、パディング `space/12`、配置は左中央、角丸 `radius/8`、背景 `surface`、枠線1px `border`。中の例文テキストは `body` + `text/sub` |
+| `label` | テキストスタイル `caption`、色 `text/sub` |
+| `input` | 横オートレイアウト、高さ44、幅は拡大、パディング `space/12`、配置は左中央、角丸 `radius/8`、背景 `surface`、枠線1px `border`。中の例文テキストは テキストスタイル `body`、色 `text/sub` |
 | `Button` | 高さ44、左右パディング `space/20`、配置は中央、角丸 `radius/8`、幅は内包。`variant=primary/secondary` の2バリアント |
 | `label`（Button内） | `button-label` |
 
@@ -47,9 +47,9 @@ Button
 
 ### 1. TextFieldを作る
 
-1. `task-form` フレームの外の空いた場所に、`t` でテキスト `タスク名`（`caption` + `text/sub`）を作り、名前を `label` にする
+1. `task-form` フレームの外の空いた場所に、`t` でテキスト `タスク名`（テキストスタイル `caption`、色 `text/sub`）を作り、名前を `label` にする
 2. 入力ボックスを作る。四角形ではなくオートレイアウトフレームで作るのは、中に文字を入れられるようにするため
-   1. `t` でテキスト `例: 会議資料の作成`（`body` + `text/sub`）を作り、`Shift + A` でオートレイアウトにして、名前を `input` にする
+   1. `t` でテキスト `例: 会議資料の作成`（テキストスタイル `body`、色 `text/sub`）を作り、`Shift + A` でオートレイアウトにして、名前を `input` にする
       - パディング `space/12`、配置は左中央
       - 角丸 `radius/8`、背景 `surface`、枠線1px `border`
       - 高さは**固定44**
@@ -61,7 +61,7 @@ Button
 
 ### 2. Buttonを作って2バリアントにする
 
-1. TextFieldを作ったのと同じ場所に、`t` でテキスト `タスクを登録`（`button-label` + `text/inverse`）を作り、名前を `label` にする
+1. TextFieldを作ったのと同じ場所に、`t` でテキスト `タスクを登録`（テキストスタイル `button-label`、色 `text/inverse`）を作り、名前を `label` にする
 2. `label` を選択して `Shift + A` でオートレイアウトにして、名前を `Button` にする
    - 左右パディング `space/20`、配置は中央
    - 角丸 `radius/8`、背景 `brand`
