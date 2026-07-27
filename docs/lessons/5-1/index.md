@@ -66,7 +66,7 @@ form-headerとform-cardを画面の横中央に置くのは、2つの設定の�
 
 ### 3. mainを作る
 
-1. `header` を選択して `Shift + A` で縦に包み、名前を `main` にする
+1. `header` を選択して `Shift + A` で縦のオートレイアウトにして、名前を `main` にする
 2. 間隔 0、パディング 0 にする
 3. `main` の幅・高さとも**拡大**にする
 4. 中の `header` の幅も**拡大**にする
@@ -84,7 +84,7 @@ form-headerとform-cardを画面の横中央に置くのは、2つの設定の�
 
 1. `content` の中に `t` でテキスト `新しいタスクを追加`（`page-title` + `text/main`）を作り、名前を `form-title` にする
 2. `t` でテキスト `必要な項目を入力して登録します`（`body` + `text/sub`）を作り、名前を `form-lead` にする
-3. 2つを選択して `Shift + A` で縦に包み、名前を `form-header` にする
+3. 2つを選択して `Shift + A` で縦のオートレイアウトにして、名前を `form-header` にする
    - 間隔 `space/8`、パディング 0
    - 幅は**固定560**
 
