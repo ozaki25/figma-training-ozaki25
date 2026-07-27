@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 412" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="命名前と命名後のレイヤーツリーの比較。命名前はComponent 1、Frame 5、Ellipse 1、Frame 3、山田太郎、フロントエンドエンジニアという自動の名前が並び構造が読めない。命名後はProfileCard、avatar、avatar-image、user-info、user-name、user-titleという役割ベースの名前になり、構造がひと目で読める。">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 450" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif" role="img" aria-label="命名前と命名後のレイヤーツリーの比較。命名前はComponent Set 1、Frame 5、Ellipse 1、Ellipse 2、Frame 3、山田太郎、フロントエンドエンジニアという自動の名前が並び構造が読めない。命名後はProfileCard、avatar、avatar-image、online-badge、user-info、user-name、user-titleという役割ベースの名前になり、構造がひと目で読める。">
   <!-- 背景（ライト/ダーク両モードで同じ見た目になるよう単色を持たせる） -->
-  <rect x="0" y="0" width="860" height="412" rx="12" fill="#F3F0FA"/>
+  <rect x="0" y="0" width="860" height="450" rx="12" fill="#F3F0FA"/>
 
   <!-- 左: 命名前 -->
   <text x="220" y="66" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">命名前（自動の名前）</text>
-  <rect x="60" y="88" width="320" height="254" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <rect x="60" y="88" width="320" height="292" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
 
-  <!-- Component 1（ひし形4つ） -->
+  <!-- Component Set 1（ひし形4つ） -->
   <g fill="#7C3AED">
     <path d="M 88 112 l 5 5 l -5 5 l -5 -5 z"/>
     <path d="M 100 112 l 5 5 l -5 5 l -5 -5 z"/>
     <path d="M 88 124 l 5 5 l -5 5 l -5 -5 z"/>
     <path d="M 100 124 l 5 5 l -5 5 l -5 -5 z"/>
   </g>
-  <text x="114" y="128" font-size="14" font-weight="bold" fill="#7C3AED">Component 1</text>
+  <text x="114" y="128" font-size="14" font-weight="bold" fill="#7C3AED">Component Set 1</text>
 
   <!-- Frame 5 -->
   <text x="115" y="166" font-size="13" fill="#5A5273">#</text>
@@ -23,26 +23,30 @@
   <circle cx="153" cy="199" r="7" fill="none" stroke="#5A5273" stroke-width="1.5"/>
   <text x="168" y="204" font-size="14" fill="#333333">Ellipse 1</text>
 
+  <!-- Ellipse 2（オンラインバッジ） -->
+  <circle cx="153" cy="237" r="6" fill="#0ACF83"/>
+  <text x="168" y="242" font-size="14" fill="#333333">Ellipse 2</text>
+
   <!-- Frame 3 -->
-  <text x="115" y="242" font-size="13" fill="#5A5273">#</text>
-  <text x="140" y="242" font-size="14" fill="#333333">Frame 3</text>
+  <text x="115" y="280" font-size="13" fill="#5A5273">#</text>
+  <text x="140" y="280" font-size="14" fill="#333333">Frame 3</text>
 
   <!-- テキスト2つ -->
-  <text x="146" y="280" font-size="13" font-weight="bold" fill="#5A5273">T</text>
-  <text x="168" y="280" font-size="14" fill="#333333">山田太郎</text>
   <text x="146" y="318" font-size="13" font-weight="bold" fill="#5A5273">T</text>
-  <text x="168" y="318" font-size="14" fill="#333333">フロントエンドエンジニア</text>
+  <text x="168" y="318" font-size="14" fill="#333333">山田太郎</text>
+  <text x="146" y="356" font-size="13" font-weight="bold" fill="#5A5273">T</text>
+  <text x="168" y="356" font-size="14" fill="#333333">フロントエンドエンジニア</text>
 
-  <text x="220" y="372" text-anchor="middle" font-size="13" fill="#5A5273">種類と連番だけでは、どれが何なのか読めない</text>
+  <text x="220" y="410" text-anchor="middle" font-size="13" fill="#5A5273">種類と連番だけでは、どれが何なのか読めない</text>
 
   <!-- 中央の矢印 -->
-  <text x="430" y="194" text-anchor="middle" font-size="13" font-weight="bold" fill="#7C3AED">リネーム</text>
-  <line x1="396" y1="215" x2="452" y2="215" stroke="#7C3AED" stroke-width="2.5"/>
-  <path d="M 464 215 l -14 -8 v 16 z" fill="#7C3AED"/>
+  <text x="430" y="213" text-anchor="middle" font-size="13" font-weight="bold" fill="#7C3AED">リネーム</text>
+  <line x1="396" y1="234" x2="452" y2="234" stroke="#7C3AED" stroke-width="2.5"/>
+  <path d="M 464 234 l -14 -8 v 16 z" fill="#7C3AED"/>
 
   <!-- 右: 命名後 -->
   <text x="640" y="66" text-anchor="middle" font-size="17" font-weight="bold" fill="#3B3355">命名後（役割の名前）</text>
-  <rect x="480" y="88" width="320" height="254" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
+  <rect x="480" y="88" width="320" height="292" rx="12" fill="#FFFFFF" stroke="#C9C2DE" stroke-width="1"/>
 
   <!-- ProfileCard（ひし形4つ） -->
   <g fill="#7C3AED">
@@ -61,15 +65,19 @@
   <circle cx="573" cy="199" r="7" fill="none" stroke="#5A5273" stroke-width="1.5"/>
   <text x="588" y="204" font-size="14" fill="#333333">avatar-image</text>
 
+  <!-- online-badge -->
+  <circle cx="573" cy="237" r="6" fill="#0ACF83"/>
+  <text x="588" y="242" font-size="14" fill="#333333">online-badge</text>
+
   <!-- user-info -->
-  <text x="535" y="242" font-size="13" fill="#5A5273">#</text>
-  <text x="560" y="242" font-size="14" fill="#333333">user-info</text>
+  <text x="535" y="280" font-size="13" fill="#5A5273">#</text>
+  <text x="560" y="280" font-size="14" fill="#333333">user-info</text>
 
   <!-- user-name / user-title -->
-  <text x="566" y="280" font-size="13" font-weight="bold" fill="#5A5273">T</text>
-  <text x="588" y="280" font-size="14" fill="#333333">user-name</text>
   <text x="566" y="318" font-size="13" font-weight="bold" fill="#5A5273">T</text>
-  <text x="588" y="318" font-size="14" fill="#333333">user-title</text>
+  <text x="588" y="318" font-size="14" fill="#333333">user-name</text>
+  <text x="566" y="356" font-size="13" font-weight="bold" fill="#5A5273">T</text>
+  <text x="588" y="356" font-size="14" fill="#333333">user-title</text>
 
-  <text x="640" y="372" text-anchor="middle" font-size="13" fill="#5A5273">役割が名前から分かり、HTMLの構造にそのまま対応する</text>
+  <text x="640" y="410" text-anchor="middle" font-size="13" fill="#5A5273">役割が名前から分かり、HTMLの構造にそのまま対応する</text>
 </svg>
