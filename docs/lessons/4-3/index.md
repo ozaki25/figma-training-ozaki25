@@ -64,7 +64,7 @@ TaskCard
 4. 2枚目（mid）を書き換える: テキストを `Mid` に、文字色を `priority/mid/text` に、背景を `priority/mid/bg` にする
 5. 3枚目（low）も同じように、`Low`・`priority/low/text`・`priority/low/bg` にする
 
-レイヤーパネルで `PriorityTag` の下に `priority=high`・`priority=mid`・`priority=low` の3つが並んでいれば完成です。
+レイヤーパネルで `PriorityTag` の下に `high`・`mid`・`low` の3つが並んでいれば完成です（プロパティ名は表示されず、値だけが出ます）。
 
 ### 3. TaskCardを組む
 
