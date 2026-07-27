@@ -36,7 +36,7 @@ Figmaは作った要素に「種類 + 連番」で自動的に名前を付けま
 
 6章で使うFigma MCPは、レイヤー名と構造も手がかりにしてコードを生成します。カードが `ProfileCard` という名前なら、生成されるコードのクラス名やコンポーネント名にもその意図が反映されます。Frame 13 のままなら、AIは中身から役割を推測するしかなく、生成結果もそれなりになります。実際の生成は6章で体験します。
 
-![命名前と命名後のレイヤーツリーの比較。命名前はComponent 1やFrame 5のような自動の名前で構造が読めない。命名後はProfileCard、avatar、avatar-image、user-info、user-name、user-titleという役割の名前になり構造が読める](/lessons/3-3/layer-naming-before-after.svg)
+![命名前と命名後のレイヤーツリーの比較。命名前はComponent Set 1やFrame 5のような自動の名前で構造が読めない。命名後はProfileCard、avatar、online-badge、user-infoのような役割の名前になり構造が読める](/lessons/3-3/layer-naming-before-after.svg)
 
 ## 演習: プロフィールカードのレイヤーを整理する
 
