@@ -1,142 +1,128 @@
-# 6-1 Figma MCPサーバーをセットアップする
+# 6-1 フォームのレイアウトを組む
 
-ここまで4章でタスク一覧、5章で登録フォームと、2画面のデザインを作ってきました。6章ではその2画面をFigma MCPとClaude Codeでコードに変換します。
+ここからは2画面目、タスク登録フォームを作ります。4章のタスク一覧画面と同じサイドバー・同じヘッダー・同じトークンでそろえます。サイドバーとヘッダーは4章から**まるごとコピー**して使い回します。1から作り直しません。
 
-このレッスンでは、生成したコードを表示するためのアプリを用意し、Figma側のデザインとClaude Codeのあいだをつなぐ「Figma MCPサーバー」をセットアップします。生成そのものは6-2と6-3で行うので、ここでは動かす土台を整えます。
+## この章の進め方
 
-## 前提
+6章の操作は、すべて4章までにやったものの繰り返しです。
 
-このレッスンは次の状態を前提にします。
+**まず、完成イメージと仕様表だけを見て、自力で作ってみてください。** 手順を思い出しながら自分で組み立てるのが、この章のいちばんの練習です。詰まったら、ページ下部の折りたたみに今までと同じ粒度の手順があるので、いつ開いても構いません。時間が限られているときも、無理せず手順に切り替えてください。
 
-- Claude Codeが手元のマシンにインストールされていて、ターミナルから `claude` コマンドで起動できる
-- Figmaアカウントを持っていて、4章・5章で作ったデザインファイルにブラウザまたはFigma Desktopでアクセスできる
+## 完成イメージ
 
-## Figma MCPの役割
+![タスク登録フォーム画面の骨組み。左は4章と同じsidebar、右のmainは4章と同じheaderと薄グレーのcontent。contentの中央に幅560の白いform-cardがあり、見出しと入力欄プレースホルダー5個、下部にボタンプレースホルダー2個が縦に並ぶ](/lessons/6-1/task-form-skeleton.png)
 
-Figma MCPは、Figmaのデザインファイルを構造化されたデータとしてClaude Codeに渡すためのサーバーです。ブラウザで見えている絵ではなく、フレームの入れ子構造・オートレイアウトの設定・スタイル・レイヤー名といった「Figmaが内部で持っている情報」がそのままClaude Codeに届きます。
+## 仕様
 
-![Figma MCP接続の概念図。左のFigma（クラウド）から、中央のFigma MCPサーバー（Anthropic公式プラグイン経由）を通って、右のClaude Codeへ矢印が伸びる。Claude CodeはFigmaのデザイン情報を構造化データとして受け取り、コードを生成する](/lessons/6-1/mcp-connection.svg)
+構造は4章のtask-listと同じ3階層です。違いはcontentの中身と配置だけです。
 
-## RemoteサーバーとDesktopサーバー
+```
+task-form
+├─ sidebar（task-listからコピー）
+└─ main
+   ├─ header（task-listからコピー）
+   └─ content
+      ├─ form-header
+      └─ form-card
+```
 
-Figma MCPには2つの形があります。ブラウザで認証して使う**Remoteサーバー**と、Figma DesktopアプリのDev Modeでローカルに立てる**Desktopサーバー**です。このハンズオンでは、Figma Desktopアプリが要らないRemoteサーバーを使います。
+| レイヤー | 仕様 |
+| --- | --- |
+| `task-form` | デスクトップ 1440×1024、横オートレイアウト、間隔 0 |
+| `sidebar` | task-listからコピー。activeを `受信箱` に付け替え、バッジは非表示にする |
+| `main` | 幅・高さとも拡大、縦オートレイアウト、間隔 0 |
+| `header` | task-listからコピー。幅は拡大 |
+| `content` | 幅・高さとも拡大、縦オートレイアウト、パディング `space/48`、間隔 `space/24`、配置は上段の中央、背景 `bg` |
+| `form-header` | 縦オートレイアウト、幅は固定560、間隔 `space/8` |
+| `form-title` | 見出し `新しいタスクを追加`（テキストスタイル `page-title`、色 `text/main`） |
+| `form-lead` | 説明 `必要な項目を入力して登録します`（テキストスタイル `body`、色 `text/sub`） |
+| `form-card` | 幅は固定560・高さは内包、縦オートレイアウト、パディング `space/32`、間隔 `space/20`、角丸 `radius/16`、背景 `surface`、枠線1px `border` |
+| `input-placeholder` ×5 | 高さ44、角丸 `radius/8`、塗り `surface`、枠線1px `border`、幅は拡大（入力欄の仮置き。本物は6-2で作る） |
+| `button-row` | 横オートレイアウト、間隔 `space/12`、配置は右中央、幅は拡大。中に幅固定120・高さ44・角丸 `radius/8` の仮ボタン2個（左は `surface` +枠線 `border`、右は `brand`） |
 
-## 演習: アプリの用意とセットアップ
+::: tip 横中央寄せのやり方
+form-headerとform-cardを画面の横中央に置くには、子（form-header・form-card）の幅を**固定560**で止めて広がらないようにし、親の `content` の配置で**上段の中央**を選びます。オートレイアウトで横中央寄せをするときの基本パターンです。
+:::
 
-### 1. アプリのベースを作る
+できたら、画面全体の高さを変えてもcontentだけが伸縮するか、サイドバーとヘッダーが4章の画面とそろって見えるかを確認してください。
 
-生成したコードを画面に出すための、React + Tailwind CSSのプロジェクトを作ります。設定を1つずつ手で書く代わりに、コマンドをまとめて実行します。ここからターミナルを2つ使います。
+::: details 手順を開く
 
-1. プロジェクトを置きたい場所（デスクトップなど）で**ターミナルA**を開く
-2. 次のコマンドをまとめて貼り付けて実行する
+### 1. 画面フレームを作る
 
-   ```bash
-   npx --yes create-vite@latest task-app --template react-ts --no-interactive --no-immediate
-   cd task-app
-   npm install
-   npm install tailwindcss @tailwindcss/vite
-   rm -rf src/assets src/App.css
+1. `f` でフレームツールを選び、右サイドバーのプリセットから **デスクトップ（1440×1024）** を選ぶ。task-listと同じページの空いた場所でよい
+2. `Shift + A` でオートレイアウトにして、フローを横、間隔 0、パディング 0 にする
+3. 名前を `task-form` にする
 
-   cat > vite.config.ts <<'EOF'
-   import { defineConfig } from 'vite'
-   import react from '@vitejs/plugin-react'
-   import tailwindcss from '@tailwindcss/vite'
+### 2. サイドバーとヘッダーをコピペする
 
-   export default defineConfig({
-     plugins: [react(), tailwindcss()],
-   })
-   EOF
+1. task-listの `sidebar` を選択して `Cmd + C`（Windowsは `Ctrl + C`）でコピーし、`task-form` の中へペーストして左端に入れる
+2. コピーした `sidebar` の中で、`今日` のNavItemの `active` トグルをオフにする
+3. `受信箱` のNavItemの `active` トグルをオンにする
+4. `受信箱` のバッジは要らないので、中の `badge` を選択して `Delete` で非表示にする（3-2でやったとおり、インスタンスの中では消したように見えても非表示になるだけで、いつでも戻せる）
+5. task-listの `header` をコピーし、`task-form` の中、`sidebar` の右へペーストする
 
-   cat > src/index.css <<'EOF'
-   @import "tailwindcss";
-   EOF
+これでサイドバーとヘッダーはtask-listと完全に同じ状態になり、トークンもテキストスタイルもそのまま引き継がれます。
 
-   cat > src/App.tsx <<'EOF'
-   export default function App() {
-     return (
-       <div className="min-h-screen bg-[#f5f5f5] p-8">
-         <p className="text-sm text-[#6e6e76]">ここに4章・5章の画面を並べていきます</p>
-       </div>
-     )
-   }
-   EOF
-   ```
+### 3. mainを作る
 
-3. `task-app` フォルダができたのを確認する
+1. `header` を選択して `Shift + A` で縦のオートレイアウトにする。`header` を囲む新しいフレームができるので、その名前を `main` にする
+2. 間隔 0、パディング 0 にする
+3. `main` の幅・高さとも**拡大**にする
+4. 中の `header` の幅も**拡大**にする
 
-`rm -rf src/assets src/App.css` と `src/App.tsx` の書き換えは、テンプレートに付いてくるデモ用のロゴとCSSを消すためです。残しておくとTailwindの見た目と混ざります。
+### 4. contentを作る
 
-### 2. 開発サーバーを起動する
+1. `f` で `main` の中、`header` の下にフレームを描いて、名前を `content` にする
+2. `Shift + A` でオートレイアウトにする
+   - フロー縦、間隔 `space/24`、パディング `space/48`
+   - 背景は `bg`
+3. 幅・高さとも**拡大**にする
+4. 配置の9マスで**上段の中央**を選ぶ
 
-コードを書き換えるたびにブラウザが自動で更新される状態にします。
+### 5. form-headerを作る
 
-1. ターミナルAはコマンドで `task-app` に移動した状態なので、そのまま `npm run dev` を実行する
-2. 表示されたURL（`http://localhost:5173/`）をブラウザで開く
-3. 薄いグレーの背景に「ここに4章・5章の画面を並べていきます」と出ているのを確認する
+1. `t` を押して `content` の中をクリックし、テキスト `新しいタスクを追加`（テキストスタイル `page-title`、色 `text/main`）を作り、名前を `form-title` にする
+2. `t` を押してクリックし、テキスト `必要な項目を入力して登録します`（テキストスタイル `body`、色 `text/sub`）を作り、名前を `form-lead` にする
+3. 2つを選択して `Shift + A` で縦のオートレイアウトにして、名前を `form-header` にする
+   - 間隔 `space/8`、パディング 0
+   - 幅は**固定560**
+4. 中の2つのテキストを選択して、幅を**拡大**、行揃えを左にする
 
-文字が小さいグレーで表示されていれば、Tailwindも効いています。このターミナルは起動したまま、閉じずに置いておきます。
+### 6. form-cardを置く
 
-### 3. プラグインを入れて再起動する
+1. `f` で `content` の中、`form-header` の下にフレームを描いて、名前を `form-card` にする
+2. `Shift + A` でオートレイアウトにする
+   - フロー縦、間隔 `space/20`、パディング `space/32`
+   - 角丸 `radius/16`、背景 `surface`、枠線1px `border`
+   - 幅は**固定560**、高さは**内包**
+3. `form-card` の中に `r` で高さ44の四角形を作り、名前を `input-placeholder` にする
+   - 角丸 `radius/8`
+   - 塗り `surface`
+   - 枠線1px `border`
+   - 幅を**拡大**にする
 
-Figmaプラグインを入れると、Figma MCPサーバーへの接続設定と、デザインからコードを生成するためのSkill（Claude Codeの拡張機能）がClaude Codeに追加されます。
+幅を560で止めた瞬間、`content` の配置（上段の中央）に従って画面の横中央に収まります。
 
-1. **ターミナルB**を開き、`task-app` に移動して `claude` でClaude Codeを起動する
-2. Claude Codeの入力欄に次のスラッシュコマンドを打つ。ターミナルのシェルではなく、Claude Codeの入力欄に打つ点に注意する
+### 7. プレースホルダーを並べる
 
-   ```text
-   /plugin install figma@claude-plugins-official
-   ```
+1. `input-placeholder` を選択して `Cmd + D` で5個にする
+   - 完成形では5個のうち2個が横並びの2列になるが、いまは5個とも縦のままでよい（2列にするのは6-2）
+2. 仮ボタンの行を作る。`f` で `form-card` の一番下にフレームを描いて、名前を `button-row` にする
+3. `Shift + A` で横のオートレイアウトにする
+   - 間隔 `space/12`、配置は右中央
+   - 幅は**拡大**
+4. `button-row` の中に `r` で四角形を作り、名前を `button-placeholder-cancel` にする（本物のButtonに置き換えるのは6-2）
+   - 高さ44、幅120（四角形にはパディングや内包を設定できないので、幅は数値で決める）
+   - 角丸 `radius/8`、塗り `surface`、枠線1px `border`
+5. `button-placeholder-cancel` を `Cmd + D` で複製し、複製した右側の名前を `button-placeholder-submit`、塗りを `brand` にする
 
-3. インストール完了メッセージが出たら、Claude Codeを終了して、もう一度 `claude` で起動し直す
+カードの中で、5つの入力欄の枠とボタン行が間隔 `space/20` で縦に並び、幅はカードいっぱいにそろうはずです。
 
-再起動が必要なのは、MCP接続がClaude Codeの起動時に初期化されるためです。インストールしただけでは接続されません。`task-app` の中で起動しているので、生成したファイルはこのプロジェクトに書かれます。
-
-### 4. Figmaを認証して接続を確認する
-
-1. `/plugin` を打って管理パネルを開き、「Installed」タブの `figma` を選んでEnterを押す
-2. ブラウザが開いたら、Figmaにログインして「Allow access」を押す。許可するとブラウザは自動で閉じる
-   - ブラウザが開かないこともある。認証済みか、別のFigma MCP接続が使われている場合なので、そのまま手順3で状態を確かめる
-3. Claude Codeに戻り、`/mcp` を打って、一覧のFigmaのサーバーが **connected** になっていることを確認する
-
-認証情報はローカルに保存されるので、この操作はマシンごとに一度だけです。
-
-connectedになっていれば、`mcp__Figma__` で始まるツール群（`get_design_context`、`get_screenshot` など）がClaude Codeから呼べる状態です。
-
-### 5. タスク一覧を読み取らせる
-
-つながったかどうかは、Figmaのデザインを1つ読み取らせると分かります。
-
-1. ブラウザまたはFigma Desktopで、4章で作ったタスク一覧のファイルを開く
-2. `task-list` フレームを選び、右クリック → **コピー/貼り付けオプション** → **選択範囲へのリンクをコピー** を選ぶ
-3. Claude Codeに戻り、次のプロンプトを投げる（URLはコピーしたものに差し替える）
-
-   ```text
-   このFigmaフレームの構造を教えて: <URL>
-   ```
-
-4. `task-list` の下に `header` や `content` があること、`brand` や `surface` などのトークン名が含まれていることを確認する
-
-構造が返ってくれば、Figma MCPのセットアップは完了です。ここではまだコード生成はしません。6-2ではこの接続を使って、タスク一覧画面をコードに変換します。
-
-## トラブルシューティング
-
-うまくいかないときは、次を順に確認します。
-
-- **`/plugin` を打っても figma が出てこない**: プラグインのインストールコマンドの後、Claude Codeを再起動しましたか。MCPは起動時にしか初期化されません
-- **起動時に「MCP server "figma" skipped」と出る**: 過去に自分でFigma MCPを設定していると、同じ接続が既にあるので同梱ぶんはスキップされます。`/mcp` で connected になっていれば、そのまま進めて問題ありません
-- **connected にならない**: ブラウザで「Allow access」を押した後、Claude Code側で数秒待ってから `/mcp` を打ち直します。それでも変わらなければ、ネットワーク（会社のプロキシなど）でAnthropic・Figmaへの接続が塞がれていないか確認します
-- **フレームを読ませても中身が返ってこない**: 共有リンクが有効か、リンク先のファイルが自分のアカウントで閲覧できる状態かを確認します。プライベートなチームファイルは招待されていないと読めません
-
-## 参考リンク
-
-- [Figma Learn「Claude Code and Figma: Set up the MCP server」](https://help.figma.com/hc/en-us/articles/39888612464151-Claude-Code-and-Figma-Set-up-the-MCP-server)
-- [Figma Developer Docs「Set up the remote server」](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/)
-- [Figma Learn「Guide to the Figma MCP server」](https://help.figma.com/hc/en-us/articles/32132100833559-Guide-to-the-Figma-MCP-server)
-- [Claude Code Docs「Connect Claude Code to tools via MCP」](https://code.claude.com/docs/en/mcp)
+:::
 
 ## ゴール確認
 
-- [ ] `task-app` を作り、開発サーバーを起動してブラウザで表示できた
-- [ ] Figmaプラグインを入れ、`task-app` の中でClaude Codeを起動し直せた
-- [ ] ブラウザで認証し、`/mcp` でFigmaのサーバーが connected になったことを確認できた
-- [ ] タスク一覧のフレームをClaude Codeに読み取らせ、構造が返ってくることを確認できた
+- [ ] task-listから `sidebar` と `header` をコピーし、activeを `受信箱` に切り替えられた
+- [ ] `form-header` と `form-card` を幅固定560で画面の横中央に置けた
+- [ ] form-cardの中に入力欄5個とボタン行のプレースホルダーを並べられた
