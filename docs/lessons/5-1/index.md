@@ -34,8 +34,8 @@ task-form
 | `header` | task-listからコピー。幅は拡大 |
 | `content` | 幅・高さとも拡大、縦オートレイアウト、パディング `space/48`、間隔 `space/24`、配置は上段の中央、背景 `bg` |
 | `form-header` | 縦オートレイアウト、幅は固定560、間隔 `space/8` |
-| `form-title` | 見出し `新しいタスクを追加`（`page-title` + `text/main`） |
-| `form-lead` | 説明 `必要な項目を入力して登録します`（`body` + `text/sub`） |
+| `form-title` | 見出し `新しいタスクを追加`（テキストスタイル `page-title`、色 `text/main`） |
+| `form-lead` | 説明 `必要な項目を入力して登録します`（テキストスタイル `body`、色 `text/sub`） |
 | `form-card` | 幅は固定560・高さは内包、縦オートレイアウト、パディング `space/32`、間隔 `space/20`、角丸 `radius/16`、背景 `surface`、枠線1px `border` |
 | `input-placeholder` ×5 | 高さ44、角丸 `radius/8`、塗り `surface`、枠線1px `border`、幅は拡大（入力欄の仮置き。本物は5-2で作る） |
 | `button-row` | 横オートレイアウト、間隔 `space/12`、配置は右中央、幅は拡大。中に幅固定120・高さ44・角丸 `radius/8` の仮ボタン2個（左は `surface` +枠線 `border`、右は `brand`） |
@@ -82,8 +82,8 @@ form-headerとform-cardを画面の横中央に置くのは、2つの設定の�
 
 ### 5. form-headerを作る
 
-1. `content` の中に `t` でテキスト `新しいタスクを追加`（`page-title` + `text/main`）を作り、名前を `form-title` にする
-2. `t` でテキスト `必要な項目を入力して登録します`（`body` + `text/sub`）を作り、名前を `form-lead` にする
+1. `content` の中に `t` でテキスト `新しいタスクを追加`（テキストスタイル `page-title`、色 `text/main`）を作り、名前を `form-title` にする
+2. `t` でテキスト `必要な項目を入力して登録します`（テキストスタイル `body`、色 `text/sub`）を作り、名前を `form-lead` にする
 3. 2つを選択して `Shift + A` で縦のオートレイアウトにして、名前を `form-header` にする
    - 間隔 `space/8`、パディング 0
    - 幅は**固定560**
