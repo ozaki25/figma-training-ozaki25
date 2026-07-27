@@ -28,7 +28,7 @@ TaskCard
 | `task-body` | タイトルと説明の縦積み | 縦オートレイアウト、間隔 `space/4`、幅は拡大 |
 | `task-title` | タスク名 | テキストスタイル `card-title`、色 `text/main` |
 | `task-desc` | 説明 | テキストスタイル `caption`、色 `text/sub` |
-| `category-badge` | カテゴリ | パディング `space/4`/`space/8`、角丸 `radius/4`、背景 `bg`、テキストスタイル `caption`、色 `text/sub` |
+| `category-badge` | カテゴリ | 左右パディング `space/8`、上下パディング `space/4`、角丸 `radius/4`、背景 `bg`、テキストスタイル `caption`、色 `text/sub` |
 | `assignee` | 担当者 | 24×24、角丸 `radius/full`、背景 `placeholder`、テキストスタイル `caption`、色 `text/main` |
 | `task-due` | 期限 | テキストスタイル `caption`、色 `text/sub` |
 
@@ -48,7 +48,7 @@ TaskCard
 
 1. `task-list` フレームの外の空いた場所に、`t` を押してクリックし、テキスト `High`（テキストスタイル `caption`、色 `priority/high/text`）を作る
 2. テキストを選択して `Shift + A` でオートレイアウトにする
-   - 上下パディング `space/4`、左右パディング `space/8`
+   - 左右パディング `space/8`、上下パディング `space/4`
    - 角丸 `radius/4`、背景 `priority/high/bg`
    - 幅は**内包**
 3. `Cmd + Option + K`（Windowsは `Ctrl + Alt + K`）でコンポーネント化する
@@ -81,7 +81,7 @@ TaskCard
    4. カードの中、PriorityTagの右へ入れる
 5. カテゴリのバッジを入れる
    1. カードの外に、`t` を押してクリックし、テキスト `デザイン`（テキストスタイル `caption`、色 `text/sub`）を作り、`Shift + A` でオートレイアウトにして、名前を `category-badge` にする
-      - 上下パディング `space/4`、左右パディング `space/8`
+      - 左右パディング `space/8`、上下パディング `space/4`
       - 角丸 `radius/4`、背景 `bg`
       - 幅は**内包**
    2. カードの中、`task-body` の右へ入れる
