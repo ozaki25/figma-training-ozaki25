@@ -1,6 +1,6 @@
 # 5-2 入力欄・ボタンを作る
 
-フォームの本物の部品、TextFieldとButtonをコンポーネント化して、5-1で置いた仮のプレースホルダーと差し替えます。Buttonの `variant=primary/secondary` は、4章の `priority`・`active`・`done` と同じバリアントの作り方です。
+フォームの本物の部品、TextFieldとButtonをコンポーネント化して、5-1で置いた仮のプレースホルダーと差し替えます。Buttonの `variant=primary/secondary` は、4章の `priority`・`active`・`done` と同じ手順でバリアントにします。
 
 進め方は5-1と同じです。まず仕様だけを見て自力で作り、詰まったら下部の折りたたみの手順を開いてください。
 
