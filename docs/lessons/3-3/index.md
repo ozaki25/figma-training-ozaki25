@@ -34,7 +34,7 @@ Figmaは作った要素に「種類 + 連番」で自動的に名前を付けま
 
 ## コード生成にどう効くか
 
-6章で使うFigma MCPは、レイヤー名と構造もまとめてClaude Codeに渡します。カードが `ProfileCard` という名前なら、その名前をコードに反映してほしいと頼めます。Frame 13 のままだと、渡せる手がかりは中身だけです。どこまで効くかは6章で実際に確かめます。
+5章で使うFigma MCPは、レイヤー名と構造もまとめてClaude Codeに渡します。カードが `ProfileCard` という名前なら、その名前をコードに反映してほしいと頼めます。Frame 13 のままだと、渡せる手がかりは中身だけです。どこまで効くかは5章で実際に確かめます。
 
 ![命名前と命名後のレイヤーツリーの比較。命名前はComponent Set 1やFrame 5のような自動の名前で構造が読めない。命名後はProfileCard、avatar、online-badge、user-infoのような役割の名前になり構造が読める](/lessons/3-3/layer-naming-before-after.svg)
 
