@@ -149,7 +149,7 @@ Day2は「画面を作る章 → その画面をコードにする章」を2周�
   本番の色管理はバリアブルに一本化する
 - 状態（優先度・完了・アクティブ）はすべてコンポーネントのバリアントで表現し、上書きで作らない
 - 2画面とも「左サイドバー240 + 右カラム(header 64 + content)」の2カラム構成
-- task-list は stat-row / filter-bar / セクション分け(今日/今週/あとで) / TaskCard 8枚
+- task-list は stat-row / filter-bar / セクション分け(今日/今週/あとで) / TaskCard 5枚（2026-07-27に8枚から削減。書き換え作業が4-4遅延の主因だったため）
 - TaskCard は checkbox / PriorityTag / タイトル+説明 / category-badge / assignee / task-due の6要素
 - task-form は 5項目入力（説明は複数行、期限・優先度は横並び2列） + キャンセル/登録の2ボタン
   （6-2で作るButtonのprimary/secondary両バリアントを本番で使い切る）
