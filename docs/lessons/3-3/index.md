@@ -54,7 +54,7 @@ Figmaは作った要素に「種類 + 連番」で自動的に名前を付けま
 | 対象 | 変更前の例 | 変更後 |
 | --- | --- | --- |
 | コンポーネントセット（紫の破線枠） | Component Set 1 | `ProfileCard` |
-| 正円を包んだフレーム | Frame 5 | `avatar` |
+| 正円をまとめたフレーム | Frame 5 | `avatar` |
 | 正円 | Ellipse 1 | `avatar-image` |
 | オンラインバッジの緑の正円 | Ellipse 2 | `online-badge` |
 | テキストの縦並びフレーム | Frame 3 | `user-info` |

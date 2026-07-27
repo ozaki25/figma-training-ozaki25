@@ -49,7 +49,7 @@ TaskCard
 まずHigh状態を1つ作ります。
 
 1. `task-list` フレームの外の空いた場所に、`t` でテキスト `High`（`caption`、色は `priority/high/text`）を作る
-2. テキストを選択して `Shift + A` で包む
+2. テキストを選択して `Shift + A` でオートレイアウトにする
    - 上下パディング `space/4`、左右パディング `space/8`
    - 角丸 `radius/4`、背景 `priority/high/bg`
    - 幅は**内包**
@@ -71,7 +71,7 @@ TaskCard
 部品は「カードの外で作って、できたらカードの中へドラッグで入れる」を繰り返します。
 
 1. 完了チェックの丸を作る。PriorityTagと同じ場所に `o` で 20×20 の正円を描き、塗り `surface`、枠線1px `border`、名前を `checkbox` にする
-2. `checkbox` を選択して `Shift + A` で横に包み、名前を `TaskCard` にする
+2. `checkbox` を選択して `Shift + A` で横のオートレイアウトにして、名前を `TaskCard` にする
    - 間隔 `space/16`、パディング `space/16`、配置は上下中央
    - 背景 `surface`、角丸 `radius/12`
    - 幅は**固定600**、高さは**内包**
@@ -79,16 +79,16 @@ TaskCard
 4. タスク名と説明のブロックを入れる
    1. カードの外に、`t` でテキスト `デザインレビューの準備`（`card-title` + `text/main`）を作り、名前を `task-title` にする
    2. `t` でテキスト `一覧画面のデザインを共有`（`caption` + `text/sub`）を作り、名前を `task-desc` にする
-   3. 2つを選択して `Shift + A` で縦に包み、間隔 `space/4`、名前を `task-body` にする
+   3. 2つを選択して `Shift + A` で縦のオートレイアウトにして、間隔 `space/4`、名前を `task-body` にする
    4. カードの中、PriorityTagの右へ入れる
 5. カテゴリのバッジを入れる
-   1. カードの外に、`t` でテキスト `デザイン`（`caption` + `text/sub`）を作り、`Shift + A` で包んで、名前を `category-badge` にする
+   1. カードの外に、`t` でテキスト `デザイン`（`caption` + `text/sub`）を作り、`Shift + A` でオートレイアウトにして、名前を `category-badge` にする
       - 上下パディング `space/4`、左右パディング `space/8`
       - 角丸 `radius/4`、背景 `bg`
       - 幅は**内包**
    2. カードの中、`task-body` の右へ入れる
 6. 担当者のアイコンを入れる。イニシャルが入った丸で、正円の図形の中にはテキストを入れられないので、角丸のフレームで円形を作る
-   1. カードの外に、`t` でイニシャルのテキスト `TY`（`caption` + `text/main`）を作り、`Shift + A` で包んで、名前を `assignee` にする
+   1. カードの外に、`t` でイニシャルのテキスト `TY`（`caption` + `text/main`）を作り、`Shift + A` でオートレイアウトにして、名前を `assignee` にする
       - パディング 0、配置は中央
       - 角丸 `radius/full`、背景 `placeholder`
       - 幅・高さを**固定24**にすると、円形のアイコンになる
