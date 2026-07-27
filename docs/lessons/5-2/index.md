@@ -71,7 +71,7 @@ Button
 5. 「現在のバリアント」で `プロパティ1` を `variant` に、1枚目の値を `primary`、2枚目を `secondary` にする。値を変えるときは、変えたいボタン自身を選び直してから書き換える
 6. `secondary` の方を、背景 `surface`、枠線1px `brand`、`label` の色を `brand` にする
 
-レイヤーパネルで `Button` の下に `variant=primary` と `variant=secondary` が並んでいれば完成です。
+レイヤーパネルで `Button` の下に `primary` と `secondary` が並んでいれば完成です。
 
 ### 3. form-cardのプレースホルダーを置き換える
 
