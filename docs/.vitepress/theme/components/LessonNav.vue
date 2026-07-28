@@ -70,13 +70,6 @@ const chapters: Chapter[] = [
       { slug: '7-1', text: 'タスク登録フォームをコード生成する', link: '/lessons/7-1/' },
     ],
   },
-  {
-    number: 8,
-    text: 'まとめ・ふりかえり',
-    lessons: [
-      { slug: '8-1', text: '2日間のふりかえり', link: '/lessons/8-1/' },
-    ],
-  },
 ]
 
 const totalLessons = chapters.reduce((acc, c) => acc + c.lessons.length, 0)

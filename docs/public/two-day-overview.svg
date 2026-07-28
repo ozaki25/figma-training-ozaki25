@@ -4,7 +4,7 @@
 
   <!-- タイトル -->
   <text x="32" y="38" font-size="15" font-weight="bold" fill="#3B3355">2日間の積み上がり</text>
-  <text x="32" y="58" font-size="12" fill="#5A5273">基礎の練習のあと、画面を作る → コードにする、を2画面ぶん繰り返した流れ</text>
+  <text x="32" y="58" font-size="12" fill="#5A5273">基礎の練習のあと、画面を作る → コードにする、を2画面ぶん繰り返す</text>
 
   <!-- Day1 / Day2 のラベル帯 -->
   <rect x="32" y="80" width="432" height="22" rx="4" fill="#EDE7FA"/>
