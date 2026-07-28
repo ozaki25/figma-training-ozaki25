@@ -54,12 +54,27 @@
  */
 @media (min-width: 960px) and (max-width: 1199px) {
   .VPHero .image-container {
-    transform: translate(0, -32px);
+    transform: translate(0, 0);
   }
+}
 
+/*
+ * ヒーロー画像が固定ナビゲーションバーに重なるのを防ぐ。
+ * デフォルトテーマは画像コンテナを上へ32pxずらし、そのコンテナより大きい
+ * 320pxの画像を上下中央に置くため、幅960px以上で画像の上端が
+ * ナビゲーションバー（高さ64px）の内側まで伸びてメニューに重なる。
+ * 上方向のずらしをやめ、最大サイズをナビゲーションに触れない値にする。
+ */
+@media (min-width: 960px) {
+  .VPHero .image-container {
+    transform: translate(-32px, 0);
+  }
+}
+
+@media (min-width: 960px) {
   .VPHero .image-src {
-    max-width: min(320px, 100%);
-    max-height: min(320px, 100%);
+    max-width: 272px;
+    max-height: 272px;
   }
 }
 
