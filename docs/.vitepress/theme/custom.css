@@ -196,3 +196,16 @@
   text-decoration: line-through;
   text-decoration-color: var(--vp-c-text-3);
 }
+
+/*
+ * 画像のクリック拡大（medium-zoom）。
+ * 既定のz-indexではVitePressのサイドバー（25）やナビゲーションバーの下に
+ * 潜ってしまうので、両方より上に出す。
+ */
+.medium-zoom-overlay {
+  z-index: 100;
+}
+
+.medium-zoom-image--opened {
+  z-index: 101;
+}
