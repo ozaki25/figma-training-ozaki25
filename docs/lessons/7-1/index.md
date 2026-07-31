@@ -24,11 +24,11 @@ type Props = {
 
 Figma側のプロパティ名（`variant`）と値（`primary` / `secondary`）を、そのままpropsの名前と型に落とし込む形です。4章からプロパティ名と値の付け方を意識してきた効果が、ここで出ます。
 
-TextFieldの方はバリアントを作っていないので、propsとしては `label` と `placeholder` だけ受け取る形になります。ラベルと入力欄をひとまとまりにして1つのコンポーネントにしたので、呼び出し側は次のように並べるだけで済みます。
+TextFieldの `multiline` も同じ変換で、こちらは真偽値のpropsになります。ラベルと入力欄をひとまとまりにして1つのコンポーネントにしたので、呼び出し側は次のように並べるだけで済みます。
 
 ```tsx
 <TextField label="タスク名 *" placeholder="例: 会議資料の作成" />
-<TextField label="説明" placeholder="例: 会議資料の作成" />
+<TextField label="説明" placeholder="例: 共有する資料の要点をまとめる" multiline />
 <TextField label="期限" placeholder="2026/07/10" />
 <TextField label="優先度" placeholder="選択する ▼" />
 <TextField label="カテゴリ" placeholder="例: デザイン" />
@@ -49,7 +49,8 @@ TextFieldの方はバリアントを作っていないので、propsとしては
 - URL: <ここに task-form のリンク>
 - 出力先: src/components/task-form/
 - コンポーネント分割:
-  - TextField（label + input を持つ）を別ファイル TextField.tsx に
+  - TextField（label + input を持つ）を別ファイル TextField.tsx に。
+    multiline を boolean のpropsで受け取れるようにする
   - Button を別ファイル Button.tsx に。variant プロパティを
     'primary' | 'secondary' のunion型で受け取れるようにする
   - TaskForm が親として TextField を5つと Button を2つ並べる（TaskForm.tsx）
