@@ -22,7 +22,7 @@ Figmaのキャンバスは事実上無限に広いので、画面フレームを
 | --- | --- |
 | サイドバー | 幅240・背景 `surface`・NavItemの並び。activeが一覧は `今日`、フォームは `受信箱` になっているか、オフにし忘れて両方アクティブの項目がないか |
 | ヘッダー | 高さ64・背景 `surface`・`app-title` の位置とサイズが2画面で同じか |
-| 色 | `bg`・`surface`・`brand`・`border`・`bg-active` を使っているところがトークン経由か、直接カラーコードを指定してしまっていないか |
+| 色 | `background`・`surface`・`brand`・`border`・`background-selected` を使っているところがトークン経由か、直接カラーコードを指定してしまっていないか |
 | タイポ | `page-title`・`card-title`・`section-title`・`body`・`caption` にあたる文字が、それぞれ同じテキストスタイルを使っているか |
 | 余白・角丸 | TaskCardの `radius/12` と `space/16`、form-cardの `radius/16`・`space/32`・`space/20` が、それぞれ仕様どおりトークンで当たっているか |
 

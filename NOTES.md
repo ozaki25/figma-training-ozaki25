@@ -384,3 +384,28 @@ Figma MCPサーバーは2026年7月時点で2種類ある。ハンズオンの�
 Figmaで作ったのはフルスクリーンの画面2枚なので、アプリ側も `/` と `/new/` の2ページにした。react-routerは使わず、Viteの複数HTMLエントリで実現している（`new/index.html` + `src/new.tsx` + `src/NewTask.tsx`）。5-1のひな形としてこちらが書いて渡すので、受講者が動作の実装をClaude Codeに頼む必要はなく、7-1の「頼むのは見た目のコード化まで」という断りとも衝突しない。
 
 実機で検証済み。`/` と `/new/` が両方200で、Tailwindが効き、コンソールエラーなし、`npm run build` も2エントリを出力する。
+
+## トークンの書き出しを画面生成と分ける（2026-07-31決定）
+
+コード生成の精度検証（`docs-internal/codegen-experiment-s80.md`）で、生成コードにトークン名が残るかは指示しだいで、同じ指示でも `var(--brand)` が残る回と `bg-[#7c3aed]` に展開される回があると分かった。5-2には「自分が付けた名前がCSS変数として生成コードに現れます」と書いてあったが、これは実測に合っていなかった。
+
+5-2の演習を2本のプロンプトに分けた。
+
+1. `get_variable_defs` でバリアブルを読み、`src/index.css` の `@theme` に色トークンを書き出す
+2. 画面のコンポーネントを生成する（指示に「色は `@theme` のクラスを使い、値の直書きはしない」を入れる）
+
+書き出したCSSを見てから画面生成に進める形にするため、1本のプロンプト内のステップ指示にはしなかった。ただし受講者に良し悪しを判断させないよう、本文には書き出されるべき `@theme` の全文を載せ、作業は見比べるだけにしている。プリミティブを除外する条件はプロンプト側に入れた。
+
+余白と角丸は書き出さない。Tailwindの標準の目盛りが4章のトークンと一致する（`space/16` は `p-4`、`radius/8` は `rounded-lg`）ので、`--spacing-space-16` のような定義を足す意味がない。
+
+7-1は5-2で書き出したCSSをそのまま使う。指示テンプレートに色の行だけ足し、書き出しの手順は置いていない。
+
+## バリアブル bg / bg-active の改名（2026-07-31決定）
+
+`@theme` に書き出すとトークン名がそのままTailwindのクラス名になる。`bg` は `bg-bg`、`bg-active` は `bg-bg-active` になり、意味が読めなかった。
+
+`background` と `background-selected` に改名した（`bg-background` / `bg-background-selected`）。shadcn/uiが `--color-background` で同じ形を使っている。`bg` は略語で、Carbon・Atlassian・デジタル庁・SmartHRのいずれも採っていない。
+
+`text/main` はそのまま残した。クラス名は `text-text-main` になるが、Carbonの `text-primary`、Atlassianの `color.text`、デジタル庁とSmartHRの `text/default` と同じ形で、実在のシステムに沿っている。`priority/high/bg` のような入れ子の中の `bg` も、スコープ内で `text` と対になっているので残した。
+
+教材ファイルのバリアブルはリネーム済み。バリアブルの紐付けはIDで持つので、既存のデザインへの影響はない。

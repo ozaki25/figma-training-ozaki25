@@ -36,7 +36,7 @@ TextFieldの `multiline` も同じ変換で、こちらは真偽値のpropsに�
 
 ## 指示の書き方
 
-5-2で使った4要素（Figmaリンク、技術スタック、コンポーネント境界、ファイル配置）は同じです。フォーム固有で足したいのは次の2点です。
+5-2で使った5要素（Figmaリンク、技術スタック、コンポーネント境界、ファイル配置、色の指定方法）は同じです。トークンは5-2で `src/index.css` に書き出したものをそのまま使うので、書き出しの手順は要りません。フォーム固有で足したいのは次の2点です。
 
 - **TextFieldとButtonはそれぞれ別ファイルに分ける**: 一覧画面の `TaskCard` と同じ扱いです
 - **Buttonの `variant` プロパティを型として明示する**: Figmaでバリアントを作った意図を、コード側でも `'primary' | 'secondary'` の形で残してもらう
@@ -55,6 +55,8 @@ TextFieldの `multiline` も同じ変換で、こちらは真偽値のpropsに�
     'primary' | 'secondary' のunion型で受け取れるようにする
   - TaskForm が親として TextField を5つと Button を2つ並べる（TaskForm.tsx）
 - スタイル: Tailwind CSSのユーティリティクラスのみ
+- 色: src/index.css の @theme に定義したクラス（bg-brand、text-text-sub など）を使い、
+  #7C3AED のような値の直書きはしない
 - Figma側のレイヤー名（TextField・Button・label・input など）を
   コンポーネント名やクラス名にできるだけ反映してください
 - src/NewTask.tsx から呼び出して、`/new/` のページに表示できる状態にしてください
@@ -96,7 +98,7 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 
 `/` と `/new/` を行き来して見比べます。次の3点がそろっていれば、2画面の統一感がコードにも受け継がれています。
 
-- **色**: ボタンの紫、カードの背景、テキストの色が両画面で同じ値になっている
+- **色**: ボタンの紫、カードの背景、テキストの色が両画面で同じクラス名になっている
 - **角丸・余白**: カードの `rounded-*` と `p-*` の値が近い（6-3で揃えた効果）
 - **フォント**: 見出し・本文のフォントサイズとウェイトが両画面でそろっている
 
@@ -105,7 +107,7 @@ Claude Codeが最初に提示するファイルツリーで、次を確認しま
 ## よくあるやりとり
 
 - **`variant` が `string` 型で出た**: 「`variant` は `'primary' | 'secondary'` のunion型で書き直してください」
-- **secondaryの色が反映されていない**: 「Figmaの `secondary` バリアントは白背景・紫枠・紫文字です。Tailwindで `bg-white border border-[#7C3AED] text-[#7C3AED]` になるようにしてください」
+- **secondaryの色が反映されていない**: 「Figmaの `secondary` バリアントは白背景・紫枠・紫文字です。Tailwindで `bg-surface border border-brand text-brand` になるようにしてください」
 - **TextFieldがTaskFormに直接埋め込まれた**: 「`TextField` は別ファイル `TextField.tsx` に分けて、`TaskForm.tsx` からimportする形にしてください」
 - **動作を足したい**: 「`TaskForm` に `onSubmit: (values) => void` のpropsを追加し、送信時に5つの入力値をオブジェクトで渡してください」
 

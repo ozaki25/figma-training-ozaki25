@@ -28,7 +28,7 @@ TaskCard
 | `task-body` | タイトルと説明の縦積み | 縦オートレイアウト、間隔 `space/4`、幅は拡大 |
 | `task-title` | タスク名 | テキストスタイル `card-title`、色 `text/main` |
 | `task-desc` | 説明 | テキストスタイル `caption`、色 `text/sub` |
-| `category-badge` | カテゴリ | 左右パディング `space/8`、上下パディング `space/4`、角丸 `radius/4`、背景 `bg`、テキストスタイル `caption`、色 `text/sub` |
+| `category-badge` | カテゴリ | 左右パディング `space/8`、上下パディング `space/4`、角丸 `radius/4`、背景 `background`、テキストスタイル `caption`、色 `text/sub` |
 | `assignee` | 担当者 | 24×24、角丸 `radius/full`、背景 `placeholder`、テキストスタイル `caption`、色 `text/main` |
 | `task-due` | 期限 | テキストスタイル `caption`、色 `text/sub` |
 
@@ -82,7 +82,7 @@ TaskCard
 5. カテゴリのバッジを入れる
    1. カードの外に、`t` を押してクリックし、テキスト `デザイン`（テキストスタイル `caption`、色 `text/sub`）を作り、`Shift + A` でオートレイアウトにして、名前を `category-badge` にする
       - 左右パディング `space/8`、上下パディング `space/4`
-      - 角丸 `radius/4`、背景 `bg`
+      - 角丸 `radius/4`、背景 `background`
       - 幅は**内包**
    2. カードの中、`task-body` の右へ入れる
 6. 担当者のアイコンを入れる。イニシャル入りの丸にしたいが、正円の図形の中にはテキストを入れられないので、角丸のフレームで円形を作る

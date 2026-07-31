@@ -58,10 +58,10 @@
 | `text/main` | `gray/900` | 見出し・本文の文字 |
 | `text/sub` | `gray/500` | 補助テキスト |
 | `text/inverse` | `white` | 色付き背景の上の白文字 |
-| `bg` | `gray/50` | contentエリアの背景 |
+| `background` | `gray/50` | contentエリアの背景 |
 | `surface` | `white` | ヘッダー・カード・サイドバーの地色 |
 | `border` | `gray/200` | 罫線・枠線 |
-| `bg-active` | `purple/50` | サイドバーのアクティブ背景 |
+| `background-selected` | `purple/50` | サイドバーのアクティブ背景 |
 | `placeholder` | `gray/300` | アバターやアイコンの仮置き図形 |
 | `priority/high/bg` | `red/100` | 優先度タグHighの背景 |
 | `priority/high/text` | `red/700` | 優先度タグHighの文字 |
@@ -126,7 +126,7 @@
 1. `sidebar` に当てる: 背景に `surface`、間隔に `space/8`、パディングに `space/24`
 2. `nav-item` の四角形5個をまとめて選択して当てる: 塗りに `placeholder`、角の半径に `radius/8`
 3. `header` に当てる: 背景に `surface`、左右パディングに `space/24`
-4. `content` に当てる: 背景に `bg`、間隔に `space/24`、パディングに `space/32`
+4. `content` に当てる: 背景に `background`、間隔に `space/24`、パディングに `space/32`
 5. `placeholder` の四角形3個に当てる: 塗りに `surface`、角の半径に `radius/8`
 6. `user-icon` の正円の塗りに `placeholder` を当てる
 7. テキストに当てる。レイヤー名とスタイル名が同じで紛らわしいですが、当てるのは「タイポグラフィ」のスタイルです
