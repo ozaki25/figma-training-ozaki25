@@ -51,8 +51,8 @@ Figmaで作ったのはフルスクリーンの画面2枚なので、アプリ�
      build: {
        rollupOptions: {
          input: {
-           main: resolve(__dirname, 'index.html'),
-           new: resolve(__dirname, 'new/index.html'),
+           main: resolve(import.meta.dirname, 'index.html'),
+           new: resolve(import.meta.dirname, 'new/index.html'),
          },
        },
      },
