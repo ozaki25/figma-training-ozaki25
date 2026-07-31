@@ -82,8 +82,6 @@ Vue、素のHTML/CSS、React Nativeなどでも、指示の骨格は同じです
 
 ### 2. トークンをCSSに書き出す
 
-書き出すのは色だけです。余白と角丸はTailwindの標準の目盛りが4章のトークンとそのまま一致するので要りません（`space/16` は `p-4`、`radius/8` は `rounded-lg`）。
-
 Claude Codeに次のように頼みます。URLは手順1でコピーしたものに差し替えます。
 
 ```text
