@@ -16,11 +16,11 @@ FigmaのデザインがReact + Tailwind CSSのコードになるまで、デー�
 
 ## トークンを先にCSSへ書き出す
 
-コンポーネントを作らせる前に、色のトークンをCSS側に用意します。`get_variable_defs` は4-2で定義したトークンの一覧（`brand` は `#7C3AED`、`text/main` は `#2A2A31` など）を返すツールです。これをTailwindの `@theme` に書き出します。
+コンポーネントを作らせる前に、4章のトークンをCSS側に用意します。`get_variable_defs` は4-2で定義したトークンの一覧（`brand` は `#7C3AED`、`space/16` は `16` など）を返すツールです。これをTailwindの `@theme` に書き出します。
 
-`@theme` は自分の色をTailwindに教えるための書き方です。`--color-brand` と書けば `bg-brand`、`--color-text-main` と書けば `text-text-main` が使えるようになります。Figmaで付けたトークン名が、そのままクラス名になります。
+`@theme` は自分のトークンをTailwindに教えるための書き方です。`--color-brand` と書けば `bg-brand`、`--spacing-16` と書けば `p-16`、`--radius-8` と書けば `rounded-8` が使えるようになります。Figmaで付けたトークン名が、そのままクラス名になります。
 
-先に書き出さないと、生成コードには `bg-[#7C3AED]` のように色の値が直接書かれます。見た目は同じですが、Figmaのトークンとはつながっていないので、紫を変えるときに全ファイルを直すことになります。
+先に書き出さないと、生成コードには `bg-[#7C3AED]` や `p-[16px]` のように値が直接書かれます。見た目は同じですが、Figmaのトークンとはつながっていないので、紫や余白を変えるときに全ファイルを直すことになります。
 
 ## 指示の書き方
 
@@ -30,7 +30,7 @@ FigmaのデザインがReact + Tailwind CSSのコードになるまで、デー�
 - **技術スタック**: どの言語・ライブラリで書くか。ここではReact + Tailwind CSSを例にする
 - **コンポーネント境界**: 1つのファイルにまとめず、どこで分けたいか
 - **ファイル配置とファイル名**: どのディレクトリに、どんな名前で書き出してほしいか
-- **色の指定方法**: 書き出した `@theme` のクラスを使わせる
+- **トークンの使い方**: 書き出した `@theme` のクラスを使わせる
 
 実際に書くと次のようになります。演習ではこの雛形を使います。
 
@@ -42,8 +42,8 @@ FigmaのデザインがReact + Tailwind CSSのコードになるまで、デー�
 - コンポーネント分割: TaskCardは別ファイル（TaskCard.tsx）、
   TaskListが親としてTaskCardを並べる（TaskList.tsx）
 - スタイル: Tailwind CSSのユーティリティクラスのみ。styled-componentsなどは使わない
-- 色: src/index.css の @theme に定義したクラス（bg-brand、text-text-sub など）を使い、
-  #7C3AED のような値の直書きはしない
+- トークン: src/index.css の @theme に定義したクラス（bg-brand、p-16、rounded-8 など）を
+  使い、#7C3AED や 16px のような値の直書きはしない
 - Figma側のレイヤー名（TaskCard、task-title、task-due など）を
   コンポーネント名やクラス名にできるだけ反映してください
 - src/App.tsx から呼び出して、`/` のページに表示できる状態にしてください
@@ -70,8 +70,7 @@ Vue、素のHTML/CSS、React Nativeなどでも、指示の骨格は同じです
 
 - **構造**: `TaskList` が `TaskCard` を `map` で並べている形になっているか
 - **クラス名・コンポーネント名**: レイヤー名がそのまま残っているか（`task-title` など）
-- **Tailwindクラス**: オートレイアウトの間隔やパディングが `gap-4` や `p-4` のような形で出ているか
-- **色**: `bg-brand`・`text-text-main` のように `@theme` のクラスで指定されているか
+- **トークン**: 色・余白・角丸が `bg-brand`・`p-16`・`rounded-8` のように `@theme` のクラスで指定されているか
 
 ## 演習: タスク一覧画面を生成する
 
@@ -86,16 +85,17 @@ Claude Codeに次のように頼みます。URLは手順1でコピーしたも�
 
 ```text
 このFigmaフレームのバリアブルを get_variable_defs で読み取り、
-src/index.css の @theme に色トークンとして書き出してください。
+src/index.css の @theme に書き出してください。
 
 - URL: <ここに task-list のリンク>
-- 名前はFigma側のバリアブル名をそのまま使う（text/main → --color-text-main）
+- 名前はFigma側のバリアブル名をそのまま使う
+  （text/main → --color-text-main、space/16 → --spacing-16、radius/8 → --radius-8）
 - セマンティックのトークンだけ。purple/500 のようなプリミティブは書き出さない
-- 色だけでよい。余白・角丸・テキストスタイルは書き出さない
+- 色・余白・角丸の3種類。テキストスタイルは書き出さない
 - @import "tailwindcss"; は残す
 ```
 
-`src/index.css` を開いて、次の15行がそろっているか見比べます。並び順は違っていても構いません。
+`src/index.css` を開いて、次の26行がそろっているか見比べます。並び順は違っていても構いません。
 
 ```css
 @import "tailwindcss";
@@ -116,10 +116,21 @@ src/index.css の @theme に色トークンとして書き出してください�
   --color-priority-mid-text: #b45309;
   --color-priority-low-bg: #eeeeee;
   --color-priority-low-text: #4b5563;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-full: 999px;
 }
 ```
 
-足りない行や余分な行があれば、この15行をそのまま貼って「`@theme` をこれに合わせてください」と頼みます。
+足りない行や余分な行があれば、この26行をそのまま貼って「`@theme` をこれに合わせてください」と頼みます。
 
 ### 3. 画面の生成を指示する
 
@@ -130,7 +141,7 @@ src/index.css の @theme に色トークンとして書き出してください�
 1. Claude Codeが提示する `TaskList.tsx` と `TaskCard.tsx` の中身をエディタで開く
 2. `TaskCard` のprops（タイトル・説明・優先度・期限などを受け取る形になっているか）を見る
 3. `TaskList` の中でダミーデータの配列を `map` して `TaskCard` を並べているかを見る
-4. 色が `bg-brand`・`text-text-sub` のようなクラスになっているかを見る
+4. 色・余白・角丸が `bg-brand`・`p-16`・`rounded-8` のようなクラスになっているかを見る
 
 ### 5. ブラウザで表示を確認する
 
@@ -140,7 +151,7 @@ src/index.css の @theme に色トークンとして書き出してください�
 
 一発で理想どおりのコードが出ることは少ないです。次のような追加指示で少しずつ揃えていきます。
 
-- **色が値で直書きされた**: 「`bg-[#7C3AED]` は `bg-brand` に、他の色も `@theme` のクラスに置き換えてください」
+- **値が直書きされた**: 「`bg-[#7C3AED]` は `bg-brand`、`p-[16px]` は `p-16` のように、`@theme` のクラスに置き換えてください」
 - **`done` バリアントが反映されない**: 「`done=true` のカードは完了タスクです。チェックの塗りを `bg-brand`、タイトルの色を `text-text-sub`、装飾に `line-through` を当ててください」
 - **ファイルが1つにまとまってしまった**: 「`TaskCard` は別ファイル `TaskCard.tsx` に分けて、`TaskList.tsx` からimportする形にしてください」
 - **クラス名がFigmaと違う**: 「レイヤー名の `task-title` と `task-due` を、Tailwindのクラス名の隣にコメントとして残してもらえますか」
