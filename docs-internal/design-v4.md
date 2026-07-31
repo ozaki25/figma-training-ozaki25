@@ -43,10 +43,10 @@
 | `text/main` | gray/900 |
 | `text/sub` | gray/500 |
 | `text/inverse` | white |
-| `bg` | gray/50 |
+| `background` | gray/50 |
 | `surface` | white |
 | `border` | gray/200 |
-| `bg-active` | purple/50 |
+| `background-selected` | purple/50 |
 | `placeholder` | gray/300 |
 | `priority/high/bg` ほかmid/low計6 | red/100 など対応するプリミティブ |
 

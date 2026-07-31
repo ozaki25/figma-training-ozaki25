@@ -32,7 +32,7 @@ task-form
 | `sidebar` | task-listからコピー。activeを `受信箱` に付け替え、バッジは非表示にする |
 | `main` | 幅・高さとも拡大、縦オートレイアウト、間隔 0 |
 | `header` | task-listからコピー。幅は拡大 |
-| `content` | 幅・高さとも拡大、縦オートレイアウト、パディング `space/48`、間隔 `space/24`、配置は上段の中央、背景 `bg` |
+| `content` | 幅・高さとも拡大、縦オートレイアウト、パディング `space/48`、間隔 `space/24`、配置は上段の中央、背景 `background` |
 | `form-header` | 縦オートレイアウト、幅は固定560、間隔 `space/8` |
 | `form-title` | 見出し `新しいタスクを追加`（テキストスタイル `page-title`、色 `text/main`） |
 | `form-lead` | 説明 `必要な項目を入力して登録します`（テキストスタイル `body`、色 `text/sub`） |
@@ -77,7 +77,7 @@ form-headerとform-cardを画面の横中央に置くには、子（form-header�
 1. `f` で `main` の中、`header` の下にフレームを描いて、名前を `content` にする
 2. `Shift + A` でオートレイアウトにする
    - フロー縦、間隔 `space/24`、パディング `space/48`
-   - 背景は `bg`
+   - 背景は `background`
 3. 幅・高さとも**拡大**にする
 4. 配置の9マスで**上段の中央**を選ぶ
 

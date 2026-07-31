@@ -1,6 +1,6 @@
 # 5-2 タスク一覧画面をコード生成する
 
-5-1でFigma MCPサーバーの接続まで終わりました。ここからは、その接続を実際に使ってタスク一覧画面をコードに変換します。4章で作った `task-list` フレームの共有リンクをClaude Codeに渡し、指示を書いて、ファイルを生成させるところまでを1レッスンでやります。
+5-1でFigma MCPサーバーの接続まで終わりました。ここからは、その接続を実際に使ってタスク一覧画面をコードに変換します。4章で作った `task-list` フレームの共有リンクをClaude Codeに渡し、まずトークンをCSSに書き出し、そのうえで画面のコンポーネントを生成させます。
 
 生成されるコードの質は、Figma側の作り込みでほぼ決まります。3〜4章でレイヤー名やオートレイアウトを整えた効果が、ここで出てきます。
 
@@ -14,16 +14,25 @@ FigmaのデザインからReact + Tailwind CSSのコードに変わるまでは�
 
 真ん中の `get_design_context` は、Figma MCPが持っているツールです。フレームの構造・オートレイアウトの設定・トークン・レイヤー名を一度にまとめて取得します。Claude Codeはこの中身を読み、指示に沿ってコードを組み立てます。
 
-もうひとつ `get_variable_defs` というツールもあり、こちらは4-2で定義したトークンの一覧（`brand` = `#7C3AED`、`space/16` = 16 など）をまとめて返します。トークンを当てておいた箇所は、`var(--surface, white)` や `var(--space/16, 16px)` のように、自分が付けた名前がCSS変数として生成コードに現れます。
+## トークンを先にCSSへ書き出す
+
+コンポーネントを作らせる前に、色のトークンをCSS側に用意します。`get_variable_defs` は4-2で定義したトークンの一覧（`brand` は `#7C3AED`、`text/main` は `#2A2A31` など）を返すツールです。これをTailwindの `@theme` に書き出すと、`bg-brand` や `text-text-sub` のようなクラスが使えるようになります。
+
+先に書き出さないと、生成コードは `bg-[#7C3AED]` のように色を直書きします。見た目は同じでも、後から紫を変えるときに全ファイルを探して回ることになります。
+
+`--color-text-main` と書けばクラス名は `text-text-main` になります。トークン名がそのままクラス名になるので、Figma側で付けた名前がコードの読みやすさをそのまま決めます。
+
+余白と角丸は書き出しません。Tailwindの標準の目盛りが4章のトークンとそのまま一致します（`space/16` は `p-4`、`radius/8` は `rounded-lg`）。
 
 ## 指示の書き方
 
-Claude Codeへの指示は、次の4つを盛り込むと結果が安定します。
+Claude Codeへの指示は、次の5つを盛り込むと結果が安定します。
 
 - **Figmaの共有リンク**: どのフレームを対象にするか。フレーム単位でリンクをコピーする
 - **技術スタック**: どの言語・ライブラリで書くか。ここではReact + Tailwind CSSを例にする
 - **コンポーネント境界**: 1つのファイルにまとめず、どこで分けたいか
 - **ファイル配置とファイル名**: どのディレクトリに、どんな名前で書き出してほしいか
+- **色の指定方法**: 書き出した `@theme` のクラスを使わせる
 
 実際に書くと次のようになります。演習ではこの雛形を使います。
 
@@ -35,6 +44,8 @@ Claude Codeへの指示は、次の4つを盛り込むと結果が安定しま�
 - コンポーネント分割: TaskCardは別ファイル（TaskCard.tsx）、
   TaskListが親としてTaskCardを並べる（TaskList.tsx）
 - スタイル: Tailwind CSSのユーティリティクラスのみ。styled-componentsなどは使わない
+- 色: src/index.css の @theme に定義したクラス（bg-brand、text-text-sub など）を使い、
+  #7C3AED のような値の直書きはしない
 - Figma側のレイヤー名（TaskCard、task-title、task-due など）を
   コンポーネント名やクラス名にできるだけ反映してください
 - src/App.tsx から呼び出して、`/` のページに表示できる状態にしてください
@@ -62,7 +73,7 @@ Vue、素のHTML/CSS、React Nativeなどでも、指示の骨格は同じです
 - **構造**: `TaskList` が `TaskCard` を `map` で並べている形になっているか
 - **クラス名・コンポーネント名**: レイヤー名がそのまま残っているか（`task-title` など）
 - **Tailwindクラス**: オートレイアウトの間隔やパディングが `gap-4` や `p-4` のような形で出ているか
-- **色**: 4-2で定義したトークン（`brand`・`text/main` など）が近い値のTailwindクラス、または任意値の記法で反映されているか
+- **色**: `bg-brand`・`text-text-main` のように `@theme` のクラスで指定されているか
 
 ## 演習: タスク一覧画面を生成する
 
@@ -71,17 +82,59 @@ Vue、素のHTML/CSS、React Nativeなどでも、指示の骨格は同じです
 1. Figmaで4章のファイルを開き、`task-list` フレームを選ぶ
 2. 右クリック → **コピー/貼り付けオプション** → **選択範囲へのリンクをコピー** を選ぶ
 
-### 2. Claude Codeに指示を投げる
+### 2. トークンをCSSに書き出す
 
-上の雛形をコピーし、URLの行だけ、いまコピーした `task-list` のリンクに差し替えて送ります。
+Claude Codeに次のように頼みます。URLは手順1でコピーしたものに差し替えます。
 
-### 3. ファイルツリーとコードを確認する
+```text
+このFigmaフレームのバリアブルを get_variable_defs で読み取り、
+src/index.css の @theme に色トークンとして書き出してください。
+
+- URL: <ここに task-list のリンク>
+- 名前はFigma側のバリアブル名をそのまま使う（text/main → --color-text-main）
+- セマンティックのトークンだけ。purple/500 のようなプリミティブは書き出さない
+- 色だけでよい。余白と角丸はTailwindの標準クラスを使うので書き出さない
+- @import "tailwindcss"; は残す
+```
+
+`src/index.css` を開いて、次と同じになっているか見比べます。
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #7c3aed;
+  --color-text-main: #2a2a31;
+  --color-text-sub: #6e6e76;
+  --color-text-inverse: #ffffff;
+  --color-background: #f5f5f5;
+  --color-background-selected: #f3eeff;
+  --color-surface: #ffffff;
+  --color-border: #e5e5ea;
+  --color-placeholder: #d9d9e0;
+  --color-priority-high-bg: #fee2e2;
+  --color-priority-high-text: #b91c1c;
+  --color-priority-mid-bg: #fef3c7;
+  --color-priority-mid-text: #b45309;
+  --color-priority-low-bg: #eeeeee;
+  --color-priority-low-text: #4b5563;
+}
+```
+
+足りない行や余分な行があれば、この内容をそのまま貼って「`@theme` をこれに合わせてください」と頼みます。
+
+### 3. Claude Codeに指示を投げる
+
+画面の雛形をコピーし、URLの行だけ、手順1でコピーした `task-list` のリンクに差し替えて送ります。
+
+### 4. ファイルツリーとコードを確認する
 
 1. Claude Codeが提示する `TaskList.tsx` と `TaskCard.tsx` の中身をエディタで開く
 2. `TaskCard` のprops（タイトル・説明・優先度・期限などを受け取る形になっているか）を見る
 3. `TaskList` の中でダミーデータの配列を `map` して `TaskCard` を並べているかを見る
+4. 色が `bg-brand`・`text-text-sub` のようなクラスになっているかを見る
 
-### 4. ブラウザで表示を確認する
+### 5. ブラウザで表示を確認する
 
 ターミナルAの開発サーバーが動いているので、ファイルが書き出された時点でブラウザは自動で更新されています。白いカードが縦に並び、左にチェックの丸と優先度タグ、中央にタスク名、右端に期限が出れば成功です。
 
@@ -89,8 +142,8 @@ Vue、素のHTML/CSS、React Nativeなどでも、指示の骨格は同じです
 
 一発で理想どおりのコードが出ることは少ないです。次のような追加指示で少しずつ揃えていきます。
 
-- **色が違う**: 「`brand` の紫は `#7C3AED` です。Tailwindの任意値記法 `bg-[#7C3AED]` で書き直してください」
-- **`done` バリアントが反映されない**: 「`done=true` のカードは完了タスクです。チェックの塗りを `bg-[#7C3AED]`、タイトルの色を薄いグレー、装飾に `line-through` を当ててください」
+- **色が値で直書きされた**: 「`bg-[#7C3AED]` は `bg-brand` に、他の色も `@theme` のクラスに置き換えてください」
+- **`done` バリアントが反映されない**: 「`done=true` のカードは完了タスクです。チェックの塗りを `bg-brand`、タイトルの色を `text-text-sub`、装飾に `line-through` を当ててください」
 - **ファイルが1つにまとまってしまった**: 「`TaskCard` は別ファイル `TaskCard.tsx` に分けて、`TaskList.tsx` からimportする形にしてください」
 - **クラス名がFigmaと違う**: 「レイヤー名の `task-title` と `task-due` を、Tailwindのクラス名の隣にコメントとして残してもらえますか」
 
@@ -114,6 +167,6 @@ Figma側が次のようになっていると、そのまま生成コードに出
 
 ## ゴール確認
 
-- [ ] `task-list` のリンクとスタック・分割・配置を含む指示をClaude Codeに投げられた
+- [ ] 4章のトークンを `src/index.css` の `@theme` に書き出せた
 - [ ] 生成された `TaskList.tsx` と `TaskCard.tsx` の中身を読み、想定どおりの分割になっているか確認できた
-- [ ] レイヤー名やオートレイアウトの整い具合が、生成コードの質に直結することを実感できた
+- [ ] レイヤー名やトークン名が、そのままコンポーネント名やクラス名に出ることを確認できた
