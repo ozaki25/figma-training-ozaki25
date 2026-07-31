@@ -38,7 +38,8 @@ task-form
 | `form-lead` | 説明 `必要な項目を入力して登録します`（テキストスタイル `body`、色 `text/sub`） |
 | `form-card` | 幅は固定560・高さは内包、縦オートレイアウト、パディング `space/32`、間隔 `space/20`、角丸 `radius/16`、背景 `surface`、枠線1px `border` |
 | `input-placeholder` ×5 | 高さ44、角丸 `radius/8`、塗り `surface`、枠線1px `border`、幅は拡大（入力欄の仮置き。本物は6-2で作る） |
-| `button-row` | 横オートレイアウト、間隔 `space/12`、配置は右中央、幅は拡大。中に幅固定120・高さ44・角丸 `radius/8` の仮ボタン2個（左は `surface` +枠線 `border`、右は `brand`） |
+| `button-row` | 横オートレイアウト、間隔 `space/12`、配置は右中央、幅は拡大 |
+| 仮ボタン2個 | どちらも幅固定120・高さ44・角丸 `radius/8`。左（キャンセルになる位置）は塗り `surface` と枠線1px `border`、右（登録になる位置）は塗り `brand` だけで枠線なし |
 
 ::: tip 横中央寄せのやり方
 form-headerとform-cardを画面の横中央に置くには、子（form-header・form-card）の幅を**固定560**で止めて広がらないようにし、親の `content` の配置で**上段の中央**を選びます。オートレイアウトで横中央寄せをするときの基本パターンです。
@@ -115,7 +116,9 @@ form-headerとform-cardを画面の横中央に置くには、子（form-header�
 4. `button-row` の中に `r` で四角形を作り、名前を `button-placeholder-cancel` にする（本物のButtonに置き換えるのは6-2）
    - 高さ44、幅120（四角形にはパディングや内包を設定できないので、幅は数値で決める）
    - 角丸 `radius/8`、塗り `surface`、枠線1px `border`
-5. `button-placeholder-cancel` を `Cmd + D` で複製し、複製した右側の名前を `button-placeholder-submit`、塗りを `brand` にする
+5. `button-placeholder-cancel` を `Cmd + D` で複製し、複製した右側の名前を `button-placeholder-submit` にする
+   - 塗りを `brand` に変え、枠線は消す
+   - 左がキャンセル、右が登録の位置。6-2で本物のButtonに置き換えると、左は紫の枠線、右は紫の塗りになる
 
 カードの中で、5つの入力欄の枠とボタン行が間隔 `space/20` で縦に並び、幅はカードいっぱいにそろうはずです。
 
