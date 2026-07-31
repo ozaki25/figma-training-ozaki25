@@ -8,7 +8,7 @@
 
 ## 生成までの流れ
 
-FigmaのデザインからReact + Tailwind CSSのコードに変わるまでは、4つのステップに分かれます。
+FigmaのデザインがReact + Tailwind CSSのコードになるまで、データは次のように流れます。
 
 ![Figma MCPによるコード生成の流れ。Figmaのtask-listデザインをget_design_contextで読み取り、Claude Codeが指示に沿ってReactとTailwind CSSのファイル、TaskList.tsxとTaskCard.tsxを生成する](/lessons/5-2/generation-flow.svg)
 
@@ -18,15 +18,15 @@ FigmaのデザインからReact + Tailwind CSSのコードに変わるまでは�
 
 コンポーネントを作らせる前に、色のトークンをCSS側に用意します。`get_variable_defs` は4-2で定義したトークンの一覧（`brand` は `#7C3AED`、`text/main` は `#2A2A31` など）を返すツールです。これをTailwindの `@theme` に書き出すと、`bg-brand` や `text-text-sub` のようなクラスが使えるようになります。
 
-先に書き出さないと、生成コードは `bg-[#7C3AED]` のように色を直書きします。見た目は同じでも、後から紫を変えるときに全ファイルを探して回ることになります。
+先に書き出さないと、生成コードは `bg-[#7C3AED]` のように色を直書きするか、定義のない `var(--brand)` を書きます。どちらもFigmaのトークンとはつながっていないので、後から紫を変えるときに全ファイルを探して回ることになります。
 
 `--color-text-main` と書けばクラス名は `text-text-main` になります。トークン名がそのままクラス名になるので、Figma側で付けた名前がコードの読みやすさをそのまま決めます。
 
-余白と角丸は書き出しません。Tailwindの標準の目盛りが4章のトークンとそのまま一致します（`space/16` は `p-4`、`radius/8` は `rounded-lg`）。
+書き出すのは色だけです。余白と角丸はTailwindの標準の目盛りが4章のトークンとそのまま一致するので要りません（`space/16` は `p-4`、`radius/8` は `rounded-lg`）。
 
 ## 指示の書き方
 
-Claude Codeへの指示は、次の5つを盛り込むと結果が安定します。
+画面を作らせる指示は、次の5つを盛り込むと結果が安定します。
 
 - **Figmaの共有リンク**: どのフレームを対象にするか。フレーム単位でリンクをコピーする
 - **技術スタック**: どの言語・ライブラリで書くか。ここではReact + Tailwind CSSを例にする
@@ -93,7 +93,7 @@ src/index.css の @theme に色トークンとして書き出してください�
 - URL: <ここに task-list のリンク>
 - 名前はFigma側のバリアブル名をそのまま使う（text/main → --color-text-main）
 - セマンティックのトークンだけ。purple/500 のようなプリミティブは書き出さない
-- 色だけでよい。余白と角丸はTailwindの標準クラスを使うので書き出さない
+- 色だけでよい。余白・角丸・テキストスタイルは書き出さない
 - @import "tailwindcss"; は残す
 ```
 
@@ -108,9 +108,9 @@ src/index.css の @theme に色トークンとして書き出してください�
   --color-text-sub: #6e6e76;
   --color-text-inverse: #ffffff;
   --color-background: #f5f5f5;
-  --color-background-selected: #f3eeff;
   --color-surface: #ffffff;
   --color-border: #e5e5ea;
+  --color-background-selected: #f3eeff;
   --color-placeholder: #d9d9e0;
   --color-priority-high-bg: #fee2e2;
   --color-priority-high-text: #b91c1c;
@@ -123,9 +123,9 @@ src/index.css の @theme に色トークンとして書き出してください�
 
 足りない行や余分な行があれば、この内容をそのまま貼って「`@theme` をこれに合わせてください」と頼みます。
 
-### 3. Claude Codeに指示を投げる
+### 3. 画面の生成を指示する
 
-画面の雛形をコピーし、URLの行だけ、手順1でコピーした `task-list` のリンクに差し替えて送ります。
+上の雛形をコピーし、URLの行だけ、手順1でコピーした `task-list` のリンクに差し替えて送ります。
 
 ### 4. ファイルツリーとコードを確認する
 
