@@ -24,8 +24,8 @@ Button
 | `TextField` | 縦オートレイアウト、間隔 `space/8`、幅は固定320（フォームに置くインスタンスは拡大にする） |
 | `label` | テキストスタイル `caption`、色 `text/sub` |
 | `input` | 横オートレイアウト、高さ44、幅は拡大、パディング `space/12`、配置は左上、角丸 `radius/8`、背景 `surface`、枠線1px `border`。中の例文テキストはテキストスタイル `body`、色 `text/sub` |
-| `Button` | 高さ44、左右パディング `space/20`、配置は中央、角丸 `radius/8`、幅は内包。`variant=primary/secondary` の2バリアント |
-| `label`（Button内） | `button-label` |
+| `Button` | 高さ44、幅は固定120、左右パディング `space/20`、配置は中央、角丸 `radius/8`。`variant=primary/secondary` の2バリアント |
+| `label`（Button内） | テキストスタイル `button-label`。文字色はバリアントで変わるので、下の表を見る |
 
 | バリアント | 背景 | 文字 | 枠線 |
 | --- | --- | --- | --- |
@@ -63,7 +63,7 @@ Button
 2. `label` を選択して `Shift + A` でオートレイアウトにして、名前を `Button` にする
    - 左右パディング `space/20`、配置は中央
    - 角丸 `radius/8`、背景 `brand`
-   - 高さは**固定44**、幅は**内包**
+   - 高さは**固定44**、幅は**固定120**（2つ並べたときに幅をそろえるため）
 3. `Cmd + Option + K` でコンポーネント化する
 4. 右サイドバー上部の「バリアントの追加」アイコンをクリックする
 5. 「現在のバリアント」で `プロパティ1` を `variant` に、1枚目の値を `primary`、2枚目を `secondary` にする。値を変えるときは、変えたいボタン自身を選び直してから書き換える
