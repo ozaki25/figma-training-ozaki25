@@ -37,7 +37,7 @@ Claude Codeへの指示は、次の4つを盛り込むと結果が安定しま�
 - スタイル: Tailwind CSSのユーティリティクラスのみ。styled-componentsなどは使わない
 - Figma側のレイヤー名（TaskCard、task-title、task-due など）を
   コンポーネント名やクラス名にできるだけ反映してください
-- src/App.tsx から呼び出して、ブラウザで表示できる状態にしてください
+- src/App.tsx から呼び出して、`/` のページに表示できる状態にしてください
 ```
 
 「レイヤー名を反映してほしい」と1行入れておくと、`task-title` が `taskTitle` や `task-title` のクラスとして残りやすくなります。3-3で命名を整えた効果を確認できる場面です。
