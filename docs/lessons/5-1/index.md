@@ -27,6 +27,8 @@ Figma MCPには2つの形があります。ブラウザで認証して使う**Re
 
 生成したコードを画面に出すための、React + Tailwind CSSのプロジェクトを作ります。設定を1つずつ手で書く代わりに、コマンドをまとめて実行します。ここからターミナルを2つ使います。
 
+Figmaで作ったのはフルスクリーンの画面2枚なので、アプリ側もページを2つ用意します。一覧画面が `/`、登録フォームが `/new/` です。Viteは置いたHTMLファイルの数だけページを持てるので、ライブラリは要りません。
+
 1. プロジェクトを置きたい場所（デスクトップなど）で**ターミナルA**を開く
 2. 次のコマンドをまとめて貼り付けて実行する
 
@@ -36,14 +38,24 @@ Figma MCPには2つの形があります。ブラウザで認証して使う**Re
    npm install
    npm install tailwindcss @tailwindcss/vite
    rm -rf src/assets src/App.css
+   mkdir -p new
 
    cat > vite.config.ts <<'EOF'
    import { defineConfig } from 'vite'
    import react from '@vitejs/plugin-react'
    import tailwindcss from '@tailwindcss/vite'
+   import { resolve } from 'node:path'
 
    export default defineConfig({
      plugins: [react(), tailwindcss()],
+     build: {
+       rollupOptions: {
+         input: {
+           main: resolve(__dirname, 'index.html'),
+           new: resolve(__dirname, 'new/index.html'),
+         },
+       },
+     },
    })
    EOF
 
@@ -55,7 +67,46 @@ Figma MCPには2つの形があります。ブラウザで認証して使う**Re
    export default function App() {
      return (
        <div className="min-h-screen bg-[#f5f5f5] p-8">
-         <p className="text-sm text-[#6e6e76]">ここにFigmaで作った画面を並べていきます</p>
+         <p className="text-sm text-[#6e6e76]">ここにタスク一覧画面が入ります</p>
+       </div>
+     )
+   }
+   EOF
+
+   cat > new/index.html <<'EOF'
+   <!doctype html>
+   <html lang="ja">
+     <head>
+       <meta charset="UTF-8" />
+       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>task-app</title>
+     </head>
+     <body>
+       <div id="root"></div>
+       <script type="module" src="/src/new.tsx"></script>
+     </body>
+   </html>
+   EOF
+
+   cat > src/new.tsx <<'EOF'
+   import { StrictMode } from 'react'
+   import { createRoot } from 'react-dom/client'
+   import './index.css'
+   import NewTask from './NewTask.tsx'
+
+   createRoot(document.getElementById('root')!).render(
+     <StrictMode>
+       <NewTask />
+     </StrictMode>,
+   )
+   EOF
+
+   cat > src/NewTask.tsx <<'EOF'
+   export default function NewTask() {
+     return (
+       <div className="min-h-screen bg-[#f5f5f5] p-8">
+         <p className="text-sm text-[#6e6e76]">ここにタスク登録フォームが入ります</p>
        </div>
      )
    }
@@ -66,15 +117,17 @@ Figma MCPには2つの形があります。ブラウザで認証して使う**Re
 
 `rm -rf src/assets src/App.css` と `src/App.tsx` の書き換えは、テンプレートに付いてくるデモ用のロゴとCSSを消すためです。残しておくとTailwindの見た目と混ざります。
 
+`new/index.html` が `/new/` のページになります。中の `src/new.tsx` が、既定の `src/main.tsx` と同じ役目で `NewTask` を描き出します。
+
 ### 2. 開発サーバーを起動する
 
 コードを書き換えるたびにブラウザが自動で更新される状態にします。
 
 1. ターミナルAはコマンドで `task-app` に移動した状態なので、そのまま `npm run dev` を実行する
-2. 表示されたURL（`http://localhost:5173/`）をブラウザで開く
-3. 薄いグレーの背景に「ここにFigmaで作った画面を並べていきます」と出ているのを確認する
+2. 表示されたURL（`http://localhost:5173/`）をブラウザで開く。薄いグレーの背景に「ここにタスク一覧画面が入ります」と出る
+3. `http://localhost:5173/new/` も開く。「ここにタスク登録フォームが入ります」と出る
 
-文字が小さいグレーで表示されていれば、Tailwindも効いています。このターミナルは起動したまま、閉じずに置いておきます。
+どちらも文字が小さいグレーで表示されていれば、Tailwindも効いています。このターミナルは起動したまま、閉じずに置いておきます。
 
 ### 3. プラグインを入れて再起動する
 
