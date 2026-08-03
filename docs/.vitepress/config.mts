@@ -110,7 +110,7 @@ export default withPwa(
           items: [
             { text: '追加課題1 スマホ版のタスク一覧を設計する', link: '/extra/mobile-list/' },
             { text: '追加課題2 スマホ版のタスク登録フォームを設計する', link: '/extra/mobile-form/' },
-            { text: '追加課題3 エージェントに画面を作らせる', link: '/extra/agent-screen/' },
+            { text: '追加課題3 エージェントを使ってみる', link: '/extra/agent/' },
           ],
         },
       ],
