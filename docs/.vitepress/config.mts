@@ -109,6 +109,7 @@ export default withPwa(
           collapsed: false,
           items: [
             { text: 'スマホ版のタスク一覧を設計する', link: '/extra/mobile-list/' },
+            { text: 'スマホ版のタスク登録フォームを設計する', link: '/extra/mobile-form/' },
           ],
         },
       ],
