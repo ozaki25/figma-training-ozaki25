@@ -15,6 +15,7 @@ Figma未経験のエンジニア向けハンズオン教材（VitePress製）。
 - `docs/lessons/` — レッスン本文を置く
   - 命名規則: `docs/lessons/<章>-<節>/index.md`（例: `docs/lessons/1-1/index.md`）。URLは `/lessons/1-1/` になる
   - レッスン専用の画像・SVGは `docs/public/lessons/<章>-<節>/` に置き、本文からは `/lessons/1-1/xxx.svg` のように絶対パスで参照する
+- `docs/extra/<課題名>/index.md` — 章の外に置く追加課題（先に終わった人向け）。レッスン番号は振らない
 - `docs/.vitepress/` — VitePress設定・テーマ
 - `docs/public/` — 静的アセット（画像・SVGなど）
 

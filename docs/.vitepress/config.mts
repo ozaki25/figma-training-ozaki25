@@ -104,6 +104,13 @@ export default withPwa(
             { text: '7-1 タスク登録フォームをコード生成する', link: '/lessons/7-1/' },
           ],
         },
+        {
+          text: '追加課題',
+          collapsed: false,
+          items: [
+            { text: 'スマホ版のタスク一覧を設計する', link: '/extra/mobile-list/' },
+          ],
+        },
       ],
       outline: {
         label: '目次',
