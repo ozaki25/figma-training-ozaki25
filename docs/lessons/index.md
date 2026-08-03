@@ -60,4 +60,4 @@ next: false
 
 - [追加課題1 スマホ版のタスク一覧を設計する](/extra/mobile-list/)
 - [追加課題2 スマホ版のタスク登録フォームを設計する](/extra/mobile-form/)
-- [追加課題3 エージェントを使ってみる](/extra/agent/)
+- [追加課題3 エージェントに共通コンポーネントを整備させる](/extra/agent-components/)
