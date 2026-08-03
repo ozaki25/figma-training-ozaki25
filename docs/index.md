@@ -52,6 +52,7 @@ hero:
 
 - [追加課題1 スマホ版のタスク一覧を設計する](/extra/mobile-list/)
 - [追加課題2 スマホ版のタスク登録フォームを設計する](/extra/mobile-form/)
+- [追加課題3 エージェントに画面を作らせる](/extra/agent-screen/)
 
 ## 準備するもの
 
